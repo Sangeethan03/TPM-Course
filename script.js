@@ -68,7 +68,7 @@ function buildMermaidDefinition(activeIndex) {
   lines.push('classDef w2 fill:#1e1213,stroke:#7a1218,color:#f3f3f2;');
   lines.push('classDef w3 fill:#22100f,stroke:#e2001a,color:#f3f3f2;');
   lines.push('classDef w4 fill:#1c1c1c,stroke:#f3f3f2,color:#f3f3f2;');
-  lines.push('classDef activeStep stroke:#ff3b30,stroke-width:4px;');
+  lines.push('classDef activeStep stroke:#ff3b30,stroke-width:5px,font-weight:700;');
   lines.push('classDef dimmed fill:#131315,stroke:#2b2b2f,color:#5a5a60;');
 
   const byWeek = {};
@@ -166,19 +166,19 @@ function renderStepperPanel(index) {
   panel.innerHTML = `
     <span class="day-kicker">${escapeHtml(day.week_label)} &middot; ${escapeHtml(day.day)}</span>
     <h3 class="stepper-panel-title">${escapeHtml(day.title)}</h3>
-    <div class="day-block">
+    <div class="day-block block-do">
       <h4>What You Do</h4>
       <p>${escapeHtml(day.what)}</p>
     </div>
-    <div class="day-block">
+    <div class="day-block block-why">
       <h4>Why We Do This</h4>
       <p>${escapeHtml(day.why)}</p>
     </div>
-    <div class="day-block">
+    <div class="day-block block-artifacts">
       <h4>Key Artifacts</h4>
       <ul class="day-artifacts">${artifactItems}</ul>
     </div>
-    <div class="day-block day-connects">
+    <div class="day-block block-connects day-connects">
       <h4>Connects To</h4>
       <p>${escapeHtml(day.connects)}</p>
     </div>
@@ -243,6 +243,13 @@ function initLifecycleStepper() {
         clusterBorder: '#2b2b2f',
         edgeLabelBackground: '#101012',
         fontFamily: 'Space Grotesk, Segoe UI, sans-serif',
+        fontSize: '16px',
+      },
+      flowchart: {
+        nodeSpacing: 45,
+        rankSpacing: 65,
+        padding: 12,
+        htmlLabels: true,
       },
     });
   }
@@ -259,93 +266,17 @@ function initLifecycleStepper() {
   updateStepper(0);
 }
 
-// ---------------------------------------------------------------------------
-// Source Scan Proof: renders the digest JSON into #source-summary and
-// #syllabus-grid (index.html only).
-// ---------------------------------------------------------------------------
-async function loadSourceDigest() {
-  const summaryHost = document.getElementById('source-summary');
-  const syllabusHost = document.getElementById('syllabus-grid');
-
-  if (!summaryHost || !syllabusHost) {
-    return;
-  }
-
-  try {
-    const response = await fetch('./data/course_source_digest.json');
-    if (!response.ok) {
-      throw new Error('Could not load source digest JSON.');
-    }
-
-    const digest = await response.json();
-    const weekCount = digest.weeks.length;
-    const dayCount = digest.weeks.reduce((acc, week) => acc + week.days.length, 0);
-    const totalFiles = digest.totals.files_scanned;
-
-    summaryHost.innerHTML = `
-      <p><strong>Source Root:</strong> ${digest.root}</p>
-      <p><strong>Method:</strong> Week-by-week and day-by-day scan of PDFs, DOCX, TXT, and HTML files.</p>
-      <div class="source-kpis" role="list" aria-label="Source scan totals">
-        <div class="source-kpi" role="listitem"><strong>${weekCount}</strong>Weeks Indexed</div>
-        <div class="source-kpi" role="listitem"><strong>${dayCount}</strong>Days Indexed</div>
-        <div class="source-kpi" role="listitem"><strong>${totalFiles}</strong>Files Read</div>
-      </div>
-    `;
-
-    digest.weeks.forEach((week) => {
-      const weekBlock = document.createElement('article');
-      weekBlock.className = 'week-block';
-
-      const topicSet = new Set();
-      week.days.forEach((day) => {
-        day.topics_detected.forEach((topic) => topicSet.add(topic));
-      });
-
-      const weekHead = document.createElement('div');
-      weekHead.className = 'week-head';
-      weekHead.innerHTML = `
-        <h3>${week.week}</h3>
-        <p>${week.days.length} days mapped | Topic spread: ${Array.from(topicSet).length}</p>
-      `;
-
-      const dayList = document.createElement('ul');
-      dayList.className = 'day-list';
-
-      week.days.forEach((day) => {
-        const item = document.createElement('li');
-        const chips = day.topics_detected.slice(0, 6).map((topic) => `<span class="chip">${topic}</span>`).join('');
-        const keyArtifacts = (day.key_artifacts || []).map((name) => `<li>${name}</li>`).join('');
-        const fileRefs = (day.files || []).slice(0, 8).map((entry) => `<li>${entry.file}</li>`).join('');
-        item.innerHTML = `
-          <h4>${day.day}</h4>
-          <p class="day-meta">${day.file_count} readable files</p>
-          <div class="topic-chips">${chips}</div>
-          <details class="day-details">
-            <summary>Open day drill-down</summary>
-            <p><strong>Primary source:</strong> ${day.primary_source || 'N/A'}</p>
-            <p><strong>Objective excerpt:</strong> ${day.objective_excerpt || 'Objective text not found in extracted source.'}</p>
-            <p><strong>Key artifacts:</strong></p>
-            <ul>${keyArtifacts || '<li>No artifact names captured.</li>'}</ul>
-            <p><strong>File references:</strong></p>
-            <ul class="file-ref-list">${fileRefs || '<li>No file references captured.</li>'}</ul>
-          </details>
-        `;
-        dayList.appendChild(item);
-      });
-
-      weekBlock.appendChild(weekHead);
-      weekBlock.appendChild(dayList);
-      syllabusHost.appendChild(weekBlock);
-    });
-  } catch (error) {
-    summaryHost.innerHTML = '<p><strong>Source digest could not be loaded.</strong> Run from localhost so JSON can be fetched, or review ./data/course_source_digest.md.</p>';
-  }
-}
-
 initLifecycleStepper();
-loadSourceDigest();
 initSampleDialogs();
 initSiteMenu();
+initGlossaryTerms();
+initGlossarySearch();
+initScrollProgress();
+initDayAccordion();
+initJumpNavScrollSpy();
+initVisualsTabs();
+initMilestoneTabs();
+initScrollReveal();
 
 // ---------------------------------------------------------------------------
 // Site menu: hamburger toggle for the Core TPM Content / Technical Content
@@ -418,4 +349,362 @@ function initSampleDialogs() {
       }
     });
   });
+}
+
+// ---------------------------------------------------------------------------
+// Click-to-define glossary terms. Any element with class "gloss-term" (added
+// by build.py's glossarize() around known jargon in day cards, diagrams, and
+// milestone cards) opens a small popover with a plain-English definition,
+// pulled from the #glossary-data JSON script tag (present on every page via
+// base.html). Works with mouse (click) and keyboard (Enter/Space, Escape).
+// ---------------------------------------------------------------------------
+function readGlossaryData() {
+  const host = document.getElementById('glossary-data');
+  if (!host) {
+    return {};
+  }
+  try {
+    return JSON.parse(host.textContent);
+  } catch (error) {
+    return {};
+  }
+}
+
+function initGlossaryTerms() {
+  const glossary = readGlossaryData();
+  const popover = document.getElementById('gloss-popover');
+  if (!popover) {
+    return;
+  }
+  const termEl = document.getElementById('gloss-popover-term');
+  const defEl = document.getElementById('gloss-popover-def');
+  const badgeEl = document.getElementById('gloss-popover-badge');
+  const linkEl = document.getElementById('gloss-popover-link');
+  const closeBtn = document.getElementById('gloss-popover-close');
+  let activeTerm = null;
+
+  function closePopover() {
+    popover.hidden = true;
+    if (activeTerm) {
+      activeTerm.setAttribute('aria-expanded', 'false');
+      activeTerm = null;
+    }
+  }
+
+  function openPopover(target) {
+    const id = target.dataset.glossId;
+    const entry = glossary[id];
+    if (!entry) {
+      return;
+    }
+    if (activeTerm && activeTerm !== target) {
+      activeTerm.setAttribute('aria-expanded', 'false');
+    }
+
+    const isCore = entry.category === 'core';
+    termEl.textContent = entry.term;
+    defEl.textContent = entry.definition;
+    badgeEl.textContent = isCore ? 'Core TPM Glossary' : 'Technical Glossary';
+    badgeEl.className = `gloss-popover-badge ${isCore ? 'badge-core' : 'badge-technical'}`;
+    linkEl.href = `${isCore ? 'glossary-core.html' : 'glossary-technical.html'}#term-${id}`;
+
+    popover.hidden = false;
+    activeTerm = target;
+    target.setAttribute('aria-expanded', 'true');
+
+    const rect = target.getBoundingClientRect();
+    const popRect = popover.getBoundingClientRect();
+    const viewportWidth = document.documentElement.clientWidth;
+    let left = window.scrollX + rect.left;
+    const maxLeft = window.scrollX + viewportWidth - popRect.width - 12;
+    if (left > maxLeft) {
+      left = Math.max(window.scrollX + 12, maxLeft);
+    }
+    let top = window.scrollY + rect.bottom + 8;
+    popover.style.left = `${left}px`;
+    popover.style.top = `${top}px`;
+  }
+
+  document.addEventListener('click', (event) => {
+    const term = event.target.closest('.gloss-term');
+    if (term) {
+      event.preventDefault();
+      if (term === activeTerm && !popover.hidden) {
+        closePopover();
+      } else {
+        openPopover(term);
+      }
+      return;
+    }
+    if (!popover.hidden && !popover.contains(event.target)) {
+      closePopover();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closePopover();
+      return;
+    }
+    if ((event.key === 'Enter' || event.key === ' ') && event.target.classList?.contains('gloss-term')) {
+      event.preventDefault();
+      openPopover(event.target);
+    }
+  });
+
+  closeBtn?.addEventListener('click', closePopover);
+  window.addEventListener('resize', closePopover);
+}
+
+// ---------------------------------------------------------------------------
+// Glossary page live search (glossary-core.html / glossary-technical.html).
+// Filters .glossary-card elements by term name + definition text.
+// ---------------------------------------------------------------------------
+function initGlossarySearch() {
+  const input = document.getElementById('glossary-search');
+  const grid = document.getElementById('glossary-grid');
+  const emptyMsg = document.getElementById('glossary-empty');
+  if (!input || !grid) {
+    return;
+  }
+  const cards = Array.from(grid.querySelectorAll('.glossary-card'));
+
+  input.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const matches = !query || (card.dataset.termName || '').includes(query);
+      card.hidden = !matches;
+      if (matches) {
+        visibleCount += 1;
+      }
+    });
+    if (emptyMsg) {
+      emptyMsg.hidden = visibleCount !== 0;
+    }
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Reading-progress bar (fills as the page is scrolled) + "Back to top" button
+// (appears once the reader has scrolled past the hero). Present on every page.
+// ---------------------------------------------------------------------------
+function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress-bar');
+  const backToTop = document.getElementById('back-to-top');
+
+  function update() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+    if (bar) {
+      bar.style.width = `${pct}%`;
+    }
+    if (backToTop) {
+      backToTop.hidden = scrollTop < 480;
+    }
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+
+  backToTop?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Day-card accordion (week1.html .. week5.html). First day starts open, the
+// rest start collapsed -- click the day heading (or land on its anchor via a
+// jump-nav / prev-next link / direct URL hash) to expand it.
+// ---------------------------------------------------------------------------
+function initDayAccordion() {
+  const toggles = Array.from(document.querySelectorAll('.day-toggle'));
+  if (!toggles.length) {
+    return;
+  }
+
+  function setExpanded(toggle, expanded) {
+    const body = document.getElementById(toggle.getAttribute('aria-controls'));
+    if (!body) {
+      return;
+    }
+    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    body.hidden = !expanded;
+  }
+
+  toggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      setExpanded(toggle, !isOpen);
+    });
+  });
+
+  function expandFromHash() {
+    const hash = window.location.hash.slice(1);
+    if (!hash) {
+      return;
+    }
+    const target = document.getElementById(hash);
+    if (!target || !target.classList.contains('day-card')) {
+      return;
+    }
+    const toggle = target.querySelector('.day-toggle');
+    if (toggle && toggle.getAttribute('aria-expanded') !== 'true') {
+      setExpanded(toggle, true);
+    }
+  }
+
+  expandFromHash();
+  window.addEventListener('hashchange', expandFromHash);
+}
+
+// ---------------------------------------------------------------------------
+// Sticky "on this page" jump-nav: highlights the link for whichever section
+// is currently in view, so the reader always knows where they are.
+// ---------------------------------------------------------------------------
+function initJumpNavScrollSpy() {
+  const nav = document.querySelector('.jump-nav');
+  if (!nav) {
+    return;
+  }
+  const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+  if (!links.length) {
+    return;
+  }
+  const targets = links
+    .map((link) => ({ link, el: document.getElementById(link.getAttribute('href').slice(1)) }))
+    .filter((entry) => entry.el);
+
+  if (!targets.length || typeof IntersectionObserver === 'undefined') {
+    return;
+  }
+
+  function setActive(link) {
+    links.forEach((candidate) => candidate.classList.toggle('active', candidate === link));
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting);
+      if (!visible.length) {
+        return;
+      }
+      visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      const match = targets.find((entry) => entry.el === visible[0].target);
+      if (match) {
+        setActive(match.link);
+      }
+    },
+    { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
+  );
+
+  targets.forEach((entry) => observer.observe(entry.el));
+}
+
+// ---------------------------------------------------------------------------
+// Visual Learning Studio tabs (index.html): swaps between the master
+// flowchart and the GIF-style walkthrough instead of stacking both.
+// ---------------------------------------------------------------------------
+function initVisualsTabs() {
+  const tabs = Array.from(document.querySelectorAll('.visuals-tab'));
+  if (!tabs.length) {
+    return;
+  }
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.dataset.tabTarget;
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      document.querySelectorAll('.visuals-tab-panel').forEach((panel) => {
+        panel.hidden = panel.id !== targetId;
+      });
+    });
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Milestone timeline (index.html): the numbered pins act as single-select
+// buttons -- clicking one shows only that milestone's detail card instead of
+// stacking all ~15 cards on the page at once.
+// ---------------------------------------------------------------------------
+function initMilestoneTabs() {
+  const buttons = Array.from(document.querySelectorAll('.timeline-stop[data-milestone-target]'));
+  if (!buttons.length) {
+    return;
+  }
+
+  function activate(button, { scroll = false } = {}) {
+    const targetId = button.dataset.milestoneTarget;
+    buttons.forEach((b) => {
+      const isActive = b === button;
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    document.querySelectorAll('.milestone-card').forEach((card) => {
+      card.hidden = card.id !== targetId;
+    });
+    if (scroll) {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => activate(button, { scroll: true }));
+  });
+
+  function activateFromHash() {
+    const hash = window.location.hash.slice(1);
+    if (!hash) {
+      return;
+    }
+    const button = buttons.find((b) => b.dataset.milestoneTarget === hash);
+    if (button) {
+      activate(button);
+    }
+  }
+
+  activateFromHash();
+  window.addEventListener('hashchange', activateFromHash);
+}
+
+// ---------------------------------------------------------------------------
+// Scroll-reveal: top-level section panels fade/slide into place as they
+// enter the viewport. Only applied to always-visible section panels (never
+// to accordion/tab-controlled inner cards like .day-card or .milestone-card,
+// since those toggle their own `hidden` attribute and would otherwise get
+// stuck invisible if revealed while off-screen and hidden). Skips entirely
+// under prefers-reduced-motion so motion-sensitive users just see the
+// content, no animation.
+function initScrollReveal() {
+  const targets = Array.from(document.querySelectorAll('main#main-content > .panel'));
+  if (!targets.length) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion || typeof IntersectionObserver === 'undefined') {
+    targets.forEach((target) => target.classList.add('is-visible'));
+    return;
+  }
+
+  targets.forEach((target) => target.classList.add('reveal'));
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  targets.forEach((target) => observer.observe(target));
 }

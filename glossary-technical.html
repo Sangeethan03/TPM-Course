@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 5: Model The Technical Details | TPM Bootcamp Flow Atlas</title>
-  <meta name="description" content="Turn the shipped TCD into a literal buildable system: an access-pattern-first data model, a priced cloud topology, and a REST API contract -- the Technical Modeling Document (TMD)." />
+  <title>Technical Glossary | TPM Bootcamp Flow Atlas</title>
+  <meta name="description" content="Plain-English definitions for every architecture/engineering term used across this site -- no prior technical background required." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -37,171 +37,192 @@
           <div class="menu-col menu-col-technical">
             <h3 class="menu-col-title">Technical Content</h3>
             <a href="week4.html">Week 4 &middot; Decide The Architecture</a>
-            <a href="week5.html" class="active" aria-current="page">Week 5 &middot; Model The Technical Details</a>
-            <a href="glossary-technical.html">Technical Glossary</a>
+            <a href="week5.html">Week 5 &middot; Model The Technical Details</a>
+            <a href="glossary-technical.html" class="active" aria-current="page">Technical Glossary</a>
           </div>
         </div>
       </div>
     </nav>
 
     <div class="hero-content">
-  <p class="eyebrow">Week 5 of 5</p>
-  <h1>Model The Technical Details</h1>
-  <p class="lead">Turn the shipped TCD into a literal buildable system: an access-pattern-first data model, a priced cloud topology, and a REST API contract -- the Technical Modeling Document (TMD).</p>
+  <p class="eyebrow">Glossary</p>
+  <h1>Technical Glossary</h1>
+  <p class="lead">Plain-English definitions for every architecture/engineering term used across this site -- no prior technical background required.</p>
   <div class="hero-actions">
-    <a class="btn btn-ghost" href="index.html#lifecycle">&larr; Lifecycle Map</a>
-<a class="btn btn-ghost" href="week4.html">&larr; Week 4</a>  </div>
+    <a class="btn btn-ghost" href="index.html">&larr; Home</a>
+    <a class="btn btn-primary" href="glossary-core.html">Core TPM Glossary &rarr;</a>
+  </div>
     </div>
   </header>
 
-<nav class="jump-nav" aria-label="On this page">
-  <div class="jump-nav-inner">
-    <span class="jump-nav-label">Jump to</span>
-    <a href="#d1">Day 1</a>
-    <a href="#d2">Day 2</a>
-    <a href="#d3">Day 3</a>
-  </div>
-</nav>
 
   <main id="main-content">
-    <p class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep" aria-hidden="true">&rsaquo;</span><span class="breadcrumb-current">Week 5</span></p>
+    <p class="breadcrumb"><a href="index.html">Home</a> / Technical Glossary</p>
 
-    <section class="panel" aria-labelledby="days-title">
+    <section class="panel" aria-labelledby="glossary-title">
       <div class="section-head">
-        <h2 id="days-title">Day By Day: What You Do, Why It Matters, What It Hands Off</h2>
-        <p>Each card is grounded in the real course files scanned for Week 5.</p>
+        <h2 id="glossary-title">37 Terms, In Plain English</h2>
+        <p>No jargon required to understand jargon &mdash; every definition here is written for a
+          reader who never attended the Boot Camp.</p>
       </div>
 
-      <article id="d1" class="day-card week5">
-        <h3 class="day-card-title">
-          <button type="button" class="day-toggle" aria-expanded="true" aria-controls="day-body-d1">
-            <span class="day-toggle-text">
-              <span class="day-kicker">Week 5 &middot; Day 1 &middot; Day 1 of 3</span>
-              <span class="day-title-text">Database Structures &amp; Data Logic</span>
-            </span>
-            <span class="day-toggle-meta">
-              <span class="day-read-time">~1 min read</span>
-              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
-            </span>
-          </button>
-        </h3>
+      <label class="glossary-search-label" for="glossary-search">Search this glossary</label>
+      <input type="search" id="glossary-search" class="glossary-search"
+             placeholder="Type a term, e.g. &ldquo;monolith&rdquo; or &ldquo;NFR&rdquo;&hellip;"
+             aria-controls="glossary-grid" />
+      <p id="glossary-empty" class="glossary-empty" hidden>No terms match that search.</p>
 
-        <div class="day-card-body" id="day-body-d1">
-          <div class="day-block block-do">
-            <h4>What You Do</h4>
-            <p>Apply '<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="access-pattern">Access Pattern</span> First' discipline: list every read and write the feature needs before drawing any table, then design an <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="entity-model">entity model</span> (fields, primary/<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="foreign-key">foreign keys</span>, <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="database-index">indexes</span> tied to a numbered <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="access-pattern">access pattern</span>, cardinalities, invariants), pressure-test it against 3 canonical storage <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">trade-offs</span>, and run an AI-assisted schema critique.</p>
-          </div>
-
-<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box fs-accent">List Every Read + Write</span><span class="fs-arrow">&rarr;</span><span class="fs-box"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="entity-model">Entity Model</span></span><span class="fs-arrow">&rarr;</span><span class="fs-box">Storage <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">Trade-Offs</span></span><span class="fs-arrow">&rarr;</span><span class="fs-box">AI Schema Critique</span></div><figcaption>"<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="access-pattern">Access Pattern</span> First" &mdash; no table gets designed until every query it must serve is named and numbered.</figcaption></figure>
-          <div class="day-block block-why">
-            <h4>Why We Do This</h4>
-            <p>A schema designed before its queries are known is a schema that discovers slow queries in production. Naming the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="access-pattern">access pattern</span> first, and requiring every field and <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="database-index">index</span> to trace back to a numbered pattern, is what keeps a TPM's data model defensible to an engineer instead of just plausible-looking.</p>
-          </div>
-
-          <div class="day-block block-artifacts">
-            <h4>Key Artifacts</h4>
-            <ul class="day-artifacts">
-<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="access-pattern">Access Pattern</span> Sheet (reads + writes, numbered)</li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="entity-model">Entity Model</span> (fields/keys/<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="database-index">indexes</span>/invariants)</li><li>3 Storage <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">Trade-Offs</span> (<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="normalization">normalization</span>, consistency, schema flexibility)</li><li>AI schema critique + adopt/defer/reject log</li>            </ul>
-          </div>
-
-          <div class="day-block block-connects day-connects">
-            <h4>Connects To</h4>
-            <p>This produces <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tmd">TMD</span> (Technical Modeling Document) Section 1 - the data model - which Day 2 takes as-is to decide where each entity's storage physically runs in the cloud, and which Day 3 uses directly to design the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="api-resource">REST resources</span> and URL paths on top of it.</p>
-          </div>
-
-          <div class="day-nav-inline">
-<a href="#d2">Next Day &darr;</a>          </div>
-        </div>
-      </article>
-      <article id="d2" class="day-card week5">
-        <h3 class="day-card-title">
-          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d2">
-            <span class="day-toggle-text">
-              <span class="day-kicker">Week 5 &middot; Day 2 &middot; Day 2 of 3</span>
-              <span class="day-title-text">Cloud Architecture &amp; Infrastructure</span>
-            </span>
-            <span class="day-toggle-meta">
-              <span class="day-read-time">~1 min read</span>
-              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
-            </span>
-          </button>
-        </h3>
-
-        <div class="day-card-body" id="day-body-d2" hidden>
-          <div class="day-block block-do">
-            <h4>What You Do</h4>
-            <p>Make five topology decisions for the feature's real component map: region + <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="availability-zone">multi-AZ</span> stance, <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="managed-service">managed-vs-self-managed</span> per component (default managed unless a specific reason not to), <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="multi-tenancy">multi-tenancy</span> stance (pooled by default), <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="network-boundary">network boundary</span> (public HTTPS by default), and a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rom-cost">rough-order-of-magnitude</span> (ROM) monthly cost table, closing with a required AI sanity check for hidden risks.</p>
-          </div>
-
-<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Region + AZ</span><span class="fs-arrow">&rarr;</span><span class="fs-box"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="managed-service">Managed vs Self</span></span><span class="fs-arrow">&rarr;</span><span class="fs-box"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="multi-tenancy">Tenancy</span> + Network</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rom-cost">ROM Cost</span> + AI Sanity Check</span></div><figcaption>Five topology decisions, each defended by a real <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLO</span>, <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="compliance">compliance</span> fact, or customer-evidence line &mdash; never by "we want full control."</figcaption></figure>
-          <div class="day-block block-why">
-            <h4>Why We Do This</h4>
-            <p>Every topology choice has both a cost dimension and a risk dimension that's easy to hand-wave past. The day forces each choice to be defended against a real <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLO</span>, a real <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="compliance">compliance</span> fact, or real customer evidence instead of 'we want full control,' which the course names directly as an anti-pattern smell.</p>
-          </div>
-
-          <div class="day-block block-artifacts">
-            <h4>Key Artifacts</h4>
-            <ul class="day-artifacts">
-<li>Region + AZ stance with <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">trade-off</span></li><li>Managed-vs-self table (every component)</li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="multi-tenancy">Multi-tenancy</span> + <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="network-boundary">network boundary</span> stance</li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rom-cost">ROM cost</span> table</li><li>AI sanity-check risk list</li>            </ul>
-          </div>
-
-          <div class="day-block block-connects day-connects">
-            <h4>Connects To</h4>
-            <p>This produces <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tmd">TMD</span> Section 2 - cloud topology - built directly on top of Day 1's <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="entity-model">entity model</span> and the Week 4 <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="container-diagram">Container diagram</span>, and it hands Day 3 a concrete, priced infrastructure picture to design the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rest-api">REST API</span> contract against.</p>
-          </div>
-
-          <div class="day-nav-inline">
-<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>          </div>
-        </div>
-      </article>
-      <article id="d3" class="day-card week5">
-        <h3 class="day-card-title">
-          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d3">
-            <span class="day-toggle-text">
-              <span class="day-kicker">Week 5 &middot; Day 3 &middot; Day 3 of 3</span>
-              <span class="day-title-text">REST &amp; SOAP API Fundamentals</span>
-            </span>
-            <span class="day-toggle-meta">
-              <span class="day-read-time">~1 min read</span>
-              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
-            </span>
-          </button>
-        </h3>
-
-        <div class="day-card-body" id="day-body-d3" hidden>
-          <div class="day-block block-do">
-            <h4>What You Do</h4>
-            <p>Model the feature's data entities as <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="api-resource">REST resources</span> (deciding which ones are exposed as <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="endpoint">endpoints</span> at all), design their URL paths and <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="http-method">HTTP methods</span> with correct <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="status-code">status codes</span> for happy/sad/weird paths, then fully document one <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="endpoint">endpoint</span> end-to-end including <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="idempotency">idempotency</span>, <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="api-versioning">versioning</span>, and error-body shape - closing with when <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="soap-api">SOAP</span> is still the right default instead of <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rest-api">REST</span>.</p>
-          </div>
-
-<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Resources</span><span class="fs-arrow">&rarr;</span><span class="fs-box">URL Paths</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Methods + <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="status-code">Status Codes</span></span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">One <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="endpoint">Endpoint</span>, Full Detail</span></div><figcaption>Every entity is checked as a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="api-resource">resource candidate</span> first &mdash; internal plumbing (like an outbox table) deliberately stays off the API.</figcaption></figure>
-          <div class="day-block block-why">
-            <h4>Why We Do This</h4>
-            <p>Turning a data model into an API is where sloppy resource thinking becomes a permanent, hard-to-change public contract. The day trains catching two opposite mistakes: verbs disguised as resources, and every entity blindly exposed as an <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="endpoint">endpoint</span> even when it's really internal plumbing (like an outbox table) that a client should never touch directly.</p>
-          </div>
-
-          <div class="day-block block-artifacts">
-            <h4>Key Artifacts</h4>
-            <ul class="day-artifacts">
-<li>Resource list (with exclusions reasoned)</li><li>URL path design</li><li>Methods + status-code table</li><li>One <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="endpoint">endpoint</span> documented in full (<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="idempotency">idempotency</span>, <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="api-versioning">versioning</span>, errors)</li>            </ul>
-          </div>
-
-          <div class="day-block block-connects day-connects">
-            <h4>Connects To</h4>
-            <p>This produces <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tmd">TMD</span> Section 3 - the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rest-api">REST API</span> contract - built directly on Day 1's <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="entity-model">entity model</span> and Day 2's cloud topology, and it's the last technical-modeling layer before Week 5's remaining days stitch data, cloud, and API together into full request sequence diagrams.</p>
-          </div>
-
-          <div class="day-nav-inline">
-<a href="#d2">&uarr; Prev Day</a>          </div>
-        </div>
-      </article>
+      <div class="glossary-grid" id="glossary-grid">
+        <article class="glossary-card" id="term-access-pattern" data-term-name="access pattern a specific, named way the application will read or write data (e.g. ‘list all open tickets for a shop, sorted by priority’) -- named before tables are designed.">
+          <h3>Access Pattern</h3>
+          <p>A specific, named way the application will read or write data (e.g. ‘list all open tickets for a shop, sorted by priority’) -- named before tables are designed.</p>
+        </article>
+        <article class="glossary-card" id="term-api-versioning" data-term-name="api versioning a strategy (like putting /v1/ in the url) for changing an api over time without breaking the clients already using the old version.">
+          <h3>API Versioning</h3>
+          <p>A strategy (like putting /v1/ in the URL) for changing an API over time without breaking the clients already using the old version.</p>
+        </article>
+        <article class="glossary-card" id="term-availability" data-term-name="availability the percentage of time a system is actually up and working, out of all the time it&#39;s supposed to be working (e.g. 99.5% availability).">
+          <h3>Availability</h3>
+          <p>The percentage of time a system is actually up and working, out of all the time it&#39;s supposed to be working (e.g. 99.5% availability).</p>
+        </article>
+        <article class="glossary-card" id="term-availability-zone" data-term-name="availability zone (az) an isolated data center within a cloud region; spreading a system across multiple azs protects against one data center failing.">
+          <h3>Availability Zone (AZ)</h3>
+          <p>An isolated data center within a cloud region; spreading a system across multiple AZs protects against one data center failing.</p>
+        </article>
+        <article class="glossary-card" id="term-c4-diagram" data-term-name="c4 diagram a standard way of drawing software architecture at 4 zoom levels: context, container, component, and code -- tpms typically only draw the first two.">
+          <h3>C4 Diagram</h3>
+          <p>A standard way of drawing software architecture at 4 zoom levels: Context, Container, Component, and Code -- TPMs typically only draw the first two.</p>
+        </article>
+        <article class="glossary-card" id="term-compliance" data-term-name="compliance a set of external rules or standards (like soc 2, or a privacy law) a product must follow, often requiring proof like an audit trail.">
+          <h3>Compliance</h3>
+          <p>A set of external rules or standards (like SOC 2, or a privacy law) a product must follow, often requiring proof like an audit trail.</p>
+        </article>
+        <article class="glossary-card" id="term-container-diagram" data-term-name="container diagram (c4 level 2) a more zoomed-in architecture diagram showing every independently deployable piece inside the system (web app, api, database, queue) and how they talk to each other.">
+          <h3>Container Diagram (C4 Level 2)</h3>
+          <p>A more zoomed-in architecture diagram showing every independently deployable piece inside the system (web app, API, database, queue) and how they talk to each other.</p>
+        </article>
+        <article class="glossary-card" id="term-context-diagram" data-term-name="context diagram (c4 level 1) the most zoomed-out architecture diagram: the system as one box, the people who use it, and the other systems it talks to.">
+          <h3>Context Diagram (C4 Level 1)</h3>
+          <p>The most zoomed-out architecture diagram: the system as one box, the people who use it, and the other systems it talks to.</p>
+        </article>
+        <article class="glossary-card" id="term-endpoint" data-term-name="endpoint one specific, callable url + method combination in an api, e.g. ‘post /v1/assignments.’">
+          <h3>Endpoint</h3>
+          <p>One specific, callable URL + method combination in an API, e.g. ‘POST /v1/assignments.’</p>
+        </article>
+        <article class="glossary-card" id="term-entity-model" data-term-name="entity model a design of the data itself: what ‘things’ (entities) the system stores, what fields each one has, and how they relate to each other.">
+          <h3>Entity Model</h3>
+          <p>A design of the data itself: what ‘things’ (entities) the system stores, what fields each one has, and how they relate to each other.</p>
+        </article>
+        <article class="glossary-card" id="term-error-budget" data-term-name="error budget the small amount of allowed failure built into an availability target (e.g. 99.5% availability leaves about 3.6 hours/month) -- a practical tool for deciding when to ship features versus focus on reliability.">
+          <h3>Error Budget</h3>
+          <p>The small amount of allowed failure built into an availability target (e.g. 99.5% availability leaves about 3.6 hours/month) -- a practical tool for deciding when to ship features versus focus on reliability.</p>
+        </article>
+        <article class="glossary-card" id="term-foreign-key" data-term-name="foreign key a field in one table that points to the primary key of another table, creating a relationship between the two.">
+          <h3>Foreign Key</h3>
+          <p>A field in one table that points to the Primary Key of another table, creating a relationship between the two.</p>
+        </article>
+        <article class="glossary-card" id="term-http-method" data-term-name="http method the verb part of an api call that says what action to take on a resource: get (read), post (create), patch (partially update), delete (remove).">
+          <h3>HTTP Method</h3>
+          <p>The verb part of an API call that says what action to take on a resource: GET (read), POST (create), PATCH (partially update), DELETE (remove).</p>
+        </article>
+        <article class="glossary-card" id="term-idempotency" data-term-name="idempotency a safety property where doing the exact same request twice (e.g. a network retry) produces the same result as doing it once, instead of duplicating the action.">
+          <h3>Idempotency</h3>
+          <p>A safety property where doing the exact same request twice (e.g. a network retry) produces the same result as doing it once, instead of duplicating the action.</p>
+        </article>
+        <article class="glossary-card" id="term-database-index" data-term-name="index (database) a special lookup structure added to a database table that makes a specific kind of search much faster, at the cost of extra storage and slightly slower writes.">
+          <h3>Index (database)</h3>
+          <p>A special lookup structure added to a database table that makes a specific kind of search much faster, at the cost of extra storage and slightly slower writes.</p>
+        </article>
+        <article class="glossary-card" id="term-integration-map" data-term-name="integration map a diagram showing every system a feature talks to and the exact ‘contract’ (data format and rules) each connection uses.">
+          <h3>Integration Map</h3>
+          <p>A diagram showing every system a feature talks to and the exact ‘contract’ (data format and rules) each connection uses.</p>
+        </article>
+        <article class="glossary-card" id="term-latency" data-term-name="latency how long it takes a system to respond after a request is made -- usually measured in milliseconds or seconds.">
+          <h3>Latency</h3>
+          <p>How long it takes a system to respond after a request is made -- usually measured in milliseconds or seconds.</p>
+        </article>
+        <article class="glossary-card" id="term-managed-service" data-term-name="managed service a cloud component (like a database) the cloud provider operates and maintains for you, versus ‘self-managed’ where your own team patches, scales, and fixes it.">
+          <h3>Managed Service</h3>
+          <p>A cloud component (like a database) the cloud provider operates and maintains for you, versus ‘self-managed’ where your own team patches, scales, and fixes it.</p>
+        </article>
+        <article class="glossary-card" id="term-microservices" data-term-name="microservices an architecture style where a product is split into many small, independent services (e.g. a separate billing service and notification service) that can each be built and deployed on their own.">
+          <h3>Microservices</h3>
+          <p>An architecture style where a product is split into many small, independent services (e.g. a separate Billing Service and Notification Service) that can each be built and deployed on their own.</p>
+        </article>
+        <article class="glossary-card" id="term-monolith" data-term-name="monolith one single, large application where all the features live together in one shared codebase and get deployed together as one unit.">
+          <h3>Monolith</h3>
+          <p>One single, large application where all the features live together in one shared codebase and get deployed together as one unit.</p>
+        </article>
+        <article class="glossary-card" id="term-multi-tenancy" data-term-name="multi-tenancy an architecture where multiple customers (‘tenants’) share the same underlying application and infrastructure, with their data kept logically separated.">
+          <h3>Multi-Tenancy</h3>
+          <p>An architecture where multiple customers (‘tenants’) share the same underlying application and infrastructure, with their data kept logically separated.</p>
+        </article>
+        <article class="glossary-card" id="term-network-boundary" data-term-name="network boundary the decision of where a system is reachable from -- e.g. open to the public internet versus restricted to a private internal network.">
+          <h3>Network Boundary</h3>
+          <p>The decision of where a system is reachable from -- e.g. open to the public internet versus restricted to a private internal network.</p>
+        </article>
+        <article class="glossary-card" id="term-normalization" data-term-name="normalization a database design principle of avoiding storing the same piece of data in more than one place, to prevent it from going out of sync.">
+          <h3>Normalization</h3>
+          <p>A database design principle of avoiding storing the same piece of data in more than one place, to prevent it from going out of sync.</p>
+        </article>
+        <article class="glossary-card" id="term-primary-key" data-term-name="primary key a field (or set of fields) that uniquely identifies one row in a database table.">
+          <h3>Primary Key</h3>
+          <p>A field (or set of fields) that uniquely identifies one row in a database table.</p>
+        </article>
+        <article class="glossary-card" id="term-rate-limit" data-term-name="rate limit a rule that caps how many requests a single user or system can make in a given time period, to protect the system from being overwhelmed.">
+          <h3>Rate Limit</h3>
+          <p>A rule that caps how many requests a single user or system can make in a given time period, to protect the system from being overwhelmed.</p>
+        </article>
+        <article class="glossary-card" id="term-api-resource" data-term-name="resource (api) a ‘thing’ exposed by an api that clients can read or change, always represented by a noun (e.g. /tickets), never a verb.">
+          <h3>Resource (API)</h3>
+          <p>A ‘thing’ exposed by an API that clients can read or change, always represented by a noun (e.g. /tickets), never a verb.</p>
+        </article>
+        <article class="glossary-card" id="term-rest-api" data-term-name="rest api a common web api style where each ‘thing’ in the system (like a customer or an order) is a resource with its own url, acted on with standard http methods.">
+          <h3>REST API</h3>
+          <p>A common web API style where each ‘thing’ in the system (like a Customer or an Order) is a resource with its own URL, acted on with standard HTTP methods.</p>
+        </article>
+        <article class="glossary-card" id="term-rom-cost" data-term-name="rom cost (rough order of magnitude) an early, deliberately approximate cost estimate (e.g. within 25-50% accuracy) used to sanity-check a decision before an exact number is possible.">
+          <h3>ROM Cost (Rough Order of Magnitude)</h3>
+          <p>An early, deliberately approximate cost estimate (e.g. within 25-50% accuracy) used to sanity-check a decision before an exact number is possible.</p>
+        </article>
+        <article class="glossary-card" id="term-slo" data-term-name="slo (service level objective) a specific, measurable target for how well a system should perform, e.g. ‘95% of requests finish in under 2 seconds.’">
+          <h3>SLO (Service Level Objective)</h3>
+          <p>A specific, measurable target for how well a system should perform, e.g. ‘95% of requests finish in under 2 seconds.’</p>
+        </article>
+        <article class="glossary-card" id="term-soap-api" data-term-name="soap api an older, more rigid web api style using strict xml messages and formal contracts -- still the right default in some regulated or legacy enterprise environments.">
+          <h3>SOAP API</h3>
+          <p>An older, more rigid web API style using strict XML messages and formal contracts -- still the right default in some regulated or legacy enterprise environments.</p>
+        </article>
+        <article class="glossary-card" id="term-status-code" data-term-name="status code a standardized 3-digit number an api returns to say what happened, e.g. 200 (success), 404 (not found), 429 (too many requests).">
+          <h3>Status Code</h3>
+          <p>A standardized 3-digit number an API returns to say what happened, e.g. 200 (success), 404 (not found), 429 (too many requests).</p>
+        </article>
+        <article class="glossary-card" id="term-stride" data-term-name="stride a checklist of 6 threat categories used to find security weaknesses: spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege.">
+          <h3>STRIDE</h3>
+          <p>A checklist of 6 threat categories used to find security weaknesses: Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege.</p>
+        </article>
+        <article class="glossary-card" id="term-tcd" data-term-name="tcd (technical considerations document) the technical follow-up document to the prd covering architecture, security, diagrams, performance targets, and trade-offs -- the final handoff to engineering.">
+          <h3>TCD (Technical Considerations Document)</h3>
+          <p>The technical follow-up document to the PRD covering architecture, security, diagrams, performance targets, and trade-offs -- the final handoff to engineering.</p>
+        </article>
+        <article class="glossary-card" id="term-threat-model" data-term-name="threat model a structured exercise of walking through a system on purpose to find where an attacker could cause harm, before it&#39;s built.">
+          <h3>Threat Model</h3>
+          <p>A structured exercise of walking through a system on purpose to find where an attacker could cause harm, before it&#39;s built.</p>
+        </article>
+        <article class="glossary-card" id="term-tmd" data-term-name="tmd (technical modeling document) the document that turns an approved architecture into a literal buildable system: the database design, the cloud infrastructure layout, and the api contract.">
+          <h3>TMD (Technical Modeling Document)</h3>
+          <p>The document that turns an approved architecture into a literal buildable system: the database design, the cloud infrastructure layout, and the API contract.</p>
+        </article>
+        <article class="glossary-card" id="term-trade-off" data-term-name="trade-off an explicit choice between two good options where picking one means accepting a specific downside on purpose, instead of pretending there&#39;s a perfect option.">
+          <h3>Trade-Off</h3>
+          <p>An explicit choice between two good options where picking one means accepting a specific downside on purpose, instead of pretending there&#39;s a perfect option.</p>
+        </article>
+        <article class="glossary-card" id="term-trust-boundary" data-term-name="trust boundary a line on a diagram marking where data moves from something your team fully controls into something owned by someone else -- the exact spot security reviews focus on.">
+          <h3>Trust Boundary</h3>
+          <p>A line on a diagram marking where data moves from something your team fully controls into something owned by someone else -- the exact spot security reviews focus on.</p>
+        </article>
+      </div>
     </section>
-
-
-
-    <div class="week-pager">
-      <a class="week-pager-btn" href="week4.html">&larr; Week 4: Decide The Architecture</a>
-    </div>
   </main>
 
   <footer class="footer">

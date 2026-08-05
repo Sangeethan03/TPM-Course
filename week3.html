@@ -8,10 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-progress-bar"></div></div>
 
   <header class="hero hero-compact">
     <div class="hero-noise" aria-hidden="true"></div>
@@ -29,11 +32,13 @@
             <a href="week1.html">Week 1 &middot; Understand The User</a>
             <a href="week2.html">Week 2 &middot; Define The Strategy</a>
             <a href="week3.html" class="active" aria-current="page">Week 3 &middot; Build The PRD</a>
+            <a href="glossary-core.html">Core TPM Glossary</a>
           </div>
           <div class="menu-col menu-col-technical">
             <h3 class="menu-col-title">Technical Content</h3>
             <a href="week4.html">Week 4 &middot; Decide The Architecture</a>
             <a href="week5.html">Week 5 &middot; Model The Technical Details</a>
+            <a href="glossary-technical.html">Technical Glossary</a>
           </div>
         </div>
       </div>
@@ -49,8 +54,20 @@
     </div>
   </header>
 
+<nav class="jump-nav" aria-label="On this page">
+  <div class="jump-nav-inner">
+    <span class="jump-nav-label">Jump to</span>
+    <a href="#d1">Day 1</a>
+    <a href="#d2">Day 2</a>
+    <a href="#d3">Day 3</a>
+    <a href="#d4">Day 4</a>
+    <a href="#d5">Day 5</a>
+    <a href="#prd-title">PRD Build</a>
+  </div>
+</nav>
+
   <main id="main-content">
-    <p class="breadcrumb"><a href="index.html">Home</a> / Week 3</p>
+    <p class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep" aria-hidden="true">&rsaquo;</span><span class="breadcrumb-current">Week 3</span></p>
 
     <section class="panel" aria-labelledby="days-title">
       <div class="section-head">
@@ -59,159 +76,209 @@
       </div>
 
       <article id="d1" class="day-card week3">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 3 &middot; Day 1</span>
-          <h3 class="day-card-title">PRD Sections 1–5 (Problem → Solution Sketch)</h3>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="true" aria-controls="day-body-d1">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 3 &middot; Day 1 &middot; Day 1 of 5</span>
+              <span class="day-title-text">PRD Sections 1–5 (Problem → Solution Sketch)</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
+
+        <div class="day-card-body" id="day-body-d1">
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Draft the first half of a Product Requirements Document: the problem/outcome statement, a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="solution-sketch">solution sketch</span> (user-visible flow, not implementation detail), and a first pass at <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="acceptance-criteria">acceptance criteria</span>.</p>
+          </div>
+
+
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>The <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> is the first artifact engineering actually builds from, so this translates five weeks of discovery, metrics, and design work into a single build-ready document -- if any prior step was skipped, it becomes visible here as a section leadership can't fill in.</p>
+          </div>
+
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> draft (Sections 1-5)</li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="solution-sketch">Solution sketch</span></li>            </ul>
+          </div>
+
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>This draft is deliberately incomplete -- it hands off directly to Day 2's acceptance-criteria hardening pass, because a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="solution-sketch">solution sketch</span> without testable AC is not yet buildable.</p>
+          </div>
+
+          <div class="day-nav-inline">
+<a href="#d2">Next Day &darr;</a>          </div>
         </div>
-
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Draft the first half of a Product Requirements Document: the problem/outcome statement, a solution sketch (user-visible flow, not implementation detail), and a first pass at acceptance criteria.</p>
-        </div>
-
-
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>The PRD is the first artifact engineering actually builds from, so this translates five weeks of discovery, metrics, and design work into a single build-ready document -- if any prior step was skipped, it becomes visible here as a section leadership can&#39;t fill in.</p>
-        </div>
-
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>PRD draft (Sections 1-5)</li><li>Solution sketch</li>          </ul>
-        </div>
-
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>This draft is deliberately incomplete -- it hands off directly to Day 2&#39;s acceptance-criteria hardening pass, because a solution sketch without testable AC is not yet buildable.</p>
-        </div>
-
-        <div class="day-nav-inline">
-<a href="#d2">Next Day &darr;</a>        </div>
       </article>
       <article id="d2" class="day-card week3">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 3 &middot; Day 2</span>
-          <h3 class="day-card-title">Acceptance Criteria</h3>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d2">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 3 &middot; Day 2 &middot; Day 2 of 5</span>
+              <span class="day-title-text">Acceptance Criteria</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
+
+        <div class="day-card-body" id="day-body-d2" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Write testable <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="acceptance-criteria">Acceptance Criteria</span> that explicitly cover 'weird paths' (edge cases, error states, offline conditions) in addition to the happy path.</p>
+          </div>
+
+
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>An AC that only describes the happy path guarantees engineers will ask clarifying questions mid-sprint or ship a feature that breaks on the first edge case a real dispatcher hits. This is isolated as its own day because it is the single highest-leverage place a TPM prevents rework.</p>
+          </div>
+
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="acceptance-criteria">Acceptance Criteria</span> set</li><li>Weird-path checklist</li>            </ul>
+          </div>
+
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>The weird-path list drafted here is cross-checked against Day 3's <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFR</span> categories (what happens under bad network, high load, or invalid input) so reliability requirements aren't an afterthought.</p>
+          </div>
+
+          <div class="day-nav-inline">
+<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>          </div>
         </div>
-
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Write testable Acceptance Criteria that explicitly cover &#39;weird paths&#39; (edge cases, error states, offline conditions) in addition to the happy path.</p>
-        </div>
-
-
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>An AC that only describes the happy path guarantees engineers will ask clarifying questions mid-sprint or ship a feature that breaks on the first edge case a real dispatcher hits. This is isolated as its own day because it is the single highest-leverage place a TPM prevents rework.</p>
-        </div>
-
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>Acceptance Criteria set</li><li>Weird-path checklist</li>          </ul>
-        </div>
-
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>The weird-path list drafted here is cross-checked against Day 3&#39;s NFR categories (what happens under bad network, high load, or invalid input) so reliability requirements aren&#39;t an afterthought.</p>
-        </div>
-
-        <div class="day-nav-inline">
-<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>        </div>
       </article>
       <article id="d3" class="day-card week3">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 3 &middot; Day 3</span>
-          <h3 class="day-card-title">NFRs + Dependencies</h3>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d3">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 3 &middot; Day 3 &middot; Day 3 of 5</span>
+              <span class="day-title-text">NFRs + Dependencies</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
+
+        <div class="day-card-body" id="day-body-d3" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Define Non-Functional Requirements across 5 categories (Performance, Reliability, Security, Usability, Maintainability) in Requirement / Defense / Verification form, and log <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="dependency">dependencies</span> with a named owner and due-by date.</p>
+          </div>
+
+
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>An <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFR</span> that just says 'must be fast' can't be verified. Writing it as Requirement (the target), Defense (how the design meets it), Verification (how you'll prove it) forces the same rigor non-functional quality gets that functional features already have -- this is exactly how the course source material explains the Performance category.</p>
+          </div>
+
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFR</span> sheet (Requirement/Defense/Verification)</li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="dependency">Dependency</span> log with owners</li>            </ul>
+          </div>
+
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>Named <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="dependency">dependency</span> owners and dates feed directly into Day 4's Risk section, since an unowned <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="dependency">dependency</span> is the most common hidden risk in a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span>.</p>
+          </div>
+
+          <div class="day-nav-inline">
+<a href="#d2">&uarr; Prev Day</a><a href="#d4">Next Day &darr;</a>          </div>
         </div>
-
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Define Non-Functional Requirements across 5 categories (Performance, Reliability, Security, Usability, Maintainability) in Requirement / Defense / Verification form, and log dependencies with a named owner and due-by date.</p>
-        </div>
-
-
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>An NFR that just says &#39;must be fast&#39; can&#39;t be verified. Writing it as Requirement (the target), Defense (how the design meets it), Verification (how you&#39;ll prove it) forces the same rigor non-functional quality gets that functional features already have -- this is exactly how the course source material explains the Performance category.</p>
-        </div>
-
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>NFR sheet (Requirement/Defense/Verification)</li><li>Dependency log with owners</li>          </ul>
-        </div>
-
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>Named dependency owners and dates feed directly into Day 4&#39;s Risk section, since an unowned dependency is the most common hidden risk in a PRD.</p>
-        </div>
-
-        <div class="day-nav-inline">
-<a href="#d2">&uarr; Prev Day</a><a href="#d4">Next Day &darr;</a>        </div>
       </article>
       <article id="d4" class="day-card week3">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 3 &middot; Day 4</span>
-          <h3 class="day-card-title">PRD Mini-Capstone (Risk + Draft Assembly)</h3>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d4">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 3 &middot; Day 4 &middot; Day 4 of 5</span>
+              <span class="day-title-text">PRD Mini-Capstone (Risk + Draft Assembly)</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
+
+        <div class="day-card-body" id="day-body-d4" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Assemble the full <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> draft -- <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="problem-statement">problem statement</span> through <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFRs</span> -- and add a Risks section with mitigations and explicitly flagged open decisions.</p>
+          </div>
+
+
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>This is the first day the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> is judged as a whole artifact rather than section by section, which surfaces gaps that don't show up when sections are written in isolation (for example, an AC that contradicts an <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFR</span>). Naming open decisions explicitly, instead of quietly picking one, keeps leadership able to weigh in before build starts.</p>
+          </div>
+
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li>Assembled <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> draft</li><li>Risk register with mitigations</li><li>Open decisions list</li>            </ul>
+          </div>
+
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>This assembled draft is the exact input to Day 5's peer review pass, where a second set of eyes scores it against the same rigor bar before it is called engineer-ready.</p>
+          </div>
+
+          <div class="day-nav-inline">
+<a href="#d3">&uarr; Prev Day</a><a href="#d5">Next Day &darr;</a>          </div>
         </div>
-
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Assemble the full PRD draft -- problem statement through NFRs -- and add a Risks section with mitigations and explicitly flagged open decisions.</p>
-        </div>
-
-
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>This is the first day the PRD is judged as a whole artifact rather than section by section, which surfaces gaps that don&#39;t show up when sections are written in isolation (for example, an AC that contradicts an NFR). Naming open decisions explicitly, instead of quietly picking one, keeps leadership able to weigh in before build starts.</p>
-        </div>
-
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>Assembled PRD draft</li><li>Risk register with mitigations</li><li>Open decisions list</li>          </ul>
-        </div>
-
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>This assembled draft is the exact input to Day 5&#39;s peer review pass, where a second set of eyes scores it against the same rigor bar before it is called engineer-ready.</p>
-        </div>
-
-        <div class="day-nav-inline">
-<a href="#d3">&uarr; Prev Day</a><a href="#d5">Next Day &darr;</a>        </div>
       </article>
       <article id="d5" class="day-card week3">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 3 &middot; Day 5</span>
-          <h3 class="day-card-title">PRD Review (Capstone)</h3>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d5">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 3 &middot; Day 5 &middot; Day 5 of 5</span>
+              <span class="day-title-text">PRD Review (Capstone)</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
+
+        <div class="day-card-body" id="day-body-d5" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Run a structured peer review of the completed <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> against a scoring rubric, then revise it into a final, engineer-ready version.</p>
+          </div>
+
+
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>A <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> that only its author has read still carries that author's blind spots. Every <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> produced in the course is pressure-tested by a peer using the same rubric an engineering lead would use, closing the loop that started with <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="working-backwards">Working Backwards</span> in Week 1.</p>
+          </div>
+
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> review scorecard</li><li>Final engineer-ready <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span></li>            </ul>
+          </div>
+
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>The revised, scored <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> is the exact document Week 4 Day 1 opens with -- architecture decisions are made against this <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD's</span> constraints, not a rough draft.</p>
+          </div>
+
+          <div class="day-nav-inline">
+<a href="#d4">&uarr; Prev Day</a>          </div>
         </div>
-
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Run a structured peer review of the completed PRD against a scoring rubric, then revise it into a final, engineer-ready version.</p>
-        </div>
-
-
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>A PRD that only its author has read still carries that author&#39;s blind spots. Every PRD produced in the course is pressure-tested by a peer using the same rubric an engineering lead would use, closing the loop that started with Working Backwards in Week 1.</p>
-        </div>
-
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>PRD review scorecard</li><li>Final engineer-ready PRD</li>          </ul>
-        </div>
-
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>The revised, scored PRD is the exact document Week 4 Day 1 opens with -- architecture decisions are made against this PRD&#39;s constraints, not a rough draft.</p>
-        </div>
-
-        <div class="day-nav-inline">
-<a href="#d4">&uarr; Prev Day</a>        </div>
       </article>
     </section>
 
@@ -237,24 +304,24 @@
           <h3>PRD Sections (TPM Quality)</h3>
           <ul>
             <li>Problem and outcome statement</li>
-            <li>Solution sketch (user-visible flow, not low-level code)</li>
-            <li>Acceptance criteria including weird paths</li>
-            <li>NFRs in Requirement / Defense / Verification form</li>
-            <li>Dependencies with owner and due-by date</li>
-            <li>Risks with mitigations and open decisions</li>
+            <li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="solution-sketch">Solution sketch</span> (user-visible flow, not low-level code)</li>
+            <li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="acceptance-criteria">Acceptance criteria</span> including weird paths</li>
+            <li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFRs</span> in Requirement / Defense / Verification form</li>
+            <li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="dependency">Dependencies</span> with owner and due-by date</li>
+            <li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="risk">Risks & Open Questions</span> with mitigations and open decisions</li>
           </ul>
         </article>
       </div>
       <figure class="mini-diagram">
         <div class="prd-blueprint">
-          <div class="pb-row"><span class="pb-num">1-2</span><span class="pb-text">Context + Problem</span></div>
-          <div class="pb-row"><span class="pb-num">3-4</span><span class="pb-text">Goals &amp; Non-Goals + Scope</span></div>
-          <div class="pb-row"><span class="pb-num">5</span><span class="pb-text">Solution Sketch</span></div>
-          <div class="pb-row"><span class="pb-num">6</span><span class="pb-text">Acceptance Criteria</span></div>
-          <div class="pb-row"><span class="pb-num">7</span><span class="pb-text">NFRs (5 categories)</span></div>
+          <div class="pb-row"><span class="pb-num">1-2</span><span class="pb-text"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="context-prd">Context</span> + Problem</span></div>
+          <div class="pb-row"><span class="pb-num">3-4</span><span class="pb-text"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="goals-non-goals">Goals & Non-Goals</span> + <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="scope">Scope</span></span></div>
+          <div class="pb-row"><span class="pb-num">5</span><span class="pb-text"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="solution-sketch">Solution Sketch</span></span></div>
+          <div class="pb-row"><span class="pb-num">6</span><span class="pb-text"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="acceptance-criteria">Acceptance Criteria</span></span></div>
+          <div class="pb-row"><span class="pb-num">7</span><span class="pb-text"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFRs</span> (5 categories)</span></div>
           <div class="pb-row"><span class="pb-num">8</span><span class="pb-text">Metrics &amp; Validation</span></div>
-          <div class="pb-row"><span class="pb-num">9</span><span class="pb-text">Risks &amp; Open Questions</span></div>
-          <div class="pb-row"><span class="pb-num">10</span><span class="pb-text">Dependencies</span></div>
+          <div class="pb-row"><span class="pb-num">9</span><span class="pb-text"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="risk">Risks & Open Questions</span></span></div>
+          <div class="pb-row"><span class="pb-num">10</span><span class="pb-text"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="dependency">Dependencies</span></span></div>
           <div class="pb-row"><span class="pb-num">11</span><span class="pb-text">Out-of-Scope Follow-Ups</span></div>
         </div>
         <figcaption>The 11-section PRD skeleton &mdash; drafted section by section across the week, then peer-reviewed before it is called engineer-ready.</figcaption>
@@ -272,6 +339,19 @@
     <p>Built for TPM Bootcamp continuity. Generated from templates/build.py &mdash; edit the templates or COURSE_LIFECYCLE data, not the HTML output directly.</p>
   </footer>
 
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>&uarr; Top</button>
+
+  <div id="gloss-popover" class="gloss-popover" role="dialog" aria-labelledby="gloss-popover-term" hidden>
+    <div class="gloss-popover-head">
+      <span class="gloss-popover-badge" id="gloss-popover-badge"></span>
+      <button type="button" class="gloss-popover-close" id="gloss-popover-close" aria-label="Close definition">&times;</button>
+    </div>
+    <h4 id="gloss-popover-term"></h4>
+    <p id="gloss-popover-def"></p>
+    <a id="gloss-popover-link" class="gloss-popover-link" href="#">View in full glossary &rarr;</a>
+  </div>
+
+  <script id="glossary-data" type="application/json">{"rccf": {"term": "RCCF", "definition": "A checklist for asking an AI a genuinely useful question: Role (who should it act as), Context (the situation), Constraints (what the answer must respect), Format (how the answer should look).", "category": "core"}, "working-backwards": {"term": "Working Backwards", "definition": "A planning method where you write the finished product's press release and FAQ before you build anything, so you're forced to prove real customer value first.", "category": "core"}, "pr-faq": {"term": "PR/FAQ", "definition": "A one-page press release plus a list of Frequently Asked Questions for a product that doesn't exist yet -- the actual document the Working Backwards method produces.", "category": "core"}, "persona": {"term": "Persona", "definition": "A description of a real type of user, built from actual behavior and evidence (not a guess), used to keep decisions grounded in a real person's needs.", "category": "core"}, "jtbd": {"term": "JTBD (Jobs To Be Done)", "definition": "A way of describing what a customer is really trying to accomplish (e.g. \u2018reassign a job in under 30 seconds\u2019), instead of a demographic label.", "category": "core"}, "pain-point": {"term": "Pain Point", "definition": "A specific moment where a real user gets stuck, frustrated, or blocked while doing their job -- written as a verb + circumstance + consequence, not a vague complaint.", "category": "core"}, "five-whys": {"term": "5 Whys", "definition": "A technique of asking \u2018why\u2019 five times in a row on a problem to dig past the surface symptom and find its true root cause.", "category": "core"}, "problem-statement": {"term": "Problem Statement", "definition": "A short, evidence-backed paragraph naming who has the problem, what it is, and how we know it's real -- the starting line for any new feature.", "category": "core"}, "evidence-brief": {"term": "Evidence Brief", "definition": "A short document that backs up a problem statement with real data points (numbers, quotes, examples) instead of opinions.", "category": "core"}, "north-star-metric": {"term": "North Star Metric", "definition": "The single number a whole team rallies around, chosen because moving it up means customers are truly better off -- not just a number that looks good in a report.", "category": "core"}, "kpi": {"term": "KPI (Key Performance Indicator)", "definition": "A specific, trackable number used to check whether a team is on track toward a bigger goal.", "category": "core"}, "metrics-pyramid": {"term": "Metrics Pyramid", "definition": "A way of organizing measurements into three layers: the North Star at the top, KPIs in the middle, and small day-to-day operational signals at the bottom.", "category": "core"}, "vanity-metric": {"term": "Vanity Metric", "definition": "A number that goes up and looks impressive but doesn't actually prove customers are better off (e.g. total signups, when most people never come back).", "category": "core"}, "counter-metric": {"term": "Counter-Metric", "definition": "A second number tracked alongside the North Star specifically to catch it being \u2018gamed\u2019 -- e.g. if speed goes up but accuracy secretly drops, this catches it.", "category": "core"}, "heuristic": {"term": "Heuristic", "definition": "One of 10 well-known rules of thumb for judging whether software is easy or hard to use (e.g. \u2018the system should always keep users informed\u2019).", "category": "core"}, "accessibility": {"term": "Accessibility (a11y)", "definition": "Designing a product so people with different abilities (vision, hearing, motor, cognitive) can still use it fully -- not an optional extra feature.", "category": "core"}, "design-principle": {"term": "Design Principle", "definition": "A short, memorable rule a team commits to that guides every future design decision (e.g. \u2018build guardrails, not cleanup workflows\u2019).", "category": "core"}, "journey-map": {"term": "Customer Journey Map", "definition": "A visual timeline of every stage a customer goes through while using a product, showing where they feel confident, confused, or frustrated at each step.", "category": "core"}, "friction-point": {"term": "Friction Point", "definition": "A specific spot in a customer journey where something slows the customer down or causes them to hesitate, doubt, or give up.", "category": "core"}, "prd": {"term": "PRD (Product Requirements Document)", "definition": "The official written plan for a feature: what problem it solves, what it must do, how you'll know it works, and what could go wrong -- the handoff to engineering.", "category": "core"}, "acceptance-criteria": {"term": "Acceptance Criteria (AC)", "definition": "A specific, testable checklist condition that must be true for a feature to be \u2018done\u2019 -- clear enough that anyone could check pass/fail without guessing.", "category": "core"}, "nfr": {"term": "NFR (Non-Functional Requirement)", "definition": "A requirement about how well something must work (how fast, how secure, how reliable) rather than what it does -- e.g. a page must load in under 2 seconds.", "category": "core"}, "dependency": {"term": "Dependency", "definition": "Something a feature needs from another team, system, or decision before it can ship -- each one should have a named owner and a due date.", "category": "core"}, "risk": {"term": "Risk (in a PRD)", "definition": "A specific thing that could go wrong with a feature, written down on purpose along with a plan for what to do if it happens.", "category": "core"}, "solution-sketch": {"term": "Solution Sketch", "definition": "A short, plain-language walkthrough of how a feature will work step-by-step from the user's point of view -- the visible flow, not low-level code.", "category": "core"}, "context-prd": {"term": "Context (PRD section)", "definition": "The background section of a document that explains the business situation and the problem being solved, so a reader with no prior history can understand why it matters.", "category": "core"}, "goals-non-goals": {"term": "Goals & Non-Goals", "definition": "An explicit list of what a feature IS trying to do (goals) and, just as importantly, what it deliberately is NOT trying to do -- this stops scope from silently growing.", "category": "core"}, "scope": {"term": "Scope", "definition": "The exact boundary of what is and isn't included in a piece of work.", "category": "core"}, "stakeholder": {"term": "Stakeholder", "definition": "Any person or team who has a real interest in a decision and whose input or sign-off is needed before moving forward.", "category": "core"}, "sign-off": {"term": "Sign-Off", "definition": "A stakeholder's explicit, named approval on a specific decision or document -- not just a passive 'no objection.'", "category": "core"}, "capstone": {"term": "Capstone", "definition": "The final, cumulative project at the end of the Boot Camp where every skill learned across all 8 weeks gets applied together on one real feature.", "category": "core"}, "monolith": {"term": "Monolith", "definition": "One single, large application where all the features live together in one shared codebase and get deployed together as one unit.", "category": "technical"}, "microservices": {"term": "Microservices", "definition": "An architecture style where a product is split into many small, independent services (e.g. a separate Billing Service and Notification Service) that can each be built and deployed on their own.", "category": "technical"}, "integration-map": {"term": "Integration Map", "definition": "A diagram showing every system a feature talks to and the exact \u2018contract\u2019 (data format and rules) each connection uses.", "category": "technical"}, "stride": {"term": "STRIDE", "definition": "A checklist of 6 threat categories used to find security weaknesses: Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege.", "category": "technical"}, "threat-model": {"term": "Threat Model", "definition": "A structured exercise of walking through a system on purpose to find where an attacker could cause harm, before it's built.", "category": "technical"}, "compliance": {"term": "Compliance", "definition": "A set of external rules or standards (like SOC 2, or a privacy law) a product must follow, often requiring proof like an audit trail.", "category": "technical"}, "c4-diagram": {"term": "C4 Diagram", "definition": "A standard way of drawing software architecture at 4 zoom levels: Context, Container, Component, and Code -- TPMs typically only draw the first two.", "category": "technical"}, "context-diagram": {"term": "Context Diagram (C4 Level 1)", "definition": "The most zoomed-out architecture diagram: the system as one box, the people who use it, and the other systems it talks to.", "category": "technical"}, "container-diagram": {"term": "Container Diagram (C4 Level 2)", "definition": "A more zoomed-in architecture diagram showing every independently deployable piece inside the system (web app, API, database, queue) and how they talk to each other.", "category": "technical"}, "trust-boundary": {"term": "Trust Boundary", "definition": "A line on a diagram marking where data moves from something your team fully controls into something owned by someone else -- the exact spot security reviews focus on.", "category": "technical"}, "slo": {"term": "SLO (Service Level Objective)", "definition": "A specific, measurable target for how well a system should perform, e.g. \u201895% of requests finish in under 2 seconds.\u2019", "category": "technical"}, "latency": {"term": "Latency", "definition": "How long it takes a system to respond after a request is made -- usually measured in milliseconds or seconds.", "category": "technical"}, "availability": {"term": "Availability", "definition": "The percentage of time a system is actually up and working, out of all the time it's supposed to be working (e.g. 99.5% availability).", "category": "technical"}, "availability-zone": {"term": "Availability Zone (AZ)", "definition": "An isolated data center within a cloud region; spreading a system across multiple AZs protects against one data center failing.", "category": "technical"}, "error-budget": {"term": "Error Budget", "definition": "The small amount of allowed failure built into an availability target (e.g. 99.5% availability leaves about 3.6 hours/month) -- a practical tool for deciding when to ship features versus focus on reliability.", "category": "technical"}, "rate-limit": {"term": "Rate Limit", "definition": "A rule that caps how many requests a single user or system can make in a given time period, to protect the system from being overwhelmed.", "category": "technical"}, "idempotency": {"term": "Idempotency", "definition": "A safety property where doing the exact same request twice (e.g. a network retry) produces the same result as doing it once, instead of duplicating the action.", "category": "technical"}, "trade-off": {"term": "Trade-Off", "definition": "An explicit choice between two good options where picking one means accepting a specific downside on purpose, instead of pretending there's a perfect option.", "category": "technical"}, "tcd": {"term": "TCD (Technical Considerations Document)", "definition": "The technical follow-up document to the PRD covering architecture, security, diagrams, performance targets, and trade-offs -- the final handoff to engineering.", "category": "technical"}, "tmd": {"term": "TMD (Technical Modeling Document)", "definition": "The document that turns an approved architecture into a literal buildable system: the database design, the cloud infrastructure layout, and the API contract.", "category": "technical"}, "entity-model": {"term": "Entity Model", "definition": "A design of the data itself: what \u2018things\u2019 (entities) the system stores, what fields each one has, and how they relate to each other.", "category": "technical"}, "access-pattern": {"term": "Access Pattern", "definition": "A specific, named way the application will read or write data (e.g. \u2018list all open tickets for a shop, sorted by priority\u2019) -- named before tables are designed.", "category": "technical"}, "normalization": {"term": "Normalization", "definition": "A database design principle of avoiding storing the same piece of data in more than one place, to prevent it from going out of sync.", "category": "technical"}, "database-index": {"term": "Index (database)", "definition": "A special lookup structure added to a database table that makes a specific kind of search much faster, at the cost of extra storage and slightly slower writes.", "category": "technical"}, "primary-key": {"term": "Primary Key", "definition": "A field (or set of fields) that uniquely identifies one row in a database table.", "category": "technical"}, "foreign-key": {"term": "Foreign Key", "definition": "A field in one table that points to the Primary Key of another table, creating a relationship between the two.", "category": "technical"}, "managed-service": {"term": "Managed Service", "definition": "A cloud component (like a database) the cloud provider operates and maintains for you, versus \u2018self-managed\u2019 where your own team patches, scales, and fixes it.", "category": "technical"}, "multi-tenancy": {"term": "Multi-Tenancy", "definition": "An architecture where multiple customers (\u2018tenants\u2019) share the same underlying application and infrastructure, with their data kept logically separated.", "category": "technical"}, "network-boundary": {"term": "Network Boundary", "definition": "The decision of where a system is reachable from -- e.g. open to the public internet versus restricted to a private internal network.", "category": "technical"}, "rest-api": {"term": "REST API", "definition": "A common web API style where each \u2018thing\u2019 in the system (like a Customer or an Order) is a resource with its own URL, acted on with standard HTTP methods.", "category": "technical"}, "soap-api": {"term": "SOAP API", "definition": "An older, more rigid web API style using strict XML messages and formal contracts -- still the right default in some regulated or legacy enterprise environments.", "category": "technical"}, "api-resource": {"term": "Resource (API)", "definition": "A \u2018thing\u2019 exposed by an API that clients can read or change, always represented by a noun (e.g. /tickets), never a verb.", "category": "technical"}, "endpoint": {"term": "Endpoint", "definition": "One specific, callable URL + method combination in an API, e.g. \u2018POST /v1/assignments.\u2019", "category": "technical"}, "http-method": {"term": "HTTP Method", "definition": "The verb part of an API call that says what action to take on a resource: GET (read), POST (create), PATCH (partially update), DELETE (remove).", "category": "technical"}, "status-code": {"term": "Status Code", "definition": "A standardized 3-digit number an API returns to say what happened, e.g. 200 (success), 404 (not found), 429 (too many requests).", "category": "technical"}, "api-versioning": {"term": "API Versioning", "definition": "A strategy (like putting /v1/ in the URL) for changing an API over time without breaking the clients already using the old version.", "category": "technical"}, "rom-cost": {"term": "ROM Cost (Rough Order of Magnitude)", "definition": "An early, deliberately approximate cost estimate (e.g. within 25-50% accuracy) used to sanity-check a decision before an exact number is possible.", "category": "technical"}}</script>
   <script src="script.js"></script>
 </body>
 </html>

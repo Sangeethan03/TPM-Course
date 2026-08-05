@@ -122,7 +122,8 @@ main,
   background: transparent;
   border: 1px solid var(--line);
   color: var(--ink);
-  padding: 9px 16px;
+  padding: 13px 16px;
+  min-height: 44px;
   border-radius: 4px;
   font-family: "Oswald", sans-serif;
   font-size: 0.8rem;
@@ -200,10 +201,14 @@ main,
 .site-menu a {
   text-decoration: none;
   color: var(--ink-soft);
-  padding: 8px 10px;
+  padding: 12px 10px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   border-radius: 4px;
   font-size: 0.85rem;
   transition: background 0.15s ease, color 0.15s ease;
+  box-sizing: border-box;
 }
 
 .site-menu a:hover {
@@ -338,6 +343,13 @@ main {
   margin-bottom: 18px;
 }
 
+/* Alternate a subtly lighter background on every other top-level section so
+   a long stack of visually-identical panels reads as a rhythm rather than a
+   monotone wall (pure CSS, no template changes needed). */
+main#main-content > .panel:nth-of-type(even) {
+  background: var(--card-2);
+}
+
 .intro-panel {
   border-top: 3px solid var(--accent);
 }
@@ -361,23 +373,6 @@ main {
   color: var(--ink);
   padding: 10px 12px;
   border-radius: 4px;
-}
-
-.source-summary {
-  margin-top: 12px;
-  padding: 12px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--card-2);
-}
-
-.source-summary p {
-  margin: 6px 0;
-  color: var(--ink-soft);
-}
-
-.source-summary p strong {
-  color: var(--ink);
 }
 
 .flowchart-figure {
@@ -593,146 +588,6 @@ main {
   45% { transform: scale(1); box-shadow: none; }
 }
 
-.source-kpis {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.source-kpi {
-  background: #101012;
-  border: 1px solid var(--line);
-  border-radius: 5px;
-  padding: 8px;
-  text-align: center;
-  color: var(--ink-soft);
-}
-
-.source-kpi strong {
-  display: block;
-  font-size: 1.3rem;
-  line-height: 1.2;
-  color: var(--ink);
-  font-family: "Oswald", "Space Grotesk", sans-serif;
-}
-
-.syllabus-grid {
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.week-block {
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--card-2);
-  overflow: hidden;
-}
-
-.week-head {
-  background: #101012;
-  border-bottom: 1px solid var(--line);
-  padding: 10px 12px;
-}
-
-.week-head h3 {
-  margin: 0;
-  font-size: 1.02rem;
-}
-
-.week-head p {
-  margin: 5px 0 0;
-  font-size: 0.86rem;
-  text-transform: none;
-  color: var(--ink-soft);
-}
-
-.day-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.day-list li {
-  border-top: 1px solid var(--line);
-  padding: 9px 12px;
-}
-
-.day-list h4 {
-  margin: 0;
-  font-family: "Space Grotesk", "Segoe UI", sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--ink);
-}
-
-.day-meta {
-  margin: 4px 0 0;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-}
-
-.topic-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 6px;
-}
-
-.day-details {
-  margin-top: 8px;
-  border: 1px solid var(--line);
-  border-radius: 5px;
-  padding: 8px 10px;
-  background: #0f0f11;
-}
-
-.day-details summary {
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--accent-2);
-}
-
-.day-details p {
-  margin: 8px 0 0;
-  font-size: 0.87rem;
-  color: var(--ink-soft);
-}
-
-.day-details ul {
-  margin: 6px 0 0;
-  padding-left: 18px;
-  color: var(--ink-soft);
-}
-
-.file-ref-list {
-  max-height: 140px;
-  overflow: auto;
-  border: 1px dashed var(--line);
-  border-radius: 5px;
-  padding: 6px 10px 6px 22px;
-  background: #0b0b0c;
-}
-
-.file-ref-list li {
-  margin-bottom: 4px;
-  font-size: 0.8rem;
-  word-break: break-all;
-  color: var(--ink-soft);
-}
-
-.chip {
-  display: inline-block;
-  font-size: 0.78rem;
-  padding: 4px 9px;
-  border-radius: 999px;
-  background: #101012;
-  border: 1px solid var(--line);
-  color: var(--ink-soft);
-}
-
 .table-wrap {
   margin-top: 12px;
   overflow-x: auto;
@@ -802,6 +657,28 @@ th {
   margin: 0 0 4px;
   font-size: 0.86rem;
   color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a {
+  color: var(--ink-soft);
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus-visible {
+  color: var(--accent-2);
+}
+
+.breadcrumb-sep {
+  color: var(--accent-2);
+  font-size: 0.9rem;
+}
+
+.breadcrumb-current {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 /* ------------------------------------------------------------------ */
@@ -850,6 +727,7 @@ th {
 .course-map-card.week2 { border-left-color: #7a1218; }
 .course-map-card.week3 { border-left-color: #e2001a; }
 .course-map-card.week4 { border-left-color: #f3f3f2; }
+.course-map-card.week5 { border-left-color: #2f6fed; }
 
 .course-map-cta {
   display: inline-block;
@@ -897,15 +775,10 @@ th {
 .day-card.week2 { border-left: 4px solid #7a1218; }
 .day-card.week3 { border-left: 4px solid #e2001a; }
 .day-card.week4 { border-left: 4px solid #f3f3f2; }
-
-.day-card-head {
-  margin-bottom: 8px;
-}
+.day-card.week5 { border-left: 4px solid #2f6fed; }
 
 .day-card-title {
-  margin: 8px 0 0;
-  font-family: "Oswald", "Space Grotesk", sans-serif;
-  font-size: 1.35rem;
+  margin: 0;
 }
 
 .day-block {
@@ -986,6 +859,7 @@ th {
 }
 
 .timeline-stop {
+  all: unset;
   position: relative;
   flex: 1;
   height: 100%;
@@ -994,6 +868,7 @@ th {
   align-items: center;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
   z-index: 1;
 }
 
@@ -1017,6 +892,13 @@ th {
 .timeline-stop:focus-visible .timeline-pin {
   transform: scale(1.15);
   box-shadow: 0 0 0 5px rgba(226, 0, 26, 0.18);
+}
+
+.timeline-stop.active .timeline-pin {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 0 5px rgba(226, 0, 26, 0.24);
 }
 
 .timeline-label {
@@ -1062,12 +944,26 @@ th {
 .tl-week2 .timeline-pin { border-color: #c23b3b; }
 .tl-week3 .timeline-pin { border-color: var(--accent); }
 .tl-week4 .timeline-pin { border-color: #f3f3f2; }
+.tl-week5 .timeline-pin { border-color: #2f6fed; }
 
 .milestone-grid {
   margin-top: 12px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
   gap: 14px;
+}
+
+.milestone-card[hidden] {
+  display: none !important;
+}
+
+.milestone-hint {
+  margin: 4px 0 0;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
 }
 
 .milestone-card {
@@ -1097,7 +993,8 @@ th {
   background: transparent;
   border: 1px solid var(--accent);
   color: var(--ink);
-  padding: 8px 14px;
+  padding: 12px 14px;
+  min-height: 44px;
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -1146,8 +1043,8 @@ dialog.sample-dialog::backdrop {
 
 .dialog-close {
   flex: 0 0 auto;
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: none;
   border: 1px solid var(--line);
@@ -1706,16 +1603,11 @@ dialog.sample-dialog::backdrop {
 }
 
 @media (max-width: 980px) {
-  .syllabus-grid,
   .gif-track,
   .course-map-grid,
   .info-card-grid,
   .milestone-grid,
   .day-card-grid-two {
-    grid-template-columns: 1fr;
-  }
-
-  .source-kpis {
     grid-template-columns: 1fr;
   }
 }
@@ -1739,5 +1631,550 @@ dialog.sample-dialog::backdrop {
 
   .panel {
     padding: 16px;
+  }
+
+  /* Collapse the horizontal pin-and-line timeline into a simple vertical
+     list on narrow screens. At mobile widths the fixed 148px-wide labels
+     collide when 5 stops share the available width, so the timeline drops
+     the absolute positioning/line entirely instead of trying to shrink it. */
+  .milestone-timeline {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    gap: 4px;
+    margin: 20px 0 4px;
+    padding: 0;
+  }
+
+  .timeline-line {
+    display: none;
+  }
+
+  .timeline-stop {
+    flex: none;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 10px 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .timeline-pin {
+    order: -1;
+    flex: 0 0 auto;
+  }
+
+  .timeline-label {
+    position: static;
+    width: auto;
+    max-width: none;
+    transform: none;
+    text-align: left;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Click-to-define glossary terms: inline markup (added by build.py's
+   glossarize()) + the shared popover panel (markup lives once in base.html).
+   --------------------------------------------------------------------------- */
+.gloss-term {
+  display: inline;
+  border-bottom: 1px dashed var(--accent-2);
+  color: inherit;
+  cursor: pointer;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+.gloss-term:hover,
+.gloss-term:focus-visible {
+  background: rgba(226, 0, 26, 0.16);
+}
+
+.gloss-term:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.gloss-term[aria-expanded="true"] {
+  background: rgba(226, 0, 26, 0.24);
+}
+
+.gloss-popover {
+  position: absolute;
+  z-index: 60;
+  width: min(340px, 88vw);
+  background: var(--card);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 16px 16px;
+  box-shadow: var(--shadow);
+}
+
+.gloss-popover[hidden] {
+  display: none;
+}
+
+.gloss-popover-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gloss-popover-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.gloss-popover-badge.badge-core {
+  background: rgba(226, 0, 26, 0.18);
+  color: #ff8a93;
+}
+
+.gloss-popover-badge.badge-technical {
+  background: rgba(47, 111, 237, 0.2);
+  color: #86adfa;
+}
+
+.gloss-popover-close {
+  background: transparent;
+  border: none;
+  color: var(--ink-soft);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -8px -8px 0 0;
+}
+
+.gloss-popover-close:hover,
+.gloss-popover-close:focus-visible {
+  color: var(--ink);
+}
+
+.gloss-popover h4 {
+  margin: 10px 0 4px;
+  font-family: "Oswald", "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+}
+
+.gloss-popover p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #dcdce0;
+}
+
+.gloss-popover-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+.gloss-popover-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------------------
+   Glossary pages (glossary-core.html / glossary-technical.html).
+   --------------------------------------------------------------------------- */
+.glossary-search-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.glossary-search {
+  width: 100%;
+  max-width: 420px;
+  padding: 13px 14px;
+  min-height: 44px;
+  box-sizing: border-box;
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.94rem;
+  margin-bottom: 18px;
+}
+
+.glossary-search:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.glossary-empty {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.glossary-card {
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 5px;
+  padding: 14px 16px;
+}
+
+.glossary-card h3 {
+  margin: 0 0 8px;
+  font-family: "Oswald", "Space Grotesk", sans-serif;
+  font-size: 1.02rem;
+}
+
+.glossary-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #dcdce0;
+}
+
+/* ---------------------------------------------------------------------------
+   Reading-progress bar + Back-to-top button (every page). Pure visual/scroll
+   feedback -- Heuristic #1 Visibility of system status.
+   --------------------------------------------------------------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  z-index: 100;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.1s linear;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--accent);
+  color: var(--ink);
+  padding: 10px 16px;
+  min-height: 44px;
+  border-radius: 999px;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.back-to-top[hidden] {
+  display: none;
+}
+
+.back-to-top:hover {
+  background: rgba(226, 0, 26, 0.16);
+}
+
+/* ---------------------------------------------------------------------------
+   Sticky in-page jump-nav (week + home pages) with scroll-spy active state.
+   Lets a reader skip straight to a day/section instead of scrolling past it.
+   --------------------------------------------------------------------------- */
+.jump-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(10, 10, 11, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.jump-nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.jump-nav-label {
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-right: 4px;
+}
+
+.jump-nav a {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.jump-nav a:hover {
+  color: var(--ink);
+  border-color: var(--accent-2);
+}
+
+.jump-nav a.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------------------
+   Day-card accordion: first day open by default, rest collapsed. The toggle
+   is a real <button> inside the <h3> per the WAI-ARIA accordion pattern.
+   --------------------------------------------------------------------------- */
+.day-toggle {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 4px 2px;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+}
+
+.day-toggle:hover,
+.day-toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.day-toggle:hover .day-title-text,
+.day-toggle:focus-visible .day-title-text {
+  color: var(--accent-2);
+}
+
+.day-toggle-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.day-title-text {
+  font-family: "Oswald", "Space Grotesk", sans-serif;
+  font-size: 1.35rem;
+  transition: color 0.15s ease;
+}
+
+.day-toggle-meta {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.day-read-time {
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.day-toggle-icon {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--accent-2);
+  transition: transform 0.18s ease;
+}
+
+.day-toggle[aria-expanded="true"] .day-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.day-card-body[hidden] {
+  display: none !important;
+}
+
+/* Per-block icons so the eye can scan structure instead of reading a uniform
+   wall of paragraphs (Heuristic #6 Recognition rather than recall). */
+.block-do h4::before { content: "\1F527  "; }
+.block-why h4::before { content: "\1F4A1  "; }
+.block-artifacts h4::before { content: "\1F4C4  "; }
+.block-connects h4::before { content: "\1F517  "; }
+
+/* ---------------------------------------------------------------------------
+   Visual Learning Studio tabs (index.html): swap flowchart <-> GIF walkthrough
+   instead of stacking both, without deleting either.
+   --------------------------------------------------------------------------- */
+.visuals-tablist {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 0;
+  flex-wrap: wrap;
+}
+
+.visuals-tab {
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  padding: 10px 16px;
+  min-height: 44px;
+  border-radius: 999px;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.visuals-tab:hover {
+  border-color: var(--accent-2);
+  color: var(--ink);
+}
+
+.visuals-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.visuals-tab-panel {
+  margin-top: 14px;
+}
+
+.visuals-tab-panel[hidden] {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll-reveal: top-level sections fade/slide up into place as they enter
+   the viewport (initScrollReveal() in script.js). Respects reduced-motion by
+   skipping the animation entirely and showing content in its final state.
+   --------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Print stylesheet: hide interactive-only chrome, force every collapsed
+   accordion/tab open (so a printout has the full content, not just whatever
+   happened to be expanded on screen), and swap the dark theme for
+   dark-text-on-white so the page is actually legible on paper.
+   --------------------------------------------------------------------------- */
+@media print {
+  .scroll-progress,
+  .back-to-top,
+  .jump-nav,
+  .site-menu-wrap,
+  .menu-toggle,
+  #gloss-popover,
+  .visuals-tablist,
+  .milestone-timeline,
+  .milestone-hint,
+  .hero-noise,
+  .day-nav-inline {
+    display: none !important;
+  }
+
+  .day-card-body[hidden],
+  .milestone-card[hidden],
+  .visuals-tab-panel[hidden] {
+    display: block !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .hero {
+    background: none !important;
+  }
+
+  .panel,
+  .day-card,
+  .milestone-card,
+  .course-map-card,
+  .glossary-card {
+    background: #fff !important;
+    color: #111 !important;
+    border-color: #999 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, .day-title-text, .breadcrumb-current {
+    color: #000 !important;
+  }
+
+  p, li, .day-kicker, .day-read-time, .milestone-definition {
+    color: #222 !important;
+  }
+
+  a {
+    color: #7a1218 !important;
+    text-decoration: underline;
+  }
+
+  .gloss-term {
+    background: none !important;
+    text-decoration: underline dotted;
   }
 }

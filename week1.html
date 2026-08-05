@@ -8,10 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-progress-bar"></div></div>
 
   <header class="hero hero-compact">
     <div class="hero-noise" aria-hidden="true"></div>
@@ -29,11 +32,13 @@
             <a href="week1.html" class="active" aria-current="page">Week 1 &middot; Understand The User</a>
             <a href="week2.html">Week 2 &middot; Define The Strategy</a>
             <a href="week3.html">Week 3 &middot; Build The PRD</a>
+            <a href="glossary-core.html">Core TPM Glossary</a>
           </div>
           <div class="menu-col menu-col-technical">
             <h3 class="menu-col-title">Technical Content</h3>
             <a href="week4.html">Week 4 &middot; Decide The Architecture</a>
             <a href="week5.html">Week 5 &middot; Model The Technical Details</a>
+            <a href="glossary-technical.html">Technical Glossary</a>
           </div>
         </div>
       </div>
@@ -49,8 +54,19 @@
     </div>
   </header>
 
+<nav class="jump-nav" aria-label="On this page">
+  <div class="jump-nav-inner">
+    <span class="jump-nav-label">Jump to</span>
+    <a href="#d1">Day 1</a>
+    <a href="#d2">Day 2</a>
+    <a href="#d3">Day 3</a>
+    <a href="#d4">Day 4</a>
+    <a href="#d5">Day 5</a>
+  </div>
+</nav>
+
   <main id="main-content">
-    <p class="breadcrumb"><a href="index.html">Home</a> / Week 1</p>
+    <p class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep" aria-hidden="true">&rsaquo;</span><span class="breadcrumb-current">Week 1</span></p>
 
     <section class="panel" aria-labelledby="days-title">
       <div class="section-head">
@@ -59,159 +75,209 @@
       </div>
 
       <article id="d1" class="day-card week1">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 1 &middot; Day 1</span>
-          <h3 class="day-card-title">AI Fundamentals &amp; Prompting</h3>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="true" aria-controls="day-body-d1">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 1 &middot; Day 1 &middot; Day 1 of 5</span>
+              <span class="day-title-text">AI Fundamentals &amp; Prompting</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
+
+        <div class="day-card-body" id="day-body-d1">
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Learn the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rccf">RCCF</span> prompting pattern (Role, <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="context-prd">Context</span>, Constraints, Format) and the ‘Three Hats’ framing to ask AI more precise questions, then run reliability checks against the answers.</p>
+          </div>
+
+
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>TPMs increasingly draft artifacts with AI assistance, so the course starts here because sloppy prompts produce predictable failure modes: vague <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="scope">scope</span>, hallucinated facts, inconsistent format, unchecked bias. Getting prompting right on Day 1 protects the accuracy of every later artifact -- <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="persona">personas</span>, <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="problem-statement">problem statements</span>, <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRDs</span> -- that will be drafted with AI help.</p>
+          </div>
+
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li>Prompt Pattern Library</li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rccf">RCCF</span> templates</li>            </ul>
+          </div>
+
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>The prompting discipline learned here is reused immediately in Day 2's <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="pr-faq">PR/FAQ</span> drafting, and again in Week 2 Day 4's competitive research, where a 'bright line' rule (facts from real sources only, no hallucination) depends on the same reliability checks.</p>
+          </div>
+
+          <div class="day-nav-inline">
+<a href="#d2">Next Day &darr;</a>          </div>
         </div>
-
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Learn the RCCF prompting pattern (Role, Context, Constraints, Format) and the ‘Three Hats’ framing to ask AI more precise questions, then run reliability checks against the answers.</p>
-        </div>
-
-
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>TPMs increasingly draft artifacts with AI assistance, so the course starts here because sloppy prompts produce predictable failure modes: vague scope, hallucinated facts, inconsistent format, unchecked bias. Getting prompting right on Day 1 protects the accuracy of every later artifact -- personas, problem statements, PRDs -- that will be drafted with AI help.</p>
-        </div>
-
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>Prompt Pattern Library</li><li>RCCF templates</li>          </ul>
-        </div>
-
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>The prompting discipline learned here is reused immediately in Day 2&#39;s PR/FAQ drafting, and again in Week 2 Day 4&#39;s competitive research, where a &#39;bright line&#39; rule (facts from real sources only, no hallucination) depends on the same reliability checks.</p>
-        </div>
-
-        <div class="day-nav-inline">
-<a href="#d2">Next Day &darr;</a>        </div>
       </article>
       <article id="d2" class="day-card week1">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 1 &middot; Day 2</span>
-          <h3 class="day-card-title">Working Backwards</h3>
-        </div>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d2">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 1 &middot; Day 2 &middot; Day 2 of 5</span>
+              <span class="day-title-text">Working Backwards</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
 
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Draft a PR/FAQ (Press Release / FAQ) narrative and the Five Customer Questions before any solution is designed, then run a peer critique protocol on the draft.</p>
-        </div>
+        <div class="day-card-body" id="day-body-d2" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Draft a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="pr-faq">PR/FAQ</span> (Press Release / FAQ) narrative and the Five Customer Questions before any solution is designed, then run a peer critique protocol on the draft.</p>
+          </div>
 
-<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Heading</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Sub-heading</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Summary</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Problem</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Solution</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">Customer Quote</span></div><figcaption>The 6-part PR/FAQ structure &mdash; written before any design or engineering work starts.</figcaption></figure>
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>Working Backwards forces the team to define customer value and success criteria in plain language before committing engineering time. It sits right after prompting because it is the first checkpoint against building features nobody asked for -- writing the &#39;press release&#39; first exposes weak value propositions immediately.</p>
-        </div>
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Heading</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Sub-heading</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Summary</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Problem</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Solution</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">Customer Quote</span></div><figcaption>The 6-part <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="pr-faq">PR/FAQ</span> structure &mdash; written before any design or engineering work starts.</figcaption></figure>
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="working-backwards">Working Backwards</span> forces the team to define customer value and success criteria in plain language before committing engineering time. It sits right after prompting because it is the first checkpoint against building features nobody asked for -- writing the 'press release' first exposes weak value propositions immediately.</p>
+          </div>
 
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>PR/FAQ draft</li><li>Five Customer Questions</li><li>Peer Critique Protocol notes</li>          </ul>
-        </div>
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="pr-faq">PR/FAQ</span> draft</li><li>Five Customer Questions</li><li>Peer Critique Protocol notes</li>            </ul>
+          </div>
 
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>The customer value claims made in the PR/FAQ become the raw hypotheses that Day 3&#39;s persona work and Day 4&#39;s pain-point work must validate with real behavioral evidence.</p>
-        </div>
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>The customer value claims made in the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="pr-faq">PR/FAQ</span> become the raw hypotheses that Day 3's <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="persona">persona</span> work and Day 4's <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="pain-point">pain-point</span> work must validate with real behavioral evidence.</p>
+          </div>
 
-        <div class="day-nav-inline">
-<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>        </div>
+          <div class="day-nav-inline">
+<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>          </div>
+        </div>
       </article>
       <article id="d3" class="day-card week1">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 1 &middot; Day 3</span>
-          <h3 class="day-card-title">Personas &amp; JTBD</h3>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d3">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 1 &middot; Day 3 &middot; Day 3 of 5</span>
+              <span class="day-title-text">Personas &amp; JTBD</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
+
+        <div class="day-card-body" id="day-body-d3" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Build <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="persona">personas</span> from behavioral evidence (what people actually do) instead of demographics, validate them with a Validation Canvas, and frame the underlying Job to Be Done.</p>
+          </div>
+
+
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>A <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="persona">persona</span> built on job titles or age ranges doesn't predict behavior; a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="persona">persona</span> built on 'what job is this person trying to get done, in what circumstance' does. This keeps every later prioritization decision traceable to a real, validated user -- not an assumed one.</p>
+          </div>
+
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="persona">Persona</span> Validation Canvas</li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="jtbd">JTBD</span> statements</li>            </ul>
+          </div>
+
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>The validated <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="persona">persona</span> and <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="jtbd">JTBD</span> statement become the 'who' and 'why' that Day 4's <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="pain-point">pain-point</span> framing digs into, and later the 'who' cited in every <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="problem-statement">problem statement</span> in Week 3.</p>
+          </div>
+
+          <div class="day-nav-inline">
+<a href="#d2">&uarr; Prev Day</a><a href="#d4">Next Day &darr;</a>          </div>
         </div>
-
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Build personas from behavioral evidence (what people actually do) instead of demographics, validate them with a Validation Canvas, and frame the underlying Job to Be Done.</p>
-        </div>
-
-
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>A persona built on job titles or age ranges doesn&#39;t predict behavior; a persona built on &#39;what job is this person trying to get done, in what circumstance&#39; does. This keeps every later prioritization decision traceable to a real, validated user -- not an assumed one.</p>
-        </div>
-
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>Persona Validation Canvas</li><li>JTBD statements</li>          </ul>
-        </div>
-
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>The validated persona and JTBD statement become the &#39;who&#39; and &#39;why&#39; that Day 4&#39;s pain-point framing digs into, and later the &#39;who&#39; cited in every PRD problem statement in Week 3.</p>
-        </div>
-
-        <div class="day-nav-inline">
-<a href="#d2">&uarr; Prev Day</a><a href="#d4">Next Day &darr;</a>        </div>
       </article>
       <article id="d4" class="day-card week1">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 1 &middot; Day 4</span>
-          <h3 class="day-card-title">Pain-Point Framing</h3>
-        </div>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d4">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 1 &middot; Day 4 &middot; Day 4 of 5</span>
+              <span class="day-title-text">Pain-Point Framing</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
 
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Extract pain points from observed behavior (not just stated complaints), use 5 Whys to reach root-cause pain, group raw pains into themes via affinity mapping, and score each pain on Severity × Frequency × Addressability.</p>
-        </div>
+        <div class="day-card-body" id="day-body-d4" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Extract <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="pain-point">pain points</span> from observed behavior (not just stated complaints), use <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="five-whys">5 Whys</span> to reach root-cause pain, group raw pains into themes via affinity mapping, and score each pain on Severity × Frequency × Addressability.</p>
+          </div>
 
-<figure class="mini-diagram"><div class="whys-chain"><div class="wc-box">Symptom: users abandon the task partway through</div><span class="wc-arrow">&darr; Why?</span><div class="wc-box">The next step was never made clear</div><span class="wc-arrow">&darr; Why?</span><div class="wc-box">The system gave no feedback after the action</div><span class="wc-arrow">&darr; Why?</span><div class="wc-box">No pattern confirms state changes back to the user</div><span class="wc-arrow">&darr; Why?</span><div class="wc-box wc-root">Root cause: missing status feedback breaks trust in the action</div></div><div class="factor-row"><span class="factor-chip">Severity</span><span class="factor-op">&times;</span><span class="factor-chip">Frequency</span><span class="factor-op">&times;</span><span class="factor-chip">Addressability</span></div><figcaption>5 Whys drives a symptom down to its root cause; the scoring formula decides what is actually worth solving.</figcaption></figure>
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>The course&#39;s own Day 4 objectives are explicit: separate root-cause pain from symptoms, and distinguish pains you must fix from pains you must live with. Without this scoring step, teams chase the loudest complaint instead of the pain that actually threatens the business -- this is the mechanical filter that decides what&#39;s worth solving.</p>
-        </div>
+<figure class="mini-diagram"><div class="whys-chain"><div class="wc-box">Symptom: users abandon the task partway through</div><span class="wc-arrow">&darr; Why?</span><div class="wc-box">The next step was never made clear</div><span class="wc-arrow">&darr; Why?</span><div class="wc-box">The system gave no feedback after the action</div><span class="wc-arrow">&darr; Why?</span><div class="wc-box">No pattern confirms state changes back to the user</div><span class="wc-arrow">&darr; Why?</span><div class="wc-box wc-root">Root cause: missing status feedback breaks trust in the action</div></div><div class="factor-row"><span class="factor-chip">Severity</span><span class="factor-op">&times;</span><span class="factor-chip">Frequency</span><span class="factor-op">&times;</span><span class="factor-chip">Addressability</span></div><figcaption><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="five-whys">5 Whys</span> drives a symptom down to its root cause; the scoring formula decides what is actually worth solving.</figcaption></figure>
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>The course's own Day 4 objectives are explicit: separate root-cause pain from symptoms, and distinguish pains you must fix from pains you must live with. Without this scoring step, teams chase the loudest complaint instead of the pain that actually threatens the business -- this is the mechanical filter that decides what's worth solving.</p>
+          </div>
 
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>5 Whys worksheets</li><li>Pain theme affinity map</li><li>Severity x Frequency x Addressability scoring sheet</li>          </ul>
-        </div>
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="five-whys">5 Whys</span> worksheets</li><li>Pain theme affinity map</li><li>Severity x Frequency x Addressability scoring sheet</li>            </ul>
+          </div>
 
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>The highest Severity × Frequency × Addressability pains become the evidence base for Day 5&#39;s six-line problem statement, and the same pains resurface in Week 2 Day 3&#39;s heuristic audit as concrete UX failures.</p>
-        </div>
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>The highest Severity × Frequency × Addressability pains become the evidence base for Day 5's six-line <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="problem-statement">problem statement</span>, and the same pains resurface in Week 2 Day 3's <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="heuristic">heuristic</span> audit as concrete UX failures.</p>
+          </div>
 
-        <div class="day-nav-inline">
-<a href="#d3">&uarr; Prev Day</a><a href="#d5">Next Day &darr;</a>        </div>
+          <div class="day-nav-inline">
+<a href="#d3">&uarr; Prev Day</a><a href="#d5">Next Day &darr;</a>          </div>
+        </div>
       </article>
       <article id="d5" class="day-card week1">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 1 &middot; Day 5</span>
-          <h3 class="day-card-title">Problem Framing + Evidence</h3>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d5">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 1 &middot; Day 5 &middot; Day 5 of 5</span>
+              <span class="day-title-text">Problem Framing + Evidence</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
+
+        <div class="day-card-body" id="day-body-d5" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Compress validated pain into a six-line <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="problem-statement">Problem Statement</span> template and back it with an <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="evidence-brief">Evidence Brief</span> that states data confidence and business impact, then present it in a readout.</p>
+          </div>
+
+
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>A <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="problem-statement">problem statement</span> without evidence is an opinion. This day forces a hard stop before Week 2: no team moves into metrics work until the problem is written down in one crisp paragraph with a confidence rating attached, so leadership can challenge it before resources are committed.</p>
+          </div>
+
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li>Six-line <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="problem-statement">Problem Statement</span></li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="evidence-brief">Evidence Brief</span></li><li>Readout deck</li>            </ul>
+          </div>
+
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>This six-line <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="problem-statement">problem statement</span> is the exact document Week 2 Day 1 opens with when building the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="metrics-pyramid">Metrics Pyramid</span> -- the metric must prove this specific problem is shrinking.</p>
+          </div>
+
+          <div class="day-nav-inline">
+<a href="#d4">&uarr; Prev Day</a>          </div>
         </div>
-
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Compress validated pain into a six-line Problem Statement template and back it with an Evidence Brief that states data confidence and business impact, then present it in a readout.</p>
-        </div>
-
-
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>A problem statement without evidence is an opinion. This day forces a hard stop before Week 2: no team moves into metrics work until the problem is written down in one crisp paragraph with a confidence rating attached, so leadership can challenge it before resources are committed.</p>
-        </div>
-
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>Six-line Problem Statement</li><li>Evidence Brief</li><li>Readout deck</li>          </ul>
-        </div>
-
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>This six-line problem statement is the exact document Week 2 Day 1 opens with when building the Metrics Pyramid -- the metric must prove this specific problem is shrinking.</p>
-        </div>
-
-        <div class="day-nav-inline">
-<a href="#d4">&uarr; Prev Day</a>        </div>
       </article>
     </section>
 
@@ -227,6 +293,19 @@
     <p>Built for TPM Bootcamp continuity. Generated from templates/build.py &mdash; edit the templates or COURSE_LIFECYCLE data, not the HTML output directly.</p>
   </footer>
 
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>&uarr; Top</button>
+
+  <div id="gloss-popover" class="gloss-popover" role="dialog" aria-labelledby="gloss-popover-term" hidden>
+    <div class="gloss-popover-head">
+      <span class="gloss-popover-badge" id="gloss-popover-badge"></span>
+      <button type="button" class="gloss-popover-close" id="gloss-popover-close" aria-label="Close definition">&times;</button>
+    </div>
+    <h4 id="gloss-popover-term"></h4>
+    <p id="gloss-popover-def"></p>
+    <a id="gloss-popover-link" class="gloss-popover-link" href="#">View in full glossary &rarr;</a>
+  </div>
+
+  <script id="glossary-data" type="application/json">{"rccf": {"term": "RCCF", "definition": "A checklist for asking an AI a genuinely useful question: Role (who should it act as), Context (the situation), Constraints (what the answer must respect), Format (how the answer should look).", "category": "core"}, "working-backwards": {"term": "Working Backwards", "definition": "A planning method where you write the finished product's press release and FAQ before you build anything, so you're forced to prove real customer value first.", "category": "core"}, "pr-faq": {"term": "PR/FAQ", "definition": "A one-page press release plus a list of Frequently Asked Questions for a product that doesn't exist yet -- the actual document the Working Backwards method produces.", "category": "core"}, "persona": {"term": "Persona", "definition": "A description of a real type of user, built from actual behavior and evidence (not a guess), used to keep decisions grounded in a real person's needs.", "category": "core"}, "jtbd": {"term": "JTBD (Jobs To Be Done)", "definition": "A way of describing what a customer is really trying to accomplish (e.g. \u2018reassign a job in under 30 seconds\u2019), instead of a demographic label.", "category": "core"}, "pain-point": {"term": "Pain Point", "definition": "A specific moment where a real user gets stuck, frustrated, or blocked while doing their job -- written as a verb + circumstance + consequence, not a vague complaint.", "category": "core"}, "five-whys": {"term": "5 Whys", "definition": "A technique of asking \u2018why\u2019 five times in a row on a problem to dig past the surface symptom and find its true root cause.", "category": "core"}, "problem-statement": {"term": "Problem Statement", "definition": "A short, evidence-backed paragraph naming who has the problem, what it is, and how we know it's real -- the starting line for any new feature.", "category": "core"}, "evidence-brief": {"term": "Evidence Brief", "definition": "A short document that backs up a problem statement with real data points (numbers, quotes, examples) instead of opinions.", "category": "core"}, "north-star-metric": {"term": "North Star Metric", "definition": "The single number a whole team rallies around, chosen because moving it up means customers are truly better off -- not just a number that looks good in a report.", "category": "core"}, "kpi": {"term": "KPI (Key Performance Indicator)", "definition": "A specific, trackable number used to check whether a team is on track toward a bigger goal.", "category": "core"}, "metrics-pyramid": {"term": "Metrics Pyramid", "definition": "A way of organizing measurements into three layers: the North Star at the top, KPIs in the middle, and small day-to-day operational signals at the bottom.", "category": "core"}, "vanity-metric": {"term": "Vanity Metric", "definition": "A number that goes up and looks impressive but doesn't actually prove customers are better off (e.g. total signups, when most people never come back).", "category": "core"}, "counter-metric": {"term": "Counter-Metric", "definition": "A second number tracked alongside the North Star specifically to catch it being \u2018gamed\u2019 -- e.g. if speed goes up but accuracy secretly drops, this catches it.", "category": "core"}, "heuristic": {"term": "Heuristic", "definition": "One of 10 well-known rules of thumb for judging whether software is easy or hard to use (e.g. \u2018the system should always keep users informed\u2019).", "category": "core"}, "accessibility": {"term": "Accessibility (a11y)", "definition": "Designing a product so people with different abilities (vision, hearing, motor, cognitive) can still use it fully -- not an optional extra feature.", "category": "core"}, "design-principle": {"term": "Design Principle", "definition": "A short, memorable rule a team commits to that guides every future design decision (e.g. \u2018build guardrails, not cleanup workflows\u2019).", "category": "core"}, "journey-map": {"term": "Customer Journey Map", "definition": "A visual timeline of every stage a customer goes through while using a product, showing where they feel confident, confused, or frustrated at each step.", "category": "core"}, "friction-point": {"term": "Friction Point", "definition": "A specific spot in a customer journey where something slows the customer down or causes them to hesitate, doubt, or give up.", "category": "core"}, "prd": {"term": "PRD (Product Requirements Document)", "definition": "The official written plan for a feature: what problem it solves, what it must do, how you'll know it works, and what could go wrong -- the handoff to engineering.", "category": "core"}, "acceptance-criteria": {"term": "Acceptance Criteria (AC)", "definition": "A specific, testable checklist condition that must be true for a feature to be \u2018done\u2019 -- clear enough that anyone could check pass/fail without guessing.", "category": "core"}, "nfr": {"term": "NFR (Non-Functional Requirement)", "definition": "A requirement about how well something must work (how fast, how secure, how reliable) rather than what it does -- e.g. a page must load in under 2 seconds.", "category": "core"}, "dependency": {"term": "Dependency", "definition": "Something a feature needs from another team, system, or decision before it can ship -- each one should have a named owner and a due date.", "category": "core"}, "risk": {"term": "Risk (in a PRD)", "definition": "A specific thing that could go wrong with a feature, written down on purpose along with a plan for what to do if it happens.", "category": "core"}, "solution-sketch": {"term": "Solution Sketch", "definition": "A short, plain-language walkthrough of how a feature will work step-by-step from the user's point of view -- the visible flow, not low-level code.", "category": "core"}, "context-prd": {"term": "Context (PRD section)", "definition": "The background section of a document that explains the business situation and the problem being solved, so a reader with no prior history can understand why it matters.", "category": "core"}, "goals-non-goals": {"term": "Goals & Non-Goals", "definition": "An explicit list of what a feature IS trying to do (goals) and, just as importantly, what it deliberately is NOT trying to do -- this stops scope from silently growing.", "category": "core"}, "scope": {"term": "Scope", "definition": "The exact boundary of what is and isn't included in a piece of work.", "category": "core"}, "stakeholder": {"term": "Stakeholder", "definition": "Any person or team who has a real interest in a decision and whose input or sign-off is needed before moving forward.", "category": "core"}, "sign-off": {"term": "Sign-Off", "definition": "A stakeholder's explicit, named approval on a specific decision or document -- not just a passive 'no objection.'", "category": "core"}, "capstone": {"term": "Capstone", "definition": "The final, cumulative project at the end of the Boot Camp where every skill learned across all 8 weeks gets applied together on one real feature.", "category": "core"}, "monolith": {"term": "Monolith", "definition": "One single, large application where all the features live together in one shared codebase and get deployed together as one unit.", "category": "technical"}, "microservices": {"term": "Microservices", "definition": "An architecture style where a product is split into many small, independent services (e.g. a separate Billing Service and Notification Service) that can each be built and deployed on their own.", "category": "technical"}, "integration-map": {"term": "Integration Map", "definition": "A diagram showing every system a feature talks to and the exact \u2018contract\u2019 (data format and rules) each connection uses.", "category": "technical"}, "stride": {"term": "STRIDE", "definition": "A checklist of 6 threat categories used to find security weaknesses: Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege.", "category": "technical"}, "threat-model": {"term": "Threat Model", "definition": "A structured exercise of walking through a system on purpose to find where an attacker could cause harm, before it's built.", "category": "technical"}, "compliance": {"term": "Compliance", "definition": "A set of external rules or standards (like SOC 2, or a privacy law) a product must follow, often requiring proof like an audit trail.", "category": "technical"}, "c4-diagram": {"term": "C4 Diagram", "definition": "A standard way of drawing software architecture at 4 zoom levels: Context, Container, Component, and Code -- TPMs typically only draw the first two.", "category": "technical"}, "context-diagram": {"term": "Context Diagram (C4 Level 1)", "definition": "The most zoomed-out architecture diagram: the system as one box, the people who use it, and the other systems it talks to.", "category": "technical"}, "container-diagram": {"term": "Container Diagram (C4 Level 2)", "definition": "A more zoomed-in architecture diagram showing every independently deployable piece inside the system (web app, API, database, queue) and how they talk to each other.", "category": "technical"}, "trust-boundary": {"term": "Trust Boundary", "definition": "A line on a diagram marking where data moves from something your team fully controls into something owned by someone else -- the exact spot security reviews focus on.", "category": "technical"}, "slo": {"term": "SLO (Service Level Objective)", "definition": "A specific, measurable target for how well a system should perform, e.g. \u201895% of requests finish in under 2 seconds.\u2019", "category": "technical"}, "latency": {"term": "Latency", "definition": "How long it takes a system to respond after a request is made -- usually measured in milliseconds or seconds.", "category": "technical"}, "availability": {"term": "Availability", "definition": "The percentage of time a system is actually up and working, out of all the time it's supposed to be working (e.g. 99.5% availability).", "category": "technical"}, "availability-zone": {"term": "Availability Zone (AZ)", "definition": "An isolated data center within a cloud region; spreading a system across multiple AZs protects against one data center failing.", "category": "technical"}, "error-budget": {"term": "Error Budget", "definition": "The small amount of allowed failure built into an availability target (e.g. 99.5% availability leaves about 3.6 hours/month) -- a practical tool for deciding when to ship features versus focus on reliability.", "category": "technical"}, "rate-limit": {"term": "Rate Limit", "definition": "A rule that caps how many requests a single user or system can make in a given time period, to protect the system from being overwhelmed.", "category": "technical"}, "idempotency": {"term": "Idempotency", "definition": "A safety property where doing the exact same request twice (e.g. a network retry) produces the same result as doing it once, instead of duplicating the action.", "category": "technical"}, "trade-off": {"term": "Trade-Off", "definition": "An explicit choice between two good options where picking one means accepting a specific downside on purpose, instead of pretending there's a perfect option.", "category": "technical"}, "tcd": {"term": "TCD (Technical Considerations Document)", "definition": "The technical follow-up document to the PRD covering architecture, security, diagrams, performance targets, and trade-offs -- the final handoff to engineering.", "category": "technical"}, "tmd": {"term": "TMD (Technical Modeling Document)", "definition": "The document that turns an approved architecture into a literal buildable system: the database design, the cloud infrastructure layout, and the API contract.", "category": "technical"}, "entity-model": {"term": "Entity Model", "definition": "A design of the data itself: what \u2018things\u2019 (entities) the system stores, what fields each one has, and how they relate to each other.", "category": "technical"}, "access-pattern": {"term": "Access Pattern", "definition": "A specific, named way the application will read or write data (e.g. \u2018list all open tickets for a shop, sorted by priority\u2019) -- named before tables are designed.", "category": "technical"}, "normalization": {"term": "Normalization", "definition": "A database design principle of avoiding storing the same piece of data in more than one place, to prevent it from going out of sync.", "category": "technical"}, "database-index": {"term": "Index (database)", "definition": "A special lookup structure added to a database table that makes a specific kind of search much faster, at the cost of extra storage and slightly slower writes.", "category": "technical"}, "primary-key": {"term": "Primary Key", "definition": "A field (or set of fields) that uniquely identifies one row in a database table.", "category": "technical"}, "foreign-key": {"term": "Foreign Key", "definition": "A field in one table that points to the Primary Key of another table, creating a relationship between the two.", "category": "technical"}, "managed-service": {"term": "Managed Service", "definition": "A cloud component (like a database) the cloud provider operates and maintains for you, versus \u2018self-managed\u2019 where your own team patches, scales, and fixes it.", "category": "technical"}, "multi-tenancy": {"term": "Multi-Tenancy", "definition": "An architecture where multiple customers (\u2018tenants\u2019) share the same underlying application and infrastructure, with their data kept logically separated.", "category": "technical"}, "network-boundary": {"term": "Network Boundary", "definition": "The decision of where a system is reachable from -- e.g. open to the public internet versus restricted to a private internal network.", "category": "technical"}, "rest-api": {"term": "REST API", "definition": "A common web API style where each \u2018thing\u2019 in the system (like a Customer or an Order) is a resource with its own URL, acted on with standard HTTP methods.", "category": "technical"}, "soap-api": {"term": "SOAP API", "definition": "An older, more rigid web API style using strict XML messages and formal contracts -- still the right default in some regulated or legacy enterprise environments.", "category": "technical"}, "api-resource": {"term": "Resource (API)", "definition": "A \u2018thing\u2019 exposed by an API that clients can read or change, always represented by a noun (e.g. /tickets), never a verb.", "category": "technical"}, "endpoint": {"term": "Endpoint", "definition": "One specific, callable URL + method combination in an API, e.g. \u2018POST /v1/assignments.\u2019", "category": "technical"}, "http-method": {"term": "HTTP Method", "definition": "The verb part of an API call that says what action to take on a resource: GET (read), POST (create), PATCH (partially update), DELETE (remove).", "category": "technical"}, "status-code": {"term": "Status Code", "definition": "A standardized 3-digit number an API returns to say what happened, e.g. 200 (success), 404 (not found), 429 (too many requests).", "category": "technical"}, "api-versioning": {"term": "API Versioning", "definition": "A strategy (like putting /v1/ in the URL) for changing an API over time without breaking the clients already using the old version.", "category": "technical"}, "rom-cost": {"term": "ROM Cost (Rough Order of Magnitude)", "definition": "An early, deliberately approximate cost estimate (e.g. within 25-50% accuracy) used to sanity-check a decision before an exact number is possible.", "category": "technical"}}</script>
   <script src="script.js"></script>
 </body>
 </html>

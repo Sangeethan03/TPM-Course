@@ -9,12 +9,291 @@ them directly, edit this file or the templates instead, then re-run:
     python build.py
 """
 import json
+import re
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 ROOT = Path(__file__).parent
 TEMPLATES_DIR = ROOT / "templates"
+
+# ---------------------------------------------------------------------------
+# GLOSSARY: every piece of jargon used across the site, in plain English, so
+# a reader who never attended the Boot Camp can still follow along. Split into
+# two audiences: "core" (product/TPM process vocabulary) and "technical"
+# (architecture/engineering vocabulary). `match` lists the literal text
+# variant(s) that glossarize() looks for in day/milestone copy -- the longest
+# variant wins first so e.g. "Context Diagram" is claimed before bare
+# "Context".
+# ---------------------------------------------------------------------------
+GLOSSARY = [
+    # --- Core TPM Glossary ---------------------------------------------------
+    {"id": "rccf", "term": "RCCF", "category": "core",
+     "definition": "A checklist for asking an AI a genuinely useful question: Role (who should it "
+                   "act as), Context (the situation), Constraints (what the answer must respect), "
+                   "Format (how the answer should look)."},
+    {"id": "working-backwards", "term": "Working Backwards", "category": "core",
+     "definition": "A planning method where you write the finished product's press release and FAQ "
+                   "before you build anything, so you're forced to prove real customer value first."},
+    {"id": "pr-faq", "term": "PR/FAQ", "category": "core",
+     "definition": "A one-page press release plus a list of Frequently Asked Questions for a product "
+                   "that doesn't exist yet -- the actual document the Working Backwards method produces."},
+    {"id": "persona", "term": "Persona", "category": "core",
+     "definition": "A description of a real type of user, built from actual behavior and evidence "
+                   "(not a guess), used to keep decisions grounded in a real person's needs."},
+    {"id": "jtbd", "term": "JTBD (Jobs To Be Done)", "category": "core", "match": ["JTBD"],
+     "definition": "A way of describing what a customer is really trying to accomplish (e.g. "
+                   "\u2018reassign a job in under 30 seconds\u2019), instead of a demographic label."},
+    {"id": "pain-point", "term": "Pain Point", "category": "core", "match": ["Pain Point", "Pain-Point"],
+     "definition": "A specific moment where a real user gets stuck, frustrated, or blocked while doing "
+                   "their job -- written as a verb + circumstance + consequence, not a vague complaint."},
+    {"id": "five-whys", "term": "5 Whys", "category": "core",
+     "definition": "A technique of asking \u2018why\u2019 five times in a row on a problem to dig past the "
+                   "surface symptom and find its true root cause."},
+    {"id": "problem-statement", "term": "Problem Statement", "category": "core",
+     "definition": "A short, evidence-backed paragraph naming who has the problem, what it is, and how "
+                   "we know it's real -- the starting line for any new feature."},
+    {"id": "evidence-brief", "term": "Evidence Brief", "category": "core",
+     "definition": "A short document that backs up a problem statement with real data points (numbers, "
+                   "quotes, examples) instead of opinions."},
+    {"id": "north-star-metric", "term": "North Star Metric", "category": "core",
+     "match": ["North Star Metric", "North Star"],
+     "definition": "The single number a whole team rallies around, chosen because moving it up means "
+                   "customers are truly better off -- not just a number that looks good in a report."},
+    {"id": "kpi", "term": "KPI (Key Performance Indicator)", "category": "core", "match": ["KPI"],
+     "definition": "A specific, trackable number used to check whether a team is on track toward a "
+                   "bigger goal."},
+    {"id": "metrics-pyramid", "term": "Metrics Pyramid", "category": "core",
+     "definition": "A way of organizing measurements into three layers: the North Star at the top, "
+                   "KPIs in the middle, and small day-to-day operational signals at the bottom."},
+    {"id": "vanity-metric", "term": "Vanity Metric", "category": "core",
+     "definition": "A number that goes up and looks impressive but doesn't actually prove customers "
+                   "are better off (e.g. total signups, when most people never come back)."},
+    {"id": "counter-metric", "term": "Counter-Metric", "category": "core", "match": ["Counter-Metric", "Counter Metric"],
+     "definition": "A second number tracked alongside the North Star specifically to catch it being "
+                   "\u2018gamed\u2019 -- e.g. if speed goes up but accuracy secretly drops, this catches it."},
+    {"id": "heuristic", "term": "Heuristic", "category": "core", "match": ["Heuristics", "Heuristic"],
+     "definition": "One of 10 well-known rules of thumb for judging whether software is easy or hard "
+                   "to use (e.g. \u2018the system should always keep users informed\u2019)."},
+    {"id": "accessibility", "term": "Accessibility (a11y)", "category": "core", "match": ["Accessibility"],
+     "definition": "Designing a product so people with different abilities (vision, hearing, motor, "
+                   "cognitive) can still use it fully -- not an optional extra feature."},
+    {"id": "design-principle", "term": "Design Principle", "category": "core",
+     "match": ["Design Principles", "Design Principle"],
+     "definition": "A short, memorable rule a team commits to that guides every future design decision "
+                   "(e.g. \u2018build guardrails, not cleanup workflows\u2019)."},
+    {"id": "journey-map", "term": "Customer Journey Map", "category": "core",
+     "match": ["Customer Journey Map", "Journey Map", "Customer Journeys", "Customer Journey"],
+     "definition": "A visual timeline of every stage a customer goes through while using a product, "
+                   "showing where they feel confident, confused, or frustrated at each step."},
+    {"id": "friction-point", "term": "Friction Point", "category": "core",
+     "match": ["Friction Point", "Friction Hotspot", "Frictions"],
+     "definition": "A specific spot in a customer journey where something slows the customer down or "
+                   "causes them to hesitate, doubt, or give up."},
+    {"id": "prd", "term": "PRD (Product Requirements Document)", "category": "core", "match": ["PRD"],
+     "definition": "The official written plan for a feature: what problem it solves, what it must do, "
+                   "how you'll know it works, and what could go wrong -- the handoff to engineering."},
+    {"id": "acceptance-criteria", "term": "Acceptance Criteria (AC)", "category": "core",
+     "match": ["Acceptance Criteria"],
+     "definition": "A specific, testable checklist condition that must be true for a feature to be "
+                   "\u2018done\u2019 -- clear enough that anyone could check pass/fail without guessing."},
+    {"id": "nfr", "term": "NFR (Non-Functional Requirement)", "category": "core", "match": ["NFRs", "NFR"],
+     "definition": "A requirement about how well something must work (how fast, how secure, how "
+                   "reliable) rather than what it does -- e.g. a page must load in under 2 seconds."},
+    {"id": "dependency", "term": "Dependency", "category": "core", "match": ["Dependencies", "Dependency"],
+     "definition": "Something a feature needs from another team, system, or decision before it can "
+                   "ship -- each one should have a named owner and a due date."},
+    {"id": "risk", "term": "Risk (in a PRD)", "category": "core", "match": ["Risks and Open Questions", "Risks & Open Questions"],
+     "definition": "A specific thing that could go wrong with a feature, written down on purpose along "
+                   "with a plan for what to do if it happens."},
+    {"id": "solution-sketch", "term": "Solution Sketch", "category": "core",
+     "definition": "A short, plain-language walkthrough of how a feature will work step-by-step from "
+                   "the user's point of view -- the visible flow, not low-level code."},
+    {"id": "context-prd", "term": "Context (PRD section)", "category": "core", "match": ["Context"],
+     "definition": "The background section of a document that explains the business situation and the "
+                   "problem being solved, so a reader with no prior history can understand why it matters."},
+    {"id": "goals-non-goals", "term": "Goals & Non-Goals", "category": "core",
+     "match": ["Goals & Non-Goals", "Goals and Non-Goals", "Non-Goals"],
+     "definition": "An explicit list of what a feature IS trying to do (goals) and, just as "
+                   "importantly, what it deliberately is NOT trying to do -- this stops scope from "
+                   "silently growing."},
+    {"id": "scope", "term": "Scope", "category": "core",
+     "definition": "The exact boundary of what is and isn't included in a piece of work."},
+    {"id": "stakeholder", "term": "Stakeholder", "category": "core", "match": ["Stakeholders", "Stakeholder"],
+     "definition": "Any person or team who has a real interest in a decision and whose input or "
+                   "sign-off is needed before moving forward."},
+    {"id": "sign-off", "term": "Sign-Off", "category": "core", "match": ["Sign-Off", "Sign-off"],
+     "definition": "A stakeholder's explicit, named approval on a specific decision or document -- not "
+                   "just a passive 'no objection.'"},
+    {"id": "capstone", "term": "Capstone", "category": "core",
+     "definition": "The final, cumulative project at the end of the Boot Camp where every skill "
+                   "learned across all 8 weeks gets applied together on one real feature."},
+    # --- Technical Glossary ---------------------------------------------------
+    {"id": "monolith", "term": "Monolith", "category": "technical",
+     "definition": "One single, large application where all the features live together in one shared "
+                   "codebase and get deployed together as one unit."},
+    {"id": "microservices", "term": "Microservices", "category": "technical", "match": ["Microservices", "Microservice"],
+     "definition": "An architecture style where a product is split into many small, independent "
+                   "services (e.g. a separate Billing Service and Notification Service) that can each "
+                   "be built and deployed on their own."},
+    {"id": "integration-map", "term": "Integration Map", "category": "technical",
+     "definition": "A diagram showing every system a feature talks to and the exact \u2018contract\u2019 "
+                   "(data format and rules) each connection uses."},
+    {"id": "stride", "term": "STRIDE", "category": "technical",
+     "definition": "A checklist of 6 threat categories used to find security weaknesses: Spoofing, "
+                   "Tampering, Repudiation, Information disclosure, Denial of service, Elevation of "
+                   "privilege."},
+    {"id": "threat-model", "term": "Threat Model", "category": "technical",
+     "definition": "A structured exercise of walking through a system on purpose to find where an "
+                   "attacker could cause harm, before it's built."},
+    {"id": "compliance", "term": "Compliance", "category": "technical", "match": ["Compliance"],
+     "definition": "A set of external rules or standards (like SOC 2, or a privacy law) a product must "
+                   "follow, often requiring proof like an audit trail."},
+    {"id": "c4-diagram", "term": "C4 Diagram", "category": "technical", "match": ["C4-style diagrams", "C4"],
+     "definition": "A standard way of drawing software architecture at 4 zoom levels: Context, "
+                   "Container, Component, and Code -- TPMs typically only draw the first two."},
+    {"id": "context-diagram", "term": "Context Diagram (C4 Level 1)", "category": "technical",
+     "match": ["Context diagram", "Context Diagram", "Context + Container"],
+     "definition": "The most zoomed-out architecture diagram: the system as one box, the people who "
+                   "use it, and the other systems it talks to."},
+    {"id": "container-diagram", "term": "Container Diagram (C4 Level 2)", "category": "technical",
+     "match": ["Container diagram", "Container Diagram", "Containers"],
+     "definition": "A more zoomed-in architecture diagram showing every independently deployable piece "
+                   "inside the system (web app, API, database, queue) and how they talk to each other."},
+    {"id": "trust-boundary", "term": "Trust Boundary", "category": "technical",
+     "definition": "A line on a diagram marking where data moves from something your team fully "
+                   "controls into something owned by someone else -- the exact spot security reviews "
+                   "focus on."},
+    {"id": "slo", "term": "SLO (Service Level Objective)", "category": "technical", "match": ["SLOs", "SLO"],
+     "definition": "A specific, measurable target for how well a system should perform, e.g. \u201895% "
+                   "of requests finish in under 2 seconds.\u2019"},
+    {"id": "latency", "term": "Latency", "category": "technical",
+     "definition": "How long it takes a system to respond after a request is made -- usually measured "
+                   "in milliseconds or seconds."},
+    {"id": "availability", "term": "Availability", "category": "technical",
+     "definition": "The percentage of time a system is actually up and working, out of all the time "
+                   "it's supposed to be working (e.g. 99.5% availability)."},
+    {"id": "availability-zone", "term": "Availability Zone (AZ)", "category": "technical",
+     "match": ["Availability Zone", "multi-AZ"],
+     "definition": "An isolated data center within a cloud region; spreading a system across multiple "
+                   "AZs protects against one data center failing."},
+    {"id": "error-budget", "term": "Error Budget", "category": "technical",
+     "definition": "The small amount of allowed failure built into an availability target (e.g. 99.5% "
+                   "availability leaves about 3.6 hours/month) -- a practical tool for deciding when to "
+                   "ship features versus focus on reliability."},
+    {"id": "rate-limit", "term": "Rate Limit", "category": "technical",
+     "match": ["Rate-Limit", "Rate Limit", "rate-limiting"],
+     "definition": "A rule that caps how many requests a single user or system can make in a given "
+                   "time period, to protect the system from being overwhelmed."},
+    {"id": "idempotency", "term": "Idempotency", "category": "technical", "match": ["Idempotency", "Idempotent"],
+     "definition": "A safety property where doing the exact same request twice (e.g. a network retry) "
+                   "produces the same result as doing it once, instead of duplicating the action."},
+    {"id": "trade-off", "term": "Trade-Off", "category": "technical", "match": ["Trade-Offs", "Trade-Off"],
+     "definition": "An explicit choice between two good options where picking one means accepting a "
+                   "specific downside on purpose, instead of pretending there's a perfect option."},
+    {"id": "tcd", "term": "TCD (Technical Considerations Document)", "category": "technical", "match": ["TCD"],
+     "definition": "The technical follow-up document to the PRD covering architecture, security, "
+                   "diagrams, performance targets, and trade-offs -- the final handoff to engineering."},
+    {"id": "tmd", "term": "TMD (Technical Modeling Document)", "category": "technical", "match": ["TMD"],
+     "definition": "The document that turns an approved architecture into a literal buildable system: "
+                   "the database design, the cloud infrastructure layout, and the API contract."},
+    {"id": "entity-model", "term": "Entity Model", "category": "technical",
+     "definition": "A design of the data itself: what \u2018things\u2019 (entities) the system stores, what "
+                   "fields each one has, and how they relate to each other."},
+    {"id": "access-pattern", "term": "Access Pattern", "category": "technical",
+     "definition": "A specific, named way the application will read or write data (e.g. \u2018list all "
+                   "open tickets for a shop, sorted by priority\u2019) -- named before tables are designed."},
+    {"id": "normalization", "term": "Normalization", "category": "technical",
+     "definition": "A database design principle of avoiding storing the same piece of data in more "
+                   "than one place, to prevent it from going out of sync."},
+    {"id": "database-index", "term": "Index (database)", "category": "technical", "match": ["indexes", "index"],
+     "definition": "A special lookup structure added to a database table that makes a specific kind of "
+                   "search much faster, at the cost of extra storage and slightly slower writes."},
+    {"id": "primary-key", "term": "Primary Key", "category": "technical",
+     "definition": "A field (or set of fields) that uniquely identifies one row in a database table."},
+    {"id": "foreign-key", "term": "Foreign Key", "category": "technical",
+     "definition": "A field in one table that points to the Primary Key of another table, creating a "
+                   "relationship between the two."},
+    {"id": "managed-service", "term": "Managed Service", "category": "technical",
+     "match": ["Managed Service", "Managed vs Self", "managed-vs-self-managed"],
+     "definition": "A cloud component (like a database) the cloud provider operates and maintains for "
+                   "you, versus \u2018self-managed\u2019 where your own team patches, scales, and fixes it."},
+    {"id": "multi-tenancy", "term": "Multi-Tenancy", "category": "technical",
+     "match": ["Multi-Tenancy", "multi-tenancy", "Tenancy"],
+     "definition": "An architecture where multiple customers (\u2018tenants\u2019) share the same underlying "
+                   "application and infrastructure, with their data kept logically separated."},
+    {"id": "network-boundary", "term": "Network Boundary", "category": "technical",
+     "definition": "The decision of where a system is reachable from -- e.g. open to the public "
+                   "internet versus restricted to a private internal network."},
+    {"id": "rest-api", "term": "REST API", "category": "technical", "match": ["REST API", "REST"],
+     "definition": "A common web API style where each \u2018thing\u2019 in the system (like a Customer or "
+                   "an Order) is a resource with its own URL, acted on with standard HTTP methods."},
+    {"id": "soap-api", "term": "SOAP API", "category": "technical", "match": ["SOAP"],
+     "definition": "An older, more rigid web API style using strict XML messages and formal contracts "
+                   "-- still the right default in some regulated or legacy enterprise environments."},
+    {"id": "api-resource", "term": "Resource (API)", "category": "technical", "match": ["REST resources", "resource candidate"],
+     "definition": "A \u2018thing\u2019 exposed by an API that clients can read or change, always "
+                   "represented by a noun (e.g. /tickets), never a verb."},
+    {"id": "endpoint", "term": "Endpoint", "category": "technical",
+     "definition": "One specific, callable URL + method combination in an API, e.g. \u2018POST "
+                   "/v1/assignments.\u2019"},
+    {"id": "http-method", "term": "HTTP Method", "category": "technical",
+     "definition": "The verb part of an API call that says what action to take on a resource: GET "
+                   "(read), POST (create), PATCH (partially update), DELETE (remove)."},
+    {"id": "status-code", "term": "Status Code", "category": "technical",
+     "definition": "A standardized 3-digit number an API returns to say what happened, e.g. 200 "
+                   "(success), 404 (not found), 429 (too many requests)."},
+    {"id": "api-versioning", "term": "API Versioning", "category": "technical", "match": ["versioning"],
+     "definition": "A strategy (like putting /v1/ in the URL) for changing an API over time without "
+                   "breaking the clients already using the old version."},
+    {"id": "rom-cost", "term": "ROM Cost (Rough Order of Magnitude)", "category": "technical",
+     "match": ["ROM cost", "rough-order-of-magnitude"],
+     "definition": "An early, deliberately approximate cost estimate (e.g. within 25-50% accuracy) "
+                   "used to sanity-check a decision before an exact number is possible."},
+]
+
+_TAG_SPLIT_RE = re.compile(r"(<[^>]+>)")
+
+
+def _build_glossary_pattern():
+    variants = []
+    for entry in GLOSSARY:
+        for match_text in entry.get("match", [entry["term"]]):
+            variants.append((match_text, entry["id"]))
+    variants.sort(key=lambda pair: len(pair[0]), reverse=True)
+    lookup = {text.lower(): entry_id for text, entry_id in variants}
+    alternation = "|".join(re.escape(text) for text, _ in variants)
+    pattern = re.compile(r"\b(" + alternation + r")('s|s)?\b", re.IGNORECASE)
+    return pattern, lookup
+
+
+_GLOSSARY_PATTERN, _GLOSSARY_LOOKUP = _build_glossary_pattern()
+_glossary_by_id = {entry["id"]: entry for entry in GLOSSARY}
+
+
+def _glossarize_plain(text):
+    def _replace(match):
+        matched_text = match.group(1)
+        suffix = match.group(2) or ""
+        entry_id = _GLOSSARY_LOOKUP.get(matched_text.lower())
+        if not entry_id:
+            return match.group(0)
+        return (
+            f'<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" '
+            f'aria-expanded="false" data-gloss-id="{entry_id}">{matched_text}{suffix}</span>'
+        )
+
+    return _GLOSSARY_PATTERN.sub(_replace, text)
+
+
+def glossarize(html_or_text):
+    """Wrap every known glossary term in clickable markup, skipping HTML tag markup itself."""
+    parts = _TAG_SPLIT_RE.split(html_or_text)
+    for i, part in enumerate(parts):
+        if not part.startswith("<"):
+            parts[i] = _glossarize_plain(part)
+    return "".join(parts)
+
 
 # ---------------------------------------------------------------------------
 # COURSE_LIFECYCLE: the 16-day single source of truth.
@@ -1019,11 +1298,32 @@ MILESTONES = [
 ]
 
 
+def _glossarize_day(day):
+    """Return a copy of a COURSE_LIFECYCLE day with glossarized *_html fields for week.html.
+
+    The plain what/why/connects/artifacts fields stay untouched -- they still feed
+    index.html's lifecycle_json, which is rendered client-side via escapeHtml() and
+    would show literal <span> tags as text if they contained markup.
+    """
+    glossarized = dict(day)
+    glossarized["what_html"] = glossarize(day["what"])
+    glossarized["why_html"] = glossarize(day["why"])
+    glossarized["connects_html"] = glossarize(day["connects"])
+    glossarized["artifacts_html"] = [glossarize(a) for a in day["artifacts"]]
+    if day.get("diagram"):
+        glossarized["diagram"] = glossarize(day["diagram"])
+    word_count = len(
+        (day["what"] + " " + day["why"] + " " + day["connects"] + " " + " ".join(day["artifacts"])).split()
+    )
+    glossarized["reading_time"] = max(1, round(word_count / 200))
+    return glossarized
+
+
 def build_weeks():
     """Attach filtered day lists + prev/next week links onto WEEKS_META."""
     weeks_by_id = {w["id"]: dict(w) for w in WEEKS_META}
     for week in weeks_by_id.values():
-        week["days"] = [d for d in COURSE_LIFECYCLE if d["week_id"] == week["id"]]
+        week["days"] = [_glossarize_day(d) for d in COURSE_LIFECYCLE if d["week_id"] == week["id"]]
 
     ordered = [weeks_by_id[w["id"]] for w in WEEKS_META]
     for i, week in enumerate(ordered):
@@ -1034,6 +1334,20 @@ def build_weeks():
     return ordered
 
 
+def build_glossarized_milestones():
+    """Return a copy of MILESTONES with glossarized *_html fields for index.html."""
+    out = []
+    for m in MILESTONES:
+        gm = dict(m)
+        gm["definition_html"] = glossarize(m["definition"])
+        gm["why_html"] = glossarize(m["why"])
+        gm["inside_html"] = [glossarize(item) for item in m["inside"]]
+        if m.get("sample"):
+            gm["sample"] = glossarize(m["sample"])
+        out.append(gm)
+    return out
+
+
 def main():
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATES_DIR)),
@@ -1041,6 +1355,7 @@ def main():
         trim_blocks=True,
         lstrip_blocks=True,
     )
+    env.filters["glossarize"] = glossarize
 
     weeks_by_id = {w["id"]: w for w in WEEKS_META}
     lifecycle_for_json = []
@@ -1055,6 +1370,10 @@ def main():
         })
     lifecycle_json = json.dumps(lifecycle_for_json)
     weeks = build_weeks()
+    glossary_json = json.dumps({
+        e["id"]: {"term": e["term"], "definition": e["definition"], "category": e["category"]}
+        for e in GLOSSARY
+    })
 
     # index.html
     index_tpl = env.get_template("index.html")
@@ -1066,12 +1385,13 @@ def main():
         weeks_meta=WEEKS_META,
         lifecycle=COURSE_LIFECYCLE,
         lifecycle_json=lifecycle_json,
-        milestones=MILESTONES,
+        milestones=build_glossarized_milestones(),
+        glossary_json=glossary_json,
     )
     (ROOT / "index.html").write_text(index_html, encoding="utf-8")
     print("Wrote index.html")
 
-    # week1.html .. week4.html
+    # week1.html .. week5.html
     week_tpl = env.get_template("week.html")
     for week in weeks:
         week_html = week_tpl.render(
@@ -1082,11 +1402,57 @@ def main():
             week=week,
             total_weeks=len(WEEKS_META),
             lifecycle_json=None,
+            glossary_json=glossary_json,
         )
         out_path = ROOT / f"{week['id']}.html"
         out_path.write_text(week_html, encoding="utf-8")
         print(f"Wrote {out_path.name}")
 
+    # glossary-core.html + glossary-technical.html
+    glossary_tpl = env.get_template("glossary.html")
+    glossary_pages = [
+        {
+            "page_id": "glossary-core",
+            "audience_label": "Core TPM Glossary",
+            "lead": "Plain-English definitions for every product/TPM process term used across "
+                    "this site -- written so a non-technical reader can follow the whole course.",
+            "category": "core",
+            "other_href": "glossary-technical.html",
+            "other_label": "Technical Glossary",
+        },
+        {
+            "page_id": "glossary-technical",
+            "audience_label": "Technical Glossary",
+            "lead": "Plain-English definitions for every architecture/engineering term used "
+                    "across this site -- no prior technical background required.",
+            "category": "technical",
+            "other_href": "glossary-core.html",
+            "other_label": "Core TPM Glossary",
+        },
+    ]
+    for page in glossary_pages:
+        terms = sorted(
+            (e for e in GLOSSARY if e["category"] == page["category"]),
+            key=lambda e: e["term"].lower(),
+        )
+        glossary_html = glossary_tpl.render(
+            page_title=f"{page['audience_label']} | TPM Bootcamp Flow Atlas",
+            page_description=page["lead"],
+            active_page=page["page_id"],
+            header_compact=True,
+            audience_label=page["audience_label"],
+            lead=page["lead"],
+            terms=terms,
+            other_href=page["other_href"],
+            other_label=page["other_label"],
+            glossary_json=glossary_json,
+            lifecycle_json=None,
+        )
+        out_path = ROOT / f"{page['page_id']}.html"
+        out_path.write_text(glossary_html, encoding="utf-8")
+        print(f"Wrote {out_path.name}")
+
 
 if __name__ == "__main__":
     main()
+

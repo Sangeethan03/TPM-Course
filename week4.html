@@ -8,10 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-progress-bar"></div></div>
 
   <header class="hero hero-compact">
     <div class="hero-noise" aria-hidden="true"></div>
@@ -29,11 +32,13 @@
             <a href="week1.html">Week 1 &middot; Understand The User</a>
             <a href="week2.html">Week 2 &middot; Define The Strategy</a>
             <a href="week3.html">Week 3 &middot; Build The PRD</a>
+            <a href="glossary-core.html">Core TPM Glossary</a>
           </div>
           <div class="menu-col menu-col-technical">
             <h3 class="menu-col-title">Technical Content</h3>
             <a href="week4.html" class="active" aria-current="page">Week 4 &middot; Decide The Architecture</a>
             <a href="week5.html">Week 5 &middot; Model The Technical Details</a>
+            <a href="glossary-technical.html">Technical Glossary</a>
           </div>
         </div>
       </div>
@@ -49,8 +54,19 @@
     </div>
   </header>
 
+<nav class="jump-nav" aria-label="On this page">
+  <div class="jump-nav-inner">
+    <span class="jump-nav-label">Jump to</span>
+    <a href="#d1">Day 1</a>
+    <a href="#d2">Day 2</a>
+    <a href="#d3">Day 3</a>
+    <a href="#d4">Day 4</a>
+    <a href="#d5">Day 5</a>
+  </div>
+</nav>
+
   <main id="main-content">
-    <p class="breadcrumb"><a href="index.html">Home</a> / Week 4</p>
+    <p class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep" aria-hidden="true">&rsaquo;</span><span class="breadcrumb-current">Week 4</span></p>
 
     <section class="panel" aria-labelledby="days-title">
       <div class="section-head">
@@ -59,159 +75,209 @@
       </div>
 
       <article id="d1" class="day-card week4">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 4 &middot; Day 1</span>
-          <h3 class="day-card-title">Monolith vs Microservices (Architecture Decisioning)</h3>
-        </div>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="true" aria-controls="day-body-d1">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 4 &middot; Day 1 &middot; Day 1 of 5</span>
+              <span class="day-title-text">Monolith vs Microservices (Architecture Decisioning)</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
 
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Run a monolith-vs-microservices triage using named constraints (team size, deployment cadence, failure isolation needs) taken from the PRD, then produce an integration map with explicit contracts between systems.</p>
-        </div>
+        <div class="day-card-body" id="day-body-d1">
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Run a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="monolith">monolith</span>-vs-<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="microservices">microservices</span> triage using named constraints (team size, deployment cadence, failure isolation needs) taken from the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD</span>, then produce an <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="integration-map">integration map</span> with explicit contracts between systems.</p>
+          </div>
 
-<figure class="mini-diagram"><div class="arch-compare"><div class="arch-mono-block">MONOLITH<span class="arch-sub">One deployable, shared codebase</span></div><span class="ac-vs">VS</span><div class="arch-micro-grid"><span class="arch-micro-block">User Service</span><span class="arch-micro-block">Billing Service</span><span class="arch-micro-block">Notification Service</span><span class="arch-micro-block">Reporting Service</span></div></div><figcaption>The triage weighs team size, deployment cadence, and failure isolation &mdash; not hype &mdash; to choose a side.</figcaption></figure>
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>The course materials are explicit that the TPM&#39;s role here is not to make the architecture decision for engineering, but to name the constraints that should drive it -- confusing those two roles is the most common way TPMs either overstep or under-deliver at this stage.</p>
-        </div>
+<figure class="mini-diagram"><div class="arch-compare"><div class="arch-mono-block"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="monolith">MONOLITH</span><span class="arch-sub">One deployable, shared codebase</span></div><span class="ac-vs">VS</span><div class="arch-micro-grid"><span class="arch-micro-block">User Service</span><span class="arch-micro-block">Billing Service</span><span class="arch-micro-block">Notification Service</span><span class="arch-micro-block">Reporting Service</span></div></div><figcaption>The triage weighs team size, deployment cadence, and failure isolation &mdash; not hype &mdash; to choose a side.</figcaption></figure>
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>The course materials are explicit that the TPM's role here is not to make the architecture decision for engineering, but to name the constraints that should drive it -- confusing those two roles is the most common way TPMs either overstep or under-deliver at this stage.</p>
+          </div>
 
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>Mono-vs-Micro Triage Pack</li><li>Integration/contract map</li>          </ul>
-        </div>
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li>Mono-vs-Micro Triage Pack</li><li>Integration/contract map</li>            </ul>
+          </div>
 
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>This is the course&#39;s final handoff: the integration map and named constraints are what engineering uses to actually scope and build the product that began as a single observed pain point back in Week 1 Day 4.</p>
-        </div>
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>This is the course's final handoff: the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="integration-map">integration map</span> and named constraints are what engineering uses to actually <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="scope">scope</span> and build the product that began as a single observed <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="pain-point">pain point</span> back in Week 1 Day 4.</p>
+          </div>
 
-        <div class="day-nav-inline">
-<a href="#d2">Next Day &darr;</a>        </div>
+          <div class="day-nav-inline">
+<a href="#d2">Next Day &darr;</a>          </div>
+        </div>
       </article>
       <article id="d2" class="day-card week4">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 4 &middot; Day 2</span>
-          <h3 class="day-card-title">System Security &amp; Compliance (STRIDE Threat Model)</h3>
-        </div>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d2">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 4 &middot; Day 2 &middot; Day 2 of 5</span>
+              <span class="day-title-text">System Security &amp; Compliance (STRIDE Threat Model)</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
 
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Run a STRIDE threat-model pass -- Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege -- across every integration boundary in Day 1&#39;s map, cull to the top 5 threats with a named owner each, check which compliance frame applies (SOC 2, a privacy regime, or an industry-specific rule), and rewrite the PRD&#39;s first-draft Security &amp; Compliance NFRs at the architecture level.</p>
-        </div>
+        <div class="day-card-body" id="day-body-d2" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Run a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="stride">STRIDE</span> threat-model pass -- Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege -- across every integration boundary in Day 1's map, cull to the top 5 threats with a named owner each, check which <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="compliance">compliance</span> frame applies (SOC 2, a privacy regime, or an industry-specific rule), and rewrite the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD's</span> first-draft Security & <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="compliance">Compliance</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFRs</span> at the architecture level.</p>
+          </div>
 
-<figure class="mini-diagram"><div class="stride-grid"><span class="heuristic-chip"><span class="hc-num">S</span>Spoofing</span><span class="heuristic-chip"><span class="hc-num">T</span>Tampering</span><span class="heuristic-chip"><span class="hc-num">R</span>Repudiation</span><span class="heuristic-chip"><span class="hc-num">I</span>Info. Disclosure</span><span class="heuristic-chip"><span class="hc-num">D</span>Denial of Service</span><span class="heuristic-chip"><span class="hc-num">E</span>Elevation of Privilege</span></div><figcaption>STRIDE &mdash; walked at every arrow (data in motion) and box (data at rest) in the integration map.</figcaption></figure>
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>The course is explicit that a TPM is not the security expert -- the job is to drive the right conversation with security and hand over a starting threat model the security team can validate, not build from scratch. Skipping this step means the PRD&#39;s Week 3 first-draft NFRs, written before the architecture existed, ship unchanged against a real attack surface nobody ever walked.</p>
-        </div>
+<figure class="mini-diagram"><div class="stride-grid"><span class="heuristic-chip"><span class="hc-num">S</span>Spoofing</span><span class="heuristic-chip"><span class="hc-num">T</span>Tampering</span><span class="heuristic-chip"><span class="hc-num">R</span>Repudiation</span><span class="heuristic-chip"><span class="hc-num">I</span>Info. Disclosure</span><span class="heuristic-chip"><span class="hc-num">D</span>Denial of Service</span><span class="heuristic-chip"><span class="hc-num">E</span>Elevation of Privilege</span></div><figcaption><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="stride">STRIDE</span> &mdash; walked at every arrow (data in motion) and box (data at <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rest-api">rest</span>) in the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="integration-map">integration map</span>.</figcaption></figure>
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>The course is explicit that a TPM is not the security expert -- the job is to drive the right conversation with security and hand over a starting <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="threat-model">threat model</span> the security team can validate, not build from scratch. Skipping this step means the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD's</span> Week 3 first-draft <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFRs</span>, written before the architecture existed, ship unchanged against a real attack surface nobody ever walked.</p>
+          </div>
 
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>STRIDE threat model (top-5 threats)</li><li>Revised Security &amp; Compliance NFRs (TCD §3)</li><li>Security stakeholder brief</li>          </ul>
-        </div>
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="stride">STRIDE</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="threat-model">threat model</span> (top-5 threats)</li><li>Revised Security & <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="compliance">Compliance</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFRs</span> (<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tcd">TCD</span> §3)</li><li>Security <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="stakeholder">stakeholder</span> brief</li>            </ul>
+          </div>
 
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>The top-5 threats and revised NFRs become TCD Section 3 -- a sibling to the PRD&#39;s Section 7, not a replacement -- and the named owners and open questions feed straight into the 1-page security brief that gets handed to an actual security partner before build starts.</p>
-        </div>
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>The top-5 threats and revised <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="nfr">NFRs</span> become <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tcd">TCD</span> Section 3 -- a sibling to the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="prd">PRD's</span> Section 7, not a replacement -- and the named owners and open questions feed straight into the 1-page security brief that gets handed to an actual security partner before build starts.</p>
+          </div>
 
-        <div class="day-nav-inline">
-<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>        </div>
+          <div class="day-nav-inline">
+<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>          </div>
+        </div>
       </article>
       <article id="d3" class="day-card week4">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 4 &middot; Day 3</span>
-          <h3 class="day-card-title">Mapping System Components (C4 Diagrams)</h3>
-        </div>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d3">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 4 &middot; Day 3 &middot; Day 3 of 5</span>
+              <span class="day-title-text">Mapping System Components (C4 Diagrams)</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
 
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Draw two C4-style diagrams for the feature - a Context diagram (Level 1: the system, its people, and external neighbors) and a Container diagram (Level 2: every independently deployable unit and how they talk) - then stress-test both against three lenses: failure, trust boundary, and evolvability.</p>
-        </div>
+        <div class="day-card-body" id="day-body-d3" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Draw two <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="c4-diagram">C4-style diagrams</span> for the feature - a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="context-diagram">Context diagram</span> (Level 1: the system, its people, and external neighbors) and a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="container-diagram">Container diagram</span> (Level 2: every independently deployable unit and how they talk) - then stress-test both against three lenses: failure, <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trust-boundary">trust boundary</span>, and evolvability.</p>
+          </div>
 
-<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">People / Roles</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">System (Context)</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Containers / Modules</span><span class="fs-arrow">&rarr;</span><span class="fs-box">External Systems</span></div><figcaption>Two diagrams, not one: Context (who and what talks to the system) and Container (what deploys independently inside it) &mdash; Component and Code levels stay with engineering.</figcaption></figure>
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>Prose descriptions of architecture hide gaps that a real diagram exposes immediately. The course is explicit that Component- and Code-level diagrams are engineering&#39;s job, not the TPM&#39;s - the TPM&#39;s job is Context + Container, drawn well enough that an outsider or a security reviewer can follow it in under 90 seconds.</p>
-        </div>
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">People / Roles</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">System (<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="context-prd">Context</span>)</span><span class="fs-arrow">&rarr;</span><span class="fs-box"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="container-diagram">Containers</span> / Modules</span><span class="fs-arrow">&rarr;</span><span class="fs-box">External Systems</span></div><figcaption>Two diagrams, not one: <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="context-prd">Context</span> (who and what talks to the system) and Container (what deploys independently inside it) &mdash; Component and Code levels stay with engineering.</figcaption></figure>
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>Prose descriptions of architecture hide gaps that a real diagram exposes immediately. The course is explicit that Component- and Code-level diagrams are engineering's job, not the TPM's - the TPM's job is <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="context-diagram">Context + Container</span>, drawn well enough that an outsider or a security reviewer can follow it in under 90 seconds.</p>
+          </div>
 
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>C4 Context diagram</li><li>C4 Container diagram</li><li>Trust-boundary markup</li><li>Three-Lens stress test (failure / trust boundary / evolvability)</li>          </ul>
-        </div>
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="c4-diagram">C4</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="context-diagram">Context diagram</span></li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="c4-diagram">C4</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="container-diagram">Container diagram</span></li><li>Trust-boundary markup</li><li>Three-Lens stress test (failure / <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trust-boundary">trust boundary</span> / evolvability)</li>            </ul>
+          </div>
 
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>The Container diagram becomes the direct input to Day 4&#39;s per-hop latency budgeting, and the trust-boundary markings feed straight into Day 2&#39;s STRIDE threat model as the concrete boundaries an attacker could actually cross.</p>
-        </div>
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>The <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="container-diagram">Container diagram</span> becomes the direct input to Day 4's per-hop <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="latency">latency</span> budgeting, and the trust-boundary markings feed straight into Day 2's <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="stride">STRIDE</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="threat-model">threat model</span> as the concrete boundaries an attacker could actually cross.</p>
+          </div>
 
-        <div class="day-nav-inline">
-<a href="#d2">&uarr; Prev Day</a><a href="#d4">Next Day &darr;</a>        </div>
+          <div class="day-nav-inline">
+<a href="#d2">&uarr; Prev Day</a><a href="#d4">Next Day &darr;</a>          </div>
+        </div>
       </article>
       <article id="d4" class="day-card week4">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 4 &middot; Day 4</span>
-          <h3 class="day-card-title">Latency, Availability &amp; Rate Limits (SLOs)</h3>
-        </div>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d4">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 4 &middot; Day 4 &middot; Day 4 of 5</span>
+              <span class="day-title-text">Latency, Availability &amp; Rate Limits (SLOs)</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
 
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Set three SLOs - latency (p&lt;N&gt; ≤ Xms), availability (N% over a window, with an error budget), and a rate-limit policy - then walk the Day 3 Container diagram hop by hop to check whether the real architecture can actually hit the latency target.</p>
-        </div>
+        <div class="day-card-body" id="day-body-d4" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Set three <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLOs</span> - <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="latency">latency</span> (p<N> ≤ Xms), <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="availability">availability</span> (N% over a window, with an <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="error-budget">error budget</span>), and a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rate-limit">rate-limit</span> policy - then walk the Day 3 <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="container-diagram">Container diagram</span> hop by hop to check whether the real architecture can actually hit the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="latency">latency</span> target.</p>
+          </div>
 
-<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Latency SLO</span><span class="fs-arrow">+</span><span class="fs-box">Availability SLO</span><span class="fs-arrow">+</span><span class="fs-box fs-accent">Rate-Limit Policy</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Latency-Budget Walk</span></div><figcaption>Three SLOs, then a hop-by-hop walk of the Day 3 Container diagram to check the architecture can actually hit the number.</figcaption></figure>
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>An SLO without a percentile, a window, and a defense is a guess dressed up as a number. The error budget turns an abstract percentage into a decision tool - inside budget, ship features; near or past it, prioritize reliability - so a team can tell objectively when to slow down instead of arguing about vibes.</p>
-        </div>
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="latency">Latency</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLO</span></span><span class="fs-arrow">+</span><span class="fs-box"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="availability">Availability</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLO</span></span><span class="fs-arrow">+</span><span class="fs-box fs-accent"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rate-limit">Rate-Limit</span> Policy</span><span class="fs-arrow">&rarr;</span><span class="fs-box"><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="latency">Latency</span>-Budget Walk</span></div><figcaption>Three <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLOs</span>, then a hop-by-hop walk of the Day 3 <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="container-diagram">Container diagram</span> to check the architecture can actually hit the number.</figcaption></figure>
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>An <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLO</span> without a percentile, a window, and a defense is a guess dressed up as a number. The <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="error-budget">error budget</span> turns an abstract percentage into a decision tool - inside budget, ship features; near or past it, prioritize reliability - so a team can tell objectively when to slow down instead of arguing about vibes.</p>
+          </div>
 
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>Latency / Availability / Rate-limit SLO sheet</li><li>Latency-budget walk (hop-by-hop)</li><li>AI sanity-check provenance note</li>          </ul>
-        </div>
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="latency">Latency</span> / <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="availability">Availability</span> / <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="rate-limit">Rate-limit</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLO</span> sheet</li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="latency">Latency</span>-budget walk (hop-by-hop)</li><li>AI sanity-check provenance note</li>            </ul>
+          </div>
 
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>The latency-budget walk&#39;s dominant-hop finding becomes Day 5&#39;s evidence for a durability-vs-latency trade-off, and all three SLOs carry forward unchanged into Week 5&#39;s data-layer and cloud-topology decisions as the numbers every later choice must protect.</p>
-        </div>
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>The <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="latency">latency</span>-budget walk's dominant-hop finding becomes Day 5's evidence for a durability-vs-<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="latency">latency</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">trade-off</span>, and all three <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLOs</span> carry forward unchanged into Week 5's data-layer and cloud-topology decisions as the numbers every later choice must protect.</p>
+          </div>
 
-        <div class="day-nav-inline">
-<a href="#d3">&uarr; Prev Day</a><a href="#d5">Next Day &darr;</a>        </div>
+          <div class="day-nav-inline">
+<a href="#d3">&uarr; Prev Day</a><a href="#d5">Next Day &darr;</a>          </div>
+        </div>
       </article>
       <article id="d5" class="day-card week4">
-        <div class="day-card-head">
-          <span class="day-kicker">Week 4 &middot; Day 5</span>
-          <h3 class="day-card-title">Technical Trade-Offs &amp; TCD Assembly (Ship Day)</h3>
-        </div>
+        <h3 class="day-card-title">
+          <button type="button" class="day-toggle" aria-expanded="false" aria-controls="day-body-d5">
+            <span class="day-toggle-text">
+              <span class="day-kicker">Week 4 &middot; Day 5 &middot; Day 5 of 5</span>
+              <span class="day-title-text">Technical Trade-Offs &amp; TCD Assembly (Ship Day)</span>
+            </span>
+            <span class="day-toggle-meta">
+              <span class="day-read-time">~1 min read</span>
+              <span class="day-toggle-icon" aria-hidden="true">&#9662;</span>
+            </span>
+          </button>
+        </h3>
 
-        <div class="day-block">
-          <h4>What You Do</h4>
-          <p>Write the top 5 technical trade-offs in a strict Option A vs Option B → Choice → Accepted cost → Revisit trigger format spanning at least 3 tension categories, build a stakeholder sign-off matrix with a named real person per constraint, then integrate and cross-review all 6 TCD sections before shipping.</p>
-        </div>
+        <div class="day-card-body" id="day-body-d5" hidden>
+          <div class="day-block block-do">
+            <h4>What You Do</h4>
+            <p>Write the top 5 technical <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">trade-offs</span> in a strict Option A vs Option B → Choice → Accepted cost → Revisit trigger format spanning at least 3 tension categories, build a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="stakeholder">stakeholder</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="sign-off">sign-off</span> matrix with a named real person per constraint, then integrate and cross-review all 6 <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tcd">TCD</span> sections before shipping.</p>
+          </div>
 
-<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Option A</span><span class="fs-arrow">vs</span><span class="fs-box">Option B</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">Choice + Accepted Cost</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Revisit Trigger</span></div><figcaption>The exact trade-off pattern, repeated 5 times, then locked to a named stakeholder before the TCD ships.</figcaption></figure>
-        <div class="day-block">
-          <h4>Why We Do This</h4>
-          <p>A trade-off that only describes the choice made (&#39;we picked a monolith&#39;) isn&#39;t a trade-off - naming the accepted cost and the revisit trigger is what separates senior architectural thinking from a feature list, and a constraint with no named owner is a constraint nobody actually implements.</p>
-        </div>
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Option A</span><span class="fs-arrow">vs</span><span class="fs-box">Option B</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">Choice + Accepted Cost</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Revisit Trigger</span></div><figcaption>The exact <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">trade-off</span> pattern, repeated 5 times, then locked to a named <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="stakeholder">stakeholder</span> before the <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tcd">TCD</span> ships.</figcaption></figure>
+          <div class="day-block block-why">
+            <h4>Why We Do This</h4>
+            <p>A <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">trade-off</span> that only describes the choice made ('we picked a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="monolith">monolith</span>') isn't a <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">trade-off</span> - naming the accepted cost and the revisit trigger is what separates senior architectural thinking from a feature list, and a constraint with no named owner is a constraint nobody actually implements.</p>
+          </div>
 
-        <div class="day-block">
-          <h4>Key Artifacts</h4>
-          <ul class="day-artifacts">
-<li>Top-5 Trade-Offs (TCD Section 5)</li><li>Stakeholder Sign-Off Matrix (TCD Section 6)</li><li>Integration + cross-review checklist</li><li>Shipped TCD status: Approved / Approved with gaps</li>          </ul>
-        </div>
+          <div class="day-block block-artifacts">
+            <h4>Key Artifacts</h4>
+            <ul class="day-artifacts">
+<li>Top-5 <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="trade-off">Trade-Offs</span> (<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tcd">TCD</span> Section 5)</li><li><span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="stakeholder">Stakeholder</span> <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="sign-off">Sign-Off</span> Matrix (<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tcd">TCD</span> Section 6)</li><li>Integration + cross-review checklist</li><li>Shipped <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tcd">TCD</span> status: Approved / Approved with gaps</li>            </ul>
+          </div>
 
-        <div class="day-block day-connects">
-          <h4>Connects To</h4>
-          <p>This is the final Week 4 handoff - the shipped Technical Considerations Document (TCD, 6 sections) becomes the spine Week 5 builds on: its component map drives the data model, its SLOs set the performance baseline, and its threat model drives encryption and key-management decisions.</p>
-        </div>
+          <div class="day-block block-connects day-connects">
+            <h4>Connects To</h4>
+            <p>This is the final Week 4 handoff - the shipped Technical Considerations Document (<span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="tcd">TCD</span>, 6 sections) becomes the spine Week 5 builds on: its component map drives the data model, its <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="slo">SLOs</span> set the performance baseline, and its <span class="gloss-term" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" data-gloss-id="threat-model">threat model</span> drives encryption and key-management decisions.</p>
+          </div>
 
-        <div class="day-nav-inline">
-<a href="#d4">&uarr; Prev Day</a>        </div>
+          <div class="day-nav-inline">
+<a href="#d4">&uarr; Prev Day</a>          </div>
+        </div>
       </article>
     </section>
 
@@ -227,6 +293,19 @@
     <p>Built for TPM Bootcamp continuity. Generated from templates/build.py &mdash; edit the templates or COURSE_LIFECYCLE data, not the HTML output directly.</p>
   </footer>
 
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>&uarr; Top</button>
+
+  <div id="gloss-popover" class="gloss-popover" role="dialog" aria-labelledby="gloss-popover-term" hidden>
+    <div class="gloss-popover-head">
+      <span class="gloss-popover-badge" id="gloss-popover-badge"></span>
+      <button type="button" class="gloss-popover-close" id="gloss-popover-close" aria-label="Close definition">&times;</button>
+    </div>
+    <h4 id="gloss-popover-term"></h4>
+    <p id="gloss-popover-def"></p>
+    <a id="gloss-popover-link" class="gloss-popover-link" href="#">View in full glossary &rarr;</a>
+  </div>
+
+  <script id="glossary-data" type="application/json">{"rccf": {"term": "RCCF", "definition": "A checklist for asking an AI a genuinely useful question: Role (who should it act as), Context (the situation), Constraints (what the answer must respect), Format (how the answer should look).", "category": "core"}, "working-backwards": {"term": "Working Backwards", "definition": "A planning method where you write the finished product's press release and FAQ before you build anything, so you're forced to prove real customer value first.", "category": "core"}, "pr-faq": {"term": "PR/FAQ", "definition": "A one-page press release plus a list of Frequently Asked Questions for a product that doesn't exist yet -- the actual document the Working Backwards method produces.", "category": "core"}, "persona": {"term": "Persona", "definition": "A description of a real type of user, built from actual behavior and evidence (not a guess), used to keep decisions grounded in a real person's needs.", "category": "core"}, "jtbd": {"term": "JTBD (Jobs To Be Done)", "definition": "A way of describing what a customer is really trying to accomplish (e.g. \u2018reassign a job in under 30 seconds\u2019), instead of a demographic label.", "category": "core"}, "pain-point": {"term": "Pain Point", "definition": "A specific moment where a real user gets stuck, frustrated, or blocked while doing their job -- written as a verb + circumstance + consequence, not a vague complaint.", "category": "core"}, "five-whys": {"term": "5 Whys", "definition": "A technique of asking \u2018why\u2019 five times in a row on a problem to dig past the surface symptom and find its true root cause.", "category": "core"}, "problem-statement": {"term": "Problem Statement", "definition": "A short, evidence-backed paragraph naming who has the problem, what it is, and how we know it's real -- the starting line for any new feature.", "category": "core"}, "evidence-brief": {"term": "Evidence Brief", "definition": "A short document that backs up a problem statement with real data points (numbers, quotes, examples) instead of opinions.", "category": "core"}, "north-star-metric": {"term": "North Star Metric", "definition": "The single number a whole team rallies around, chosen because moving it up means customers are truly better off -- not just a number that looks good in a report.", "category": "core"}, "kpi": {"term": "KPI (Key Performance Indicator)", "definition": "A specific, trackable number used to check whether a team is on track toward a bigger goal.", "category": "core"}, "metrics-pyramid": {"term": "Metrics Pyramid", "definition": "A way of organizing measurements into three layers: the North Star at the top, KPIs in the middle, and small day-to-day operational signals at the bottom.", "category": "core"}, "vanity-metric": {"term": "Vanity Metric", "definition": "A number that goes up and looks impressive but doesn't actually prove customers are better off (e.g. total signups, when most people never come back).", "category": "core"}, "counter-metric": {"term": "Counter-Metric", "definition": "A second number tracked alongside the North Star specifically to catch it being \u2018gamed\u2019 -- e.g. if speed goes up but accuracy secretly drops, this catches it.", "category": "core"}, "heuristic": {"term": "Heuristic", "definition": "One of 10 well-known rules of thumb for judging whether software is easy or hard to use (e.g. \u2018the system should always keep users informed\u2019).", "category": "core"}, "accessibility": {"term": "Accessibility (a11y)", "definition": "Designing a product so people with different abilities (vision, hearing, motor, cognitive) can still use it fully -- not an optional extra feature.", "category": "core"}, "design-principle": {"term": "Design Principle", "definition": "A short, memorable rule a team commits to that guides every future design decision (e.g. \u2018build guardrails, not cleanup workflows\u2019).", "category": "core"}, "journey-map": {"term": "Customer Journey Map", "definition": "A visual timeline of every stage a customer goes through while using a product, showing where they feel confident, confused, or frustrated at each step.", "category": "core"}, "friction-point": {"term": "Friction Point", "definition": "A specific spot in a customer journey where something slows the customer down or causes them to hesitate, doubt, or give up.", "category": "core"}, "prd": {"term": "PRD (Product Requirements Document)", "definition": "The official written plan for a feature: what problem it solves, what it must do, how you'll know it works, and what could go wrong -- the handoff to engineering.", "category": "core"}, "acceptance-criteria": {"term": "Acceptance Criteria (AC)", "definition": "A specific, testable checklist condition that must be true for a feature to be \u2018done\u2019 -- clear enough that anyone could check pass/fail without guessing.", "category": "core"}, "nfr": {"term": "NFR (Non-Functional Requirement)", "definition": "A requirement about how well something must work (how fast, how secure, how reliable) rather than what it does -- e.g. a page must load in under 2 seconds.", "category": "core"}, "dependency": {"term": "Dependency", "definition": "Something a feature needs from another team, system, or decision before it can ship -- each one should have a named owner and a due date.", "category": "core"}, "risk": {"term": "Risk (in a PRD)", "definition": "A specific thing that could go wrong with a feature, written down on purpose along with a plan for what to do if it happens.", "category": "core"}, "solution-sketch": {"term": "Solution Sketch", "definition": "A short, plain-language walkthrough of how a feature will work step-by-step from the user's point of view -- the visible flow, not low-level code.", "category": "core"}, "context-prd": {"term": "Context (PRD section)", "definition": "The background section of a document that explains the business situation and the problem being solved, so a reader with no prior history can understand why it matters.", "category": "core"}, "goals-non-goals": {"term": "Goals & Non-Goals", "definition": "An explicit list of what a feature IS trying to do (goals) and, just as importantly, what it deliberately is NOT trying to do -- this stops scope from silently growing.", "category": "core"}, "scope": {"term": "Scope", "definition": "The exact boundary of what is and isn't included in a piece of work.", "category": "core"}, "stakeholder": {"term": "Stakeholder", "definition": "Any person or team who has a real interest in a decision and whose input or sign-off is needed before moving forward.", "category": "core"}, "sign-off": {"term": "Sign-Off", "definition": "A stakeholder's explicit, named approval on a specific decision or document -- not just a passive 'no objection.'", "category": "core"}, "capstone": {"term": "Capstone", "definition": "The final, cumulative project at the end of the Boot Camp where every skill learned across all 8 weeks gets applied together on one real feature.", "category": "core"}, "monolith": {"term": "Monolith", "definition": "One single, large application where all the features live together in one shared codebase and get deployed together as one unit.", "category": "technical"}, "microservices": {"term": "Microservices", "definition": "An architecture style where a product is split into many small, independent services (e.g. a separate Billing Service and Notification Service) that can each be built and deployed on their own.", "category": "technical"}, "integration-map": {"term": "Integration Map", "definition": "A diagram showing every system a feature talks to and the exact \u2018contract\u2019 (data format and rules) each connection uses.", "category": "technical"}, "stride": {"term": "STRIDE", "definition": "A checklist of 6 threat categories used to find security weaknesses: Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege.", "category": "technical"}, "threat-model": {"term": "Threat Model", "definition": "A structured exercise of walking through a system on purpose to find where an attacker could cause harm, before it's built.", "category": "technical"}, "compliance": {"term": "Compliance", "definition": "A set of external rules or standards (like SOC 2, or a privacy law) a product must follow, often requiring proof like an audit trail.", "category": "technical"}, "c4-diagram": {"term": "C4 Diagram", "definition": "A standard way of drawing software architecture at 4 zoom levels: Context, Container, Component, and Code -- TPMs typically only draw the first two.", "category": "technical"}, "context-diagram": {"term": "Context Diagram (C4 Level 1)", "definition": "The most zoomed-out architecture diagram: the system as one box, the people who use it, and the other systems it talks to.", "category": "technical"}, "container-diagram": {"term": "Container Diagram (C4 Level 2)", "definition": "A more zoomed-in architecture diagram showing every independently deployable piece inside the system (web app, API, database, queue) and how they talk to each other.", "category": "technical"}, "trust-boundary": {"term": "Trust Boundary", "definition": "A line on a diagram marking where data moves from something your team fully controls into something owned by someone else -- the exact spot security reviews focus on.", "category": "technical"}, "slo": {"term": "SLO (Service Level Objective)", "definition": "A specific, measurable target for how well a system should perform, e.g. \u201895% of requests finish in under 2 seconds.\u2019", "category": "technical"}, "latency": {"term": "Latency", "definition": "How long it takes a system to respond after a request is made -- usually measured in milliseconds or seconds.", "category": "technical"}, "availability": {"term": "Availability", "definition": "The percentage of time a system is actually up and working, out of all the time it's supposed to be working (e.g. 99.5% availability).", "category": "technical"}, "availability-zone": {"term": "Availability Zone (AZ)", "definition": "An isolated data center within a cloud region; spreading a system across multiple AZs protects against one data center failing.", "category": "technical"}, "error-budget": {"term": "Error Budget", "definition": "The small amount of allowed failure built into an availability target (e.g. 99.5% availability leaves about 3.6 hours/month) -- a practical tool for deciding when to ship features versus focus on reliability.", "category": "technical"}, "rate-limit": {"term": "Rate Limit", "definition": "A rule that caps how many requests a single user or system can make in a given time period, to protect the system from being overwhelmed.", "category": "technical"}, "idempotency": {"term": "Idempotency", "definition": "A safety property where doing the exact same request twice (e.g. a network retry) produces the same result as doing it once, instead of duplicating the action.", "category": "technical"}, "trade-off": {"term": "Trade-Off", "definition": "An explicit choice between two good options where picking one means accepting a specific downside on purpose, instead of pretending there's a perfect option.", "category": "technical"}, "tcd": {"term": "TCD (Technical Considerations Document)", "definition": "The technical follow-up document to the PRD covering architecture, security, diagrams, performance targets, and trade-offs -- the final handoff to engineering.", "category": "technical"}, "tmd": {"term": "TMD (Technical Modeling Document)", "definition": "The document that turns an approved architecture into a literal buildable system: the database design, the cloud infrastructure layout, and the API contract.", "category": "technical"}, "entity-model": {"term": "Entity Model", "definition": "A design of the data itself: what \u2018things\u2019 (entities) the system stores, what fields each one has, and how they relate to each other.", "category": "technical"}, "access-pattern": {"term": "Access Pattern", "definition": "A specific, named way the application will read or write data (e.g. \u2018list all open tickets for a shop, sorted by priority\u2019) -- named before tables are designed.", "category": "technical"}, "normalization": {"term": "Normalization", "definition": "A database design principle of avoiding storing the same piece of data in more than one place, to prevent it from going out of sync.", "category": "technical"}, "database-index": {"term": "Index (database)", "definition": "A special lookup structure added to a database table that makes a specific kind of search much faster, at the cost of extra storage and slightly slower writes.", "category": "technical"}, "primary-key": {"term": "Primary Key", "definition": "A field (or set of fields) that uniquely identifies one row in a database table.", "category": "technical"}, "foreign-key": {"term": "Foreign Key", "definition": "A field in one table that points to the Primary Key of another table, creating a relationship between the two.", "category": "technical"}, "managed-service": {"term": "Managed Service", "definition": "A cloud component (like a database) the cloud provider operates and maintains for you, versus \u2018self-managed\u2019 where your own team patches, scales, and fixes it.", "category": "technical"}, "multi-tenancy": {"term": "Multi-Tenancy", "definition": "An architecture where multiple customers (\u2018tenants\u2019) share the same underlying application and infrastructure, with their data kept logically separated.", "category": "technical"}, "network-boundary": {"term": "Network Boundary", "definition": "The decision of where a system is reachable from -- e.g. open to the public internet versus restricted to a private internal network.", "category": "technical"}, "rest-api": {"term": "REST API", "definition": "A common web API style where each \u2018thing\u2019 in the system (like a Customer or an Order) is a resource with its own URL, acted on with standard HTTP methods.", "category": "technical"}, "soap-api": {"term": "SOAP API", "definition": "An older, more rigid web API style using strict XML messages and formal contracts -- still the right default in some regulated or legacy enterprise environments.", "category": "technical"}, "api-resource": {"term": "Resource (API)", "definition": "A \u2018thing\u2019 exposed by an API that clients can read or change, always represented by a noun (e.g. /tickets), never a verb.", "category": "technical"}, "endpoint": {"term": "Endpoint", "definition": "One specific, callable URL + method combination in an API, e.g. \u2018POST /v1/assignments.\u2019", "category": "technical"}, "http-method": {"term": "HTTP Method", "definition": "The verb part of an API call that says what action to take on a resource: GET (read), POST (create), PATCH (partially update), DELETE (remove).", "category": "technical"}, "status-code": {"term": "Status Code", "definition": "A standardized 3-digit number an API returns to say what happened, e.g. 200 (success), 404 (not found), 429 (too many requests).", "category": "technical"}, "api-versioning": {"term": "API Versioning", "definition": "A strategy (like putting /v1/ in the URL) for changing an API over time without breaking the clients already using the old version.", "category": "technical"}, "rom-cost": {"term": "ROM Cost (Rough Order of Magnitude)", "definition": "An early, deliberately approximate cost estimate (e.g. within 25-50% accuracy) used to sanity-check a decision before an exact number is possible.", "category": "technical"}}</script>
   <script src="script.js"></script>
 </body>
 </html>
