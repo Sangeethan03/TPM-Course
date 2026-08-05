@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 2: Define The Strategy | TPM Bootcamp Flow Atlas</title>
+  <meta name="description" content="Turn pain into measurable direction: metrics pyramid, North Star, UX heuristic + accessibility audits, AI-assisted competitive research, and journey mapping." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="hero hero-compact">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="brand" href="index.html">TPM Flow Atlas</a>
+      <div class="site-menu-wrap">
+        <button type="button" class="menu-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          Menu
+        </button>
+        <div class="site-menu" id="site-menu" data-open="false">
+          <div class="menu-col menu-col-core">
+            <h3 class="menu-col-title">Core TPM Content</h3>
+            <a href="index.html">Home</a>
+            <a href="week1.html">Week 1 &middot; Understand The User</a>
+            <a href="week2.html" class="active" aria-current="page">Week 2 &middot; Define The Strategy</a>
+            <a href="week3.html">Week 3 &middot; Build The PRD</a>
+          </div>
+          <div class="menu-col menu-col-technical">
+            <h3 class="menu-col-title">Technical Content</h3>
+            <a href="week4.html">Week 4 &middot; Decide The Architecture</a>
+            <a href="week5.html">Week 5 &middot; Model The Technical Details</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+  <p class="eyebrow">Week 2 of 5</p>
+  <h1>Define The Strategy</h1>
+  <p class="lead">Turn pain into measurable direction: metrics pyramid, North Star, UX heuristic + accessibility audits, AI-assisted competitive research, and journey mapping.</p>
+  <div class="hero-actions">
+    <a class="btn btn-ghost" href="index.html#lifecycle">&larr; Lifecycle Map</a>
+<a class="btn btn-ghost" href="week1.html">&larr; Week 1</a><a class="btn btn-primary" href="week3.html">Week 3 &rarr;</a>  </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Week 2</p>
+
+    <section class="panel" aria-labelledby="days-title">
+      <div class="section-head">
+        <h2 id="days-title">Day By Day: What You Do, Why It Matters, What It Hands Off</h2>
+        <p>Each card is grounded in the real course files scanned for Week 2.</p>
+      </div>
+
+      <article id="d1" class="day-card week2">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 2 &middot; Day 1</span>
+          <h3 class="day-card-title">Metrics Pyramid + KPIs</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Build a three-tier Metrics Pyramid (North Star → KPI → Operational Signals), run a Vanity Metric detection pass, then write the Believable Causal Chain -- a three-sentence story of how a signal ripples up to the North Star -- and stress-test it in a pair Tier Sheet Defense round against the Three Standard Challenges: Causal Chain (&#39;show me the ripple&#39;), Gameability (&#39;how would a team cheat this&#39;), and Instrumentation (&#39;can you measure this in production today&#39;).</p>
+        </div>
+
+<figure class="mini-diagram"><div class="pyramid-diagram"><div class="pyramid-tier tier-1">North Star</div><div class="pyramid-tier tier-2">KPIs</div><div class="pyramid-tier tier-3">Operational Signals</div></div><figcaption>Every operational signal must ladder upward through a Believable Causal Chain to the one North Star at the top.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>Teams default to whatever metric is easiest to pull from a dashboard, which is usually a vanity metric. This day trains the discipline of tracing every operational signal upward until it ladders into something that would actually make the CEO and the front-line dispatcher agree the business is winning -- and the stress test catches hand-waved chains before they get defended in front of engineering.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Metrics Tier Sheet</li><li>Vanity Metric checklist</li><li>Believable Causal Chain narrative</li><li>Tier Sheet Defense notes</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>The KPI ladder built here is the scaffolding Day 2 uses to select the single North Star metric at the top of the pyramid.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d2">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d2" class="day-card week2">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 2 &middot; Day 2</span>
+          <h3 class="day-card-title">North Star Metric</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Select one North Star Metric using a template that avoids three pitfalls -- vanity metrics, leading-indicator metrics, and gameable metrics -- and pair it with a counter-metric guardrail.</p>
+        </div>
+
+
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>A North Star without a counter-metric can be &#39;won&#39; by cheating the system (for example, faster onboarding achieved by skipping training). Every candidate North Star is pressure-tested with the &#39;CEO + Dispatcher test&#39;: would both a CEO and a front-line dispatcher agree this number means the business is truly winning?</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>North Star template</li><li>Counter-metric definition</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>Once locked, this North Star statement becomes the fixed reference point that every UX finding and design principle in Day 3, and every feature prioritization decision after it, must trace back to.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d3" class="day-card week2">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 2 &middot; Day 3</span>
+          <h3 class="day-card-title">Product Design &amp; UX (Heuristics + Accessibility + Principles)</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Run a Heuristic Hunt against Nielsen&#39;s 10 usability heuristics -- (1) visibility of system status, (2) match between system and the real world, (3) user control and freedom, (4) consistency and standards, (5) error prevention, (6) recognition rather than recall, (7) flexibility and efficiency of use, (8) aesthetic and minimalist design, (9) helping users recognize/diagnose/recover from errors, and (10) help and documentation -- plus 3 TPM-specific lenses (time-to-first-value, failure-mode dignity, power-user respect), complete an 8-check Accessibility Floor audit, score findings 1-5 by severity, and distill the worst findings into 3 durable Design Principles.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="heuristic-grid"><span class="heuristic-chip"><span class="hc-num">1</span>Visibility of Status</span><span class="heuristic-chip"><span class="hc-num">2</span>Match Real World</span><span class="heuristic-chip"><span class="hc-num">3</span>User Control</span><span class="heuristic-chip"><span class="hc-num">4</span>Consistency</span><span class="heuristic-chip"><span class="hc-num">5</span>Error Prevention</span><span class="heuristic-chip"><span class="hc-num">6</span>Recognition &gt; Recall</span><span class="heuristic-chip"><span class="hc-num">7</span>Flexibility</span><span class="heuristic-chip"><span class="hc-num">8</span>Minimalist Design</span><span class="heuristic-chip"><span class="hc-num">9</span>Error Recovery</span><span class="heuristic-chip"><span class="hc-num">10</span>Help &amp; Docs</span></div><figcaption>Nielsen's 10 usability heuristics &mdash; the scoring grid behind every Heuristic Hunt finding.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>Subjective complaints like &#39;the form feels clunky&#39; can&#39;t be prioritized by engineering. Converting them into named heuristics with severity scores makes UX debt as concrete and fundable as a bug ticket, and the accessibility floor makes sure the fix serves every dispatcher, not just the majority.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Heuristic Audit (13 heuristics)</li><li>Accessibility Floor Audit (8 checks)</li><li>3 Design Principles</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>The 3 Design Principles produced here become the explicit filter Day 4&#39;s competitive research and Day 5&#39;s journey mapping must be evaluated against, and later the acceptance criteria in Week 3 PRDs must satisfy them.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d2">&uarr; Prev Day</a><a href="#d4">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d4" class="day-card week2">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 2 &middot; Day 4</span>
+          <h3 class="day-card-title">AI for Strategy &amp; Research</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Use a Validated Synthesis Prompt to synthesize multi-source research (interview transcripts, support tickets, analyst reports, competitor tours) while watching for 4 named failure modes -- theme inflation (lumping distinct complaints under one vague category), citation invention (citing a source that doesn&#39;t exist), premature confidence (a plausible summary with no acknowledged gaps), and source bias (over-weighting the loudest source) -- then stay on the safe side of a strict &#39;bright line&#39; rule (structure source material, never ask AI to invent market facts) to build a Competitive Snapshot with a Provenance Log tracing every claim to its source.</p>
+        </div>
+
+
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>AI-assisted competitive research fails in predictable ways -- summarizing training-data guesses as fact, blending sources, dropping caveats, inventing numbers. This day installs a discipline (cross-validating every citation, provenance logging, the bright-line rule) that makes the research defensible in front of engineering and leadership, not just plausible-sounding.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Validated Synthesis Prompt</li><li>Competitive Snapshot matrix</li><li>Provenance Log</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>The Competitive Snapshot becomes ammunition for Day 5&#39;s journey mapping (where do competitors already solve a friction point we haven&#39;t?) and for the PRD&#39;s &#39;Required Inputs&#39; in Week 3, which explicitly calls for constraints informed by this research.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d3">&uarr; Prev Day</a><a href="#d5">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d5" class="day-card week2">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 2 &middot; Day 5</span>
+          <h3 class="day-card-title">Customer Journey Mapping</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Map the end-to-end customer journey stage by stage and locate friction hotspots, evaluating each stage through the lens of the 3 Design Principles from Day 3.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="journey-diagram"><div class="journey-stage"><span class="js-dot"></span><h5>Pre-shift</h5><p>Arrive, review the day's dispatch</p></div><div class="journey-stage"><span class="js-dot"></span><h5>On-shift</h5><p>Execute assigned jobs</p></div><div class="journey-stage friction"><span class="js-dot"></span><h5>Mid-shift Change</h5><p>The canonical disruption &mdash; an exception hits</p></div><div class="journey-stage"><span class="js-dot"></span><h5>After-shift</h5><p>Reconcile and close out</p></div></div><div class="journey-legend"><span><span class="dot" style="background:var(--accent)"></span>stage</span><span><span class="dot" style="background:var(--warn)"></span>friction star</span></div><figcaption>One persona, one scope, 5-8 stages &mdash; friction stars cluster at 2-3 stages, not every stage.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>A heuristic audit finds isolated UX bugs; a journey map finds where those bugs compound across a real end-to-end flow (for example, a validation gap on screen 2 causes a support escalation three steps later). This connects isolated findings into a single narrative of where the product currently fails the North Star.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Customer Journey Map</li><li>Friction hotspot list</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>Friction hotspots identified here become the &#39;weird paths&#39; that Week 3&#39;s Acceptance Criteria must explicitly cover, so the PRD doesn&#39;t just describe the happy path.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d4">&uarr; Prev Day</a>        </div>
+      </article>
+    </section>
+
+    <section class="panel" aria-labelledby="north-star-title">
+      <div class="section-head">
+        <h2 id="north-star-title">How North Star Is Derived</h2>
+        <p>From pain and business outcomes, not from random KPI selection.</p>
+      </div>
+      <article class="info-card">
+        <h3>Derivation Chain</h3>
+        <p class="chain-flow">User Pain &rarr; User Behavior Change &rarr; Outcome Metric &rarr; Quality Guardrail &rarr; North Star Statement</p>
+        <p class="example">
+          Example: Slow dispatcher onboarding &rarr; independent day-1 operation &rarr; autonomy rate &rarr;
+          accuracy guardrail &ge; 85% &rarr; "Winning when new dispatchers complete day 1 independently with zero senior intervention."
+        </p>
+      </article>
+    </section>
+
+    <section class="panel" aria-labelledby="prior-title">
+      <div class="section-head">
+        <h2 id="prior-title">If You Have 3 Features, How Do You Pick One?</h2>
+        <p>Use metrics-tier alignment plus impact-confidence-effort scoring.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption>Feature Selection Example (FieldPulse Context)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">North Star Impact</th>
+              <th scope="col">KPI Impact</th>
+              <th scope="col">Confidence</th>
+              <th scope="col">Effort</th>
+              <th scope="col">Priority Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inline Form Validation Guardrails</td>
+              <td>High</td>
+              <td>Reduce re-onboarding escalations</td>
+              <td>High</td>
+              <td>Medium</td>
+              <td><strong>1 (Do Now)</strong></td>
+            </tr>
+            <tr>
+              <td>Advanced Theme Customization</td>
+              <td>Low</td>
+              <td>Weak operational effect</td>
+              <td>Medium</td>
+              <td>Low</td>
+              <td>3 (Later)</td>
+            </tr>
+            <tr>
+              <td>Undo for Last 3 Saves</td>
+              <td>Medium-High</td>
+              <td>Lower recovery time and fear</td>
+              <td>Medium</td>
+              <td>Medium</td>
+              <td>2 (Next)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini-note">
+        Decision rule: choose the feature that most directly improves North Star behavior with strong confidence and manageable effort.
+      </p>
+    </section>
+
+
+    <div class="week-pager">
+      <a class="week-pager-btn" href="week1.html">&larr; Week 1: Understand The User</a>
+      <a class="week-pager-btn week-pager-next" href="week3.html">Week 3: Build The PRD &rarr;</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Built for TPM Bootcamp continuity. Generated from templates/build.py &mdash; edit the templates or COURSE_LIFECYCLE data, not the HTML output directly.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

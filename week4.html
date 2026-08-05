@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 4: Decide The Architecture | TPM Bootcamp Flow Atlas</title>
+  <meta name="description" content="Choose architecture using named constraints, STRIDE-threat-model it, draw C4 Context + Container diagrams, set 3 SLOs with a latency-budget walk, then negotiate the top trade-offs with a named stakeholder sign-off -- shipping a 6-section Technical Considerations Document (TCD), the final handoff to engineering." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="hero hero-compact">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="brand" href="index.html">TPM Flow Atlas</a>
+      <div class="site-menu-wrap">
+        <button type="button" class="menu-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          Menu
+        </button>
+        <div class="site-menu" id="site-menu" data-open="false">
+          <div class="menu-col menu-col-core">
+            <h3 class="menu-col-title">Core TPM Content</h3>
+            <a href="index.html">Home</a>
+            <a href="week1.html">Week 1 &middot; Understand The User</a>
+            <a href="week2.html">Week 2 &middot; Define The Strategy</a>
+            <a href="week3.html">Week 3 &middot; Build The PRD</a>
+          </div>
+          <div class="menu-col menu-col-technical">
+            <h3 class="menu-col-title">Technical Content</h3>
+            <a href="week4.html" class="active" aria-current="page">Week 4 &middot; Decide The Architecture</a>
+            <a href="week5.html">Week 5 &middot; Model The Technical Details</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+  <p class="eyebrow">Week 4 of 5</p>
+  <h1>Decide The Architecture</h1>
+  <p class="lead">Choose architecture using named constraints, STRIDE-threat-model it, draw C4 Context + Container diagrams, set 3 SLOs with a latency-budget walk, then negotiate the top trade-offs with a named stakeholder sign-off -- shipping a 6-section Technical Considerations Document (TCD), the final handoff to engineering.</p>
+  <div class="hero-actions">
+    <a class="btn btn-ghost" href="index.html#lifecycle">&larr; Lifecycle Map</a>
+<a class="btn btn-ghost" href="week3.html">&larr; Week 3</a><a class="btn btn-primary" href="week5.html">Week 5 &rarr;</a>  </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Week 4</p>
+
+    <section class="panel" aria-labelledby="days-title">
+      <div class="section-head">
+        <h2 id="days-title">Day By Day: What You Do, Why It Matters, What It Hands Off</h2>
+        <p>Each card is grounded in the real course files scanned for Week 4.</p>
+      </div>
+
+      <article id="d1" class="day-card week4">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 4 &middot; Day 1</span>
+          <h3 class="day-card-title">Monolith vs Microservices (Architecture Decisioning)</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Run a monolith-vs-microservices triage using named constraints (team size, deployment cadence, failure isolation needs) taken from the PRD, then produce an integration map with explicit contracts between systems.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="arch-compare"><div class="arch-mono-block">MONOLITH<span class="arch-sub">One deployable, shared codebase</span></div><span class="ac-vs">VS</span><div class="arch-micro-grid"><span class="arch-micro-block">User Service</span><span class="arch-micro-block">Billing Service</span><span class="arch-micro-block">Notification Service</span><span class="arch-micro-block">Reporting Service</span></div></div><figcaption>The triage weighs team size, deployment cadence, and failure isolation &mdash; not hype &mdash; to choose a side.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>The course materials are explicit that the TPM&#39;s role here is not to make the architecture decision for engineering, but to name the constraints that should drive it -- confusing those two roles is the most common way TPMs either overstep or under-deliver at this stage.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Mono-vs-Micro Triage Pack</li><li>Integration/contract map</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>This is the course&#39;s final handoff: the integration map and named constraints are what engineering uses to actually scope and build the product that began as a single observed pain point back in Week 1 Day 4.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d2">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d2" class="day-card week4">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 4 &middot; Day 2</span>
+          <h3 class="day-card-title">System Security &amp; Compliance (STRIDE Threat Model)</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Run a STRIDE threat-model pass -- Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege -- across every integration boundary in Day 1&#39;s map, cull to the top 5 threats with a named owner each, check which compliance frame applies (SOC 2, a privacy regime, or an industry-specific rule), and rewrite the PRD&#39;s first-draft Security &amp; Compliance NFRs at the architecture level.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="stride-grid"><span class="heuristic-chip"><span class="hc-num">S</span>Spoofing</span><span class="heuristic-chip"><span class="hc-num">T</span>Tampering</span><span class="heuristic-chip"><span class="hc-num">R</span>Repudiation</span><span class="heuristic-chip"><span class="hc-num">I</span>Info. Disclosure</span><span class="heuristic-chip"><span class="hc-num">D</span>Denial of Service</span><span class="heuristic-chip"><span class="hc-num">E</span>Elevation of Privilege</span></div><figcaption>STRIDE &mdash; walked at every arrow (data in motion) and box (data at rest) in the integration map.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>The course is explicit that a TPM is not the security expert -- the job is to drive the right conversation with security and hand over a starting threat model the security team can validate, not build from scratch. Skipping this step means the PRD&#39;s Week 3 first-draft NFRs, written before the architecture existed, ship unchanged against a real attack surface nobody ever walked.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>STRIDE threat model (top-5 threats)</li><li>Revised Security &amp; Compliance NFRs (TCD §3)</li><li>Security stakeholder brief</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>The top-5 threats and revised NFRs become TCD Section 3 -- a sibling to the PRD&#39;s Section 7, not a replacement -- and the named owners and open questions feed straight into the 1-page security brief that gets handed to an actual security partner before build starts.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d3" class="day-card week4">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 4 &middot; Day 3</span>
+          <h3 class="day-card-title">Mapping System Components (C4 Diagrams)</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Draw two C4-style diagrams for the feature - a Context diagram (Level 1: the system, its people, and external neighbors) and a Container diagram (Level 2: every independently deployable unit and how they talk) - then stress-test both against three lenses: failure, trust boundary, and evolvability.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">People / Roles</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">System (Context)</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Containers / Modules</span><span class="fs-arrow">&rarr;</span><span class="fs-box">External Systems</span></div><figcaption>Two diagrams, not one: Context (who and what talks to the system) and Container (what deploys independently inside it) &mdash; Component and Code levels stay with engineering.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>Prose descriptions of architecture hide gaps that a real diagram exposes immediately. The course is explicit that Component- and Code-level diagrams are engineering&#39;s job, not the TPM&#39;s - the TPM&#39;s job is Context + Container, drawn well enough that an outsider or a security reviewer can follow it in under 90 seconds.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>C4 Context diagram</li><li>C4 Container diagram</li><li>Trust-boundary markup</li><li>Three-Lens stress test (failure / trust boundary / evolvability)</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>The Container diagram becomes the direct input to Day 4&#39;s per-hop latency budgeting, and the trust-boundary markings feed straight into Day 2&#39;s STRIDE threat model as the concrete boundaries an attacker could actually cross.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d2">&uarr; Prev Day</a><a href="#d4">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d4" class="day-card week4">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 4 &middot; Day 4</span>
+          <h3 class="day-card-title">Latency, Availability &amp; Rate Limits (SLOs)</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Set three SLOs - latency (p&lt;N&gt; ≤ Xms), availability (N% over a window, with an error budget), and a rate-limit policy - then walk the Day 3 Container diagram hop by hop to check whether the real architecture can actually hit the latency target.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Latency SLO</span><span class="fs-arrow">+</span><span class="fs-box">Availability SLO</span><span class="fs-arrow">+</span><span class="fs-box fs-accent">Rate-Limit Policy</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Latency-Budget Walk</span></div><figcaption>Three SLOs, then a hop-by-hop walk of the Day 3 Container diagram to check the architecture can actually hit the number.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>An SLO without a percentile, a window, and a defense is a guess dressed up as a number. The error budget turns an abstract percentage into a decision tool - inside budget, ship features; near or past it, prioritize reliability - so a team can tell objectively when to slow down instead of arguing about vibes.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Latency / Availability / Rate-limit SLO sheet</li><li>Latency-budget walk (hop-by-hop)</li><li>AI sanity-check provenance note</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>The latency-budget walk&#39;s dominant-hop finding becomes Day 5&#39;s evidence for a durability-vs-latency trade-off, and all three SLOs carry forward unchanged into Week 5&#39;s data-layer and cloud-topology decisions as the numbers every later choice must protect.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d3">&uarr; Prev Day</a><a href="#d5">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d5" class="day-card week4">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 4 &middot; Day 5</span>
+          <h3 class="day-card-title">Technical Trade-Offs &amp; TCD Assembly (Ship Day)</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Write the top 5 technical trade-offs in a strict Option A vs Option B → Choice → Accepted cost → Revisit trigger format spanning at least 3 tension categories, build a stakeholder sign-off matrix with a named real person per constraint, then integrate and cross-review all 6 TCD sections before shipping.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Option A</span><span class="fs-arrow">vs</span><span class="fs-box">Option B</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">Choice + Accepted Cost</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Revisit Trigger</span></div><figcaption>The exact trade-off pattern, repeated 5 times, then locked to a named stakeholder before the TCD ships.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>A trade-off that only describes the choice made (&#39;we picked a monolith&#39;) isn&#39;t a trade-off - naming the accepted cost and the revisit trigger is what separates senior architectural thinking from a feature list, and a constraint with no named owner is a constraint nobody actually implements.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Top-5 Trade-Offs (TCD Section 5)</li><li>Stakeholder Sign-Off Matrix (TCD Section 6)</li><li>Integration + cross-review checklist</li><li>Shipped TCD status: Approved / Approved with gaps</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>This is the final Week 4 handoff - the shipped Technical Considerations Document (TCD, 6 sections) becomes the spine Week 5 builds on: its component map drives the data model, its SLOs set the performance baseline, and its threat model drives encryption and key-management decisions.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d4">&uarr; Prev Day</a>        </div>
+      </article>
+    </section>
+
+
+
+    <div class="week-pager">
+      <a class="week-pager-btn" href="week3.html">&larr; Week 3: Build The PRD</a>
+      <a class="week-pager-btn week-pager-next" href="week5.html">Week 5: Model The Technical Details &rarr;</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Built for TPM Bootcamp continuity. Generated from templates/build.py &mdash; edit the templates or COURSE_LIFECYCLE data, not the HTML output directly.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

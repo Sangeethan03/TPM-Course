@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 3: Build The PRD | TPM Bootcamp Flow Atlas</title>
+  <meta name="description" content="Turn strategy into build-ready requirements: PRD sections, testable acceptance criteria, NFRs, dependencies, risk, and peer review." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="hero hero-compact">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="brand" href="index.html">TPM Flow Atlas</a>
+      <div class="site-menu-wrap">
+        <button type="button" class="menu-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          Menu
+        </button>
+        <div class="site-menu" id="site-menu" data-open="false">
+          <div class="menu-col menu-col-core">
+            <h3 class="menu-col-title">Core TPM Content</h3>
+            <a href="index.html">Home</a>
+            <a href="week1.html">Week 1 &middot; Understand The User</a>
+            <a href="week2.html">Week 2 &middot; Define The Strategy</a>
+            <a href="week3.html" class="active" aria-current="page">Week 3 &middot; Build The PRD</a>
+          </div>
+          <div class="menu-col menu-col-technical">
+            <h3 class="menu-col-title">Technical Content</h3>
+            <a href="week4.html">Week 4 &middot; Decide The Architecture</a>
+            <a href="week5.html">Week 5 &middot; Model The Technical Details</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+  <p class="eyebrow">Week 3 of 5</p>
+  <h1>Build The PRD</h1>
+  <p class="lead">Turn strategy into build-ready requirements: PRD sections, testable acceptance criteria, NFRs, dependencies, risk, and peer review.</p>
+  <div class="hero-actions">
+    <a class="btn btn-ghost" href="index.html#lifecycle">&larr; Lifecycle Map</a>
+<a class="btn btn-ghost" href="week2.html">&larr; Week 2</a><a class="btn btn-primary" href="week4.html">Week 4 &rarr;</a>  </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Week 3</p>
+
+    <section class="panel" aria-labelledby="days-title">
+      <div class="section-head">
+        <h2 id="days-title">Day By Day: What You Do, Why It Matters, What It Hands Off</h2>
+        <p>Each card is grounded in the real course files scanned for Week 3.</p>
+      </div>
+
+      <article id="d1" class="day-card week3">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 3 &middot; Day 1</span>
+          <h3 class="day-card-title">PRD Sections 1–5 (Problem → Solution Sketch)</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Draft the first half of a Product Requirements Document: the problem/outcome statement, a solution sketch (user-visible flow, not implementation detail), and a first pass at acceptance criteria.</p>
+        </div>
+
+
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>The PRD is the first artifact engineering actually builds from, so this translates five weeks of discovery, metrics, and design work into a single build-ready document -- if any prior step was skipped, it becomes visible here as a section leadership can&#39;t fill in.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>PRD draft (Sections 1-5)</li><li>Solution sketch</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>This draft is deliberately incomplete -- it hands off directly to Day 2&#39;s acceptance-criteria hardening pass, because a solution sketch without testable AC is not yet buildable.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d2">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d2" class="day-card week3">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 3 &middot; Day 2</span>
+          <h3 class="day-card-title">Acceptance Criteria</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Write testable Acceptance Criteria that explicitly cover &#39;weird paths&#39; (edge cases, error states, offline conditions) in addition to the happy path.</p>
+        </div>
+
+
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>An AC that only describes the happy path guarantees engineers will ask clarifying questions mid-sprint or ship a feature that breaks on the first edge case a real dispatcher hits. This is isolated as its own day because it is the single highest-leverage place a TPM prevents rework.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Acceptance Criteria set</li><li>Weird-path checklist</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>The weird-path list drafted here is cross-checked against Day 3&#39;s NFR categories (what happens under bad network, high load, or invalid input) so reliability requirements aren&#39;t an afterthought.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d3" class="day-card week3">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 3 &middot; Day 3</span>
+          <h3 class="day-card-title">NFRs + Dependencies</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Define Non-Functional Requirements across 5 categories (Performance, Reliability, Security, Usability, Maintainability) in Requirement / Defense / Verification form, and log dependencies with a named owner and due-by date.</p>
+        </div>
+
+
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>An NFR that just says &#39;must be fast&#39; can&#39;t be verified. Writing it as Requirement (the target), Defense (how the design meets it), Verification (how you&#39;ll prove it) forces the same rigor non-functional quality gets that functional features already have -- this is exactly how the course source material explains the Performance category.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>NFR sheet (Requirement/Defense/Verification)</li><li>Dependency log with owners</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>Named dependency owners and dates feed directly into Day 4&#39;s Risk section, since an unowned dependency is the most common hidden risk in a PRD.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d2">&uarr; Prev Day</a><a href="#d4">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d4" class="day-card week3">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 3 &middot; Day 4</span>
+          <h3 class="day-card-title">PRD Mini-Capstone (Risk + Draft Assembly)</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Assemble the full PRD draft -- problem statement through NFRs -- and add a Risks section with mitigations and explicitly flagged open decisions.</p>
+        </div>
+
+
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>This is the first day the PRD is judged as a whole artifact rather than section by section, which surfaces gaps that don&#39;t show up when sections are written in isolation (for example, an AC that contradicts an NFR). Naming open decisions explicitly, instead of quietly picking one, keeps leadership able to weigh in before build starts.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Assembled PRD draft</li><li>Risk register with mitigations</li><li>Open decisions list</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>This assembled draft is the exact input to Day 5&#39;s peer review pass, where a second set of eyes scores it against the same rigor bar before it is called engineer-ready.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d3">&uarr; Prev Day</a><a href="#d5">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d5" class="day-card week3">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 3 &middot; Day 5</span>
+          <h3 class="day-card-title">PRD Review (Capstone)</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Run a structured peer review of the completed PRD against a scoring rubric, then revise it into a final, engineer-ready version.</p>
+        </div>
+
+
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>A PRD that only its author has read still carries that author&#39;s blind spots. Every PRD produced in the course is pressure-tested by a peer using the same rubric an engineering lead would use, closing the loop that started with Working Backwards in Week 1.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>PRD review scorecard</li><li>Final engineer-ready PRD</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>The revised, scored PRD is the exact document Week 4 Day 1 opens with -- architecture decisions are made against this PRD&#39;s constraints, not a rough draft.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d4">&uarr; Prev Day</a>        </div>
+      </article>
+    </section>
+
+
+    <section class="panel" aria-labelledby="prd-title">
+      <div class="section-head">
+        <h2 id="prd-title">How PRD Is Built and What Inputs It Needs</h2>
+        <p>PRD is the bridge between strategy and build reality.</p>
+      </div>
+      <div class="info-card-grid">
+        <article class="info-card">
+          <h3>Required Inputs</h3>
+          <ul>
+            <li>Validated customer pain and personas</li>
+            <li>North Star + KPI hierarchy + baselines</li>
+            <li>User journey map and friction hotspots</li>
+            <li>Heuristic and accessibility findings</li>
+            <li>Business constraints and platform constraints</li>
+            <li>Technical dependencies and risk context</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>PRD Sections (TPM Quality)</h3>
+          <ul>
+            <li>Problem and outcome statement</li>
+            <li>Solution sketch (user-visible flow, not low-level code)</li>
+            <li>Acceptance criteria including weird paths</li>
+            <li>NFRs in Requirement / Defense / Verification form</li>
+            <li>Dependencies with owner and due-by date</li>
+            <li>Risks with mitigations and open decisions</li>
+          </ul>
+        </article>
+      </div>
+      <figure class="mini-diagram">
+        <div class="prd-blueprint">
+          <div class="pb-row"><span class="pb-num">1-2</span><span class="pb-text">Context + Problem</span></div>
+          <div class="pb-row"><span class="pb-num">3-4</span><span class="pb-text">Goals &amp; Non-Goals + Scope</span></div>
+          <div class="pb-row"><span class="pb-num">5</span><span class="pb-text">Solution Sketch</span></div>
+          <div class="pb-row"><span class="pb-num">6</span><span class="pb-text">Acceptance Criteria</span></div>
+          <div class="pb-row"><span class="pb-num">7</span><span class="pb-text">NFRs (5 categories)</span></div>
+          <div class="pb-row"><span class="pb-num">8</span><span class="pb-text">Metrics &amp; Validation</span></div>
+          <div class="pb-row"><span class="pb-num">9</span><span class="pb-text">Risks &amp; Open Questions</span></div>
+          <div class="pb-row"><span class="pb-num">10</span><span class="pb-text">Dependencies</span></div>
+          <div class="pb-row"><span class="pb-num">11</span><span class="pb-text">Out-of-Scope Follow-Ups</span></div>
+        </div>
+        <figcaption>The 11-section PRD skeleton &mdash; drafted section by section across the week, then peer-reviewed before it is called engineer-ready.</figcaption>
+      </figure>
+      <p class="chain-flow">Inputs &rarr; Draft &rarr; Cross-Review &rarr; Clarify Gaps &rarr; Engineer-Ready PRD</p>
+    </section>
+
+    <div class="week-pager">
+      <a class="week-pager-btn" href="week2.html">&larr; Week 2: Define The Strategy</a>
+      <a class="week-pager-btn week-pager-next" href="week4.html">Week 4: Decide The Architecture &rarr;</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Built for TPM Bootcamp continuity. Generated from templates/build.py &mdash; edit the templates or COURSE_LIFECYCLE data, not the HTML output directly.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

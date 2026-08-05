@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 5: Model The Technical Details | TPM Bootcamp Flow Atlas</title>
+  <meta name="description" content="Turn the shipped TCD into a literal buildable system: an access-pattern-first data model, a priced cloud topology, and a REST API contract -- the Technical Modeling Document (TMD)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="hero hero-compact">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="brand" href="index.html">TPM Flow Atlas</a>
+      <div class="site-menu-wrap">
+        <button type="button" class="menu-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          Menu
+        </button>
+        <div class="site-menu" id="site-menu" data-open="false">
+          <div class="menu-col menu-col-core">
+            <h3 class="menu-col-title">Core TPM Content</h3>
+            <a href="index.html">Home</a>
+            <a href="week1.html">Week 1 &middot; Understand The User</a>
+            <a href="week2.html">Week 2 &middot; Define The Strategy</a>
+            <a href="week3.html">Week 3 &middot; Build The PRD</a>
+          </div>
+          <div class="menu-col menu-col-technical">
+            <h3 class="menu-col-title">Technical Content</h3>
+            <a href="week4.html">Week 4 &middot; Decide The Architecture</a>
+            <a href="week5.html" class="active" aria-current="page">Week 5 &middot; Model The Technical Details</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+  <p class="eyebrow">Week 5 of 5</p>
+  <h1>Model The Technical Details</h1>
+  <p class="lead">Turn the shipped TCD into a literal buildable system: an access-pattern-first data model, a priced cloud topology, and a REST API contract -- the Technical Modeling Document (TMD).</p>
+  <div class="hero-actions">
+    <a class="btn btn-ghost" href="index.html#lifecycle">&larr; Lifecycle Map</a>
+<a class="btn btn-ghost" href="week4.html">&larr; Week 4</a>  </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Week 5</p>
+
+    <section class="panel" aria-labelledby="days-title">
+      <div class="section-head">
+        <h2 id="days-title">Day By Day: What You Do, Why It Matters, What It Hands Off</h2>
+        <p>Each card is grounded in the real course files scanned for Week 5.</p>
+      </div>
+
+      <article id="d1" class="day-card week5">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 5 &middot; Day 1</span>
+          <h3 class="day-card-title">Database Structures &amp; Data Logic</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Apply &#39;Access Pattern First&#39; discipline: list every read and write the feature needs before drawing any table, then design an entity model (fields, primary/foreign keys, indexes tied to a numbered access pattern, cardinalities, invariants), pressure-test it against 3 canonical storage trade-offs, and run an AI-assisted schema critique.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box fs-accent">List Every Read + Write</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Entity Model</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Storage Trade-Offs</span><span class="fs-arrow">&rarr;</span><span class="fs-box">AI Schema Critique</span></div><figcaption>"Access Pattern First" &mdash; no table gets designed until every query it must serve is named and numbered.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>A schema designed before its queries are known is a schema that discovers slow queries in production. Naming the access pattern first, and requiring every field and index to trace back to a numbered pattern, is what keeps a TPM&#39;s data model defensible to an engineer instead of just plausible-looking.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Access Pattern Sheet (reads + writes, numbered)</li><li>Entity Model (fields/keys/indexes/invariants)</li><li>3 Storage Trade-Offs (normalization, consistency, schema flexibility)</li><li>AI schema critique + adopt/defer/reject log</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>This produces TMD (Technical Modeling Document) Section 1 - the data model - which Day 2 takes as-is to decide where each entity&#39;s storage physically runs in the cloud, and which Day 3 uses directly to design the REST resources and URL paths on top of it.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d2">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d2" class="day-card week5">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 5 &middot; Day 2</span>
+          <h3 class="day-card-title">Cloud Architecture &amp; Infrastructure</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Make five topology decisions for the feature&#39;s real component map: region + multi-AZ stance, managed-vs-self-managed per component (default managed unless a specific reason not to), multi-tenancy stance (pooled by default), network boundary (public HTTPS by default), and a rough-order-of-magnitude (ROM) monthly cost table, closing with a required AI sanity check for hidden risks.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Region + AZ</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Managed vs Self</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Tenancy + Network</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">ROM Cost + AI Sanity Check</span></div><figcaption>Five topology decisions, each defended by a real SLO, compliance fact, or customer-evidence line &mdash; never by "we want full control."</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>Every topology choice has both a cost dimension and a risk dimension that&#39;s easy to hand-wave past. The day forces each choice to be defended against a real SLO, a real compliance fact, or real customer evidence instead of &#39;we want full control,&#39; which the course names directly as an anti-pattern smell.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Region + AZ stance with trade-off</li><li>Managed-vs-self table (every component)</li><li>Multi-tenancy + network boundary stance</li><li>ROM cost table</li><li>AI sanity-check risk list</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>This produces TMD Section 2 - cloud topology - built directly on top of Day 1&#39;s entity model and the Week 4 Container diagram, and it hands Day 3 a concrete, priced infrastructure picture to design the REST API contract against.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d1">&uarr; Prev Day</a><a href="#d3">Next Day &darr;</a>        </div>
+      </article>
+      <article id="d3" class="day-card week5">
+        <div class="day-card-head">
+          <span class="day-kicker">Week 5 &middot; Day 3</span>
+          <h3 class="day-card-title">REST &amp; SOAP API Fundamentals</h3>
+        </div>
+
+        <div class="day-block">
+          <h4>What You Do</h4>
+          <p>Model the feature&#39;s data entities as REST resources (deciding which ones are exposed as endpoints at all), design their URL paths and HTTP methods with correct status codes for happy/sad/weird paths, then fully document one endpoint end-to-end including idempotency, versioning, and error-body shape - closing with when SOAP is still the right default instead of REST.</p>
+        </div>
+
+<figure class="mini-diagram"><div class="flow-strip"><span class="fs-box">Resources</span><span class="fs-arrow">&rarr;</span><span class="fs-box">URL Paths</span><span class="fs-arrow">&rarr;</span><span class="fs-box">Methods + Status Codes</span><span class="fs-arrow">&rarr;</span><span class="fs-box fs-accent">One Endpoint, Full Detail</span></div><figcaption>Every entity is checked as a resource candidate first &mdash; internal plumbing (like an outbox table) deliberately stays off the API.</figcaption></figure>
+        <div class="day-block">
+          <h4>Why We Do This</h4>
+          <p>Turning a data model into an API is where sloppy resource thinking becomes a permanent, hard-to-change public contract. The day trains catching two opposite mistakes: verbs disguised as resources, and every entity blindly exposed as an endpoint even when it&#39;s really internal plumbing (like an outbox table) that a client should never touch directly.</p>
+        </div>
+
+        <div class="day-block">
+          <h4>Key Artifacts</h4>
+          <ul class="day-artifacts">
+<li>Resource list (with exclusions reasoned)</li><li>URL path design</li><li>Methods + status-code table</li><li>One endpoint documented in full (idempotency, versioning, errors)</li>          </ul>
+        </div>
+
+        <div class="day-block day-connects">
+          <h4>Connects To</h4>
+          <p>This produces TMD Section 3 - the REST API contract - built directly on Day 1&#39;s entity model and Day 2&#39;s cloud topology, and it&#39;s the last technical-modeling layer before Week 5&#39;s remaining days stitch data, cloud, and API together into full request sequence diagrams.</p>
+        </div>
+
+        <div class="day-nav-inline">
+<a href="#d2">&uarr; Prev Day</a>        </div>
+      </article>
+    </section>
+
+
+
+    <div class="week-pager">
+      <a class="week-pager-btn" href="week4.html">&larr; Week 4: Decide The Architecture</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Built for TPM Bootcamp continuity. Generated from templates/build.py &mdash; edit the templates or COURSE_LIFECYCLE data, not the HTML output directly.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

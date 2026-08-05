@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPM Bootcamp Flow Atlas</title>
+  <meta name="description" content="A visual and plain-language guide to the TPM Bootcamp lifecycle from Week 1 to Week 5." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="hero">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="brand" href="index.html">TPM Flow Atlas</a>
+      <div class="site-menu-wrap">
+        <button type="button" class="menu-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          Menu
+        </button>
+        <div class="site-menu" id="site-menu" data-open="false">
+          <div class="menu-col menu-col-core">
+            <h3 class="menu-col-title">Core TPM Content</h3>
+            <a href="index.html" class="active" aria-current="page">Home</a>
+            <a href="week1.html">Week 1 &middot; Understand The User</a>
+            <a href="week2.html">Week 2 &middot; Define The Strategy</a>
+            <a href="week3.html">Week 3 &middot; Build The PRD</a>
+          </div>
+          <div class="menu-col menu-col-technical">
+            <h3 class="menu-col-title">Technical Content</h3>
+            <a href="week4.html">Week 4 &middot; Decide The Architecture</a>
+            <a href="week5.html">Week 5 &middot; Model The Technical Details</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+  <p class="eyebrow">Week 1 Day 1 -&gt; Week 5 Day 3</p>
+  <h1>Connect Every Dot In Your TPM Bootcamp</h1>
+  <p class="lead">
+    This site explains the full course in order: what each topic means in simple words,
+    why it matters, and how it turns into real product decisions.
+    It is grounded in files scanned from Week 1 to Week 5 in your TPM Workshop folder.
+  </p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#lifecycle">Start the Lifecycle Walkthrough</a>
+    <a class="btn btn-ghost" href="#milestones">Key Milestones &amp; Outcomes</a>
+    <a class="btn btn-ghost" href="#course-map">Browse By Week</a>
+  </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="panel intro-panel" aria-labelledby="intro-title">
+      <h2 id="intro-title">Where To Start First</h2>
+      <p>
+        Start with <strong>Problem Framing</strong>, then move to <strong>Personas</strong>,
+        <strong>Pain Points</strong>, <strong>Metrics/North Star</strong>, <strong>UX Heuristics</strong>,
+        <strong>User Journey and Frictions</strong>, <strong>PRD + AC + NFR</strong>, and finally
+        <strong>Architecture and Integration</strong>. The Lifecycle Walkthrough below follows this exact sequence.
+      </p>
+      <p class="mini-note">
+        Rule of thumb: if a section cannot point to customer pain, evidence, and a measurable outcome,
+        do not move to the next section yet.
+      </p>
+    </section>
+
+    <section id="start-here" class="panel" aria-labelledby="start-title">
+      <div class="section-head">
+        <h2 id="start-title">Beginner Start-Here Path (One Pass)</h2>
+        <p>Follow this exact sequence if you feel lost and want one connected story.</p>
+      </div>
+      <ol class="study-list">
+        <li>Week 1: Learn discovery basics: prompting, Working Backwards, personas, pain framing, and evidence-based problem statements.</li>
+        <li>Week 2: Convert pain into measurable direction: metrics pyramid, North Star, UX heuristic audits, and strategy synthesis.</li>
+        <li>Week 3: Turn strategy into build-ready requirements: PRD sections, testable acceptance criteria, NFRs, dependencies, and risks.</li>
+        <li>Week 4: Choose architecture using named constraints, threat-model it, diagram it, set SLOs, and negotiate trade-offs to ship a Technical Considerations Document (TCD).</li>
+        <li>Week 5: Turn the TCD into a literal buildable system: a data model, a cloud topology, and a REST API contract (Technical Modeling Document, TMD).</li>
+        <li>After each day: explain how that day's output becomes input for the next day. That is the connect-the-dots muscle.</li>
+      </ol>
+    </section>
+
+    <section id="lifecycle" class="panel" aria-labelledby="lifecycle-title">
+      <div class="section-head">
+        <h2 id="lifecycle-title">Lifecycle Walkthrough: The Full Product Life Cycle</h2>
+        <p>
+          Click <strong>Next</strong> (or click a node in the diagram) to move through all 16 days in order,
+          from AI fundamentals to the final architecture decision. Each step shows what you do, why the course
+          teaches it, and what it hands off to the next step. Selecting a step lights up only the artifacts
+          that feed into it and the ones it hands off to &mdash; everything else fades out.
+        </p>
+      </div>
+
+      <div id="lifecycle-stepper" class="lifecycle-stepper" data-total="23">
+        <div class="stepper-progress" aria-live="polite">
+          <span id="stepper-progress-label">Step 1 of 23</span>
+        </div>
+
+        <div id="lifecycle-mermaid" class="mermaid-stage" aria-label="Mermaid diagram of the full product lifecycle"></div>
+
+        <article id="stepper-panel" class="stepper-panel" aria-live="polite"></article>
+
+        <div class="stepper-controls">
+          <button id="stepper-prev" class="btn btn-ghost" type="button">&larr; Prev</button>
+          <button id="stepper-next" class="btn btn-primary" type="button">Next &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="milestones" class="panel" aria-labelledby="milestones-title">
+      <div class="section-head">
+        <h2 id="milestones-title">Key Milestones &amp; Outcomes</h2>
+        <p>
+          Beyond the day-by-day walkthrough, every TPM should recognize these as the named,
+          durable artifacts that mark real progress through the product lifecycle &mdash;
+          the ones a lead will ask for by name.
+        </p>
+      </div>
+      <div class="milestone-timeline" role="list" aria-label="Product milestone timeline, Week 1 through Week 5">
+        <div class="timeline-line" aria-hidden="true"></div>
+        <a class="timeline-stop stop-top tl-week1"
+           href="#milestone-prfaq" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 1 · Day 2</span>
+            <span class="timeline-title">PR/FAQ (Working Backwards)</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">1</span></span>
+        </a>
+        <a class="timeline-stop stop-bottom tl-week1"
+           href="#milestone-persona" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 1 · Day 3</span>
+            <span class="timeline-title">Validated Persona &amp; JTBD</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">2</span></span>
+        </a>
+        <a class="timeline-stop stop-top tl-week1"
+           href="#milestone-problem-statement" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 1 · Day 5</span>
+            <span class="timeline-title">Problem Statement + Evidence Brief</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">3</span></span>
+        </a>
+        <a class="timeline-stop stop-bottom tl-week2"
+           href="#milestone-metrics-northstar" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 2 · Days 1-2</span>
+            <span class="timeline-title">Metrics Pyramid &amp; North Star Metric</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">4</span></span>
+        </a>
+        <a class="timeline-stop stop-top tl-week2"
+           href="#milestone-design-principles" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 2 · Day 3</span>
+            <span class="timeline-title">Heuristic Audit &amp; Design Principles</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">5</span></span>
+        </a>
+        <a class="timeline-stop stop-bottom tl-week2"
+           href="#milestone-journey-map" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 2 · Day 5</span>
+            <span class="timeline-title">Customer Journey Map</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">6</span></span>
+        </a>
+        <a class="timeline-stop stop-top tl-week3"
+           href="#milestone-prd" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 3 · Days 1-5</span>
+            <span class="timeline-title">Product Requirements Document (PRD)</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">7</span></span>
+        </a>
+        <a class="timeline-stop stop-bottom tl-week4"
+           href="#milestone-architecture-decision" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 4 · Day 1</span>
+            <span class="timeline-title">Architecture Decision &amp; Integration Map</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">8</span></span>
+        </a>
+        <a class="timeline-stop stop-top tl-week4"
+           href="#milestone-threat-model" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 4 · Day 2</span>
+            <span class="timeline-title">STRIDE Threat Model &amp; Security NFRs (TCD §3)</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">9</span></span>
+        </a>
+        <a class="timeline-stop stop-bottom tl-week4"
+           href="#milestone-c4-diagrams" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 4 · Day 3</span>
+            <span class="timeline-title">C4 Context + Container Diagrams</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">10</span></span>
+        </a>
+        <a class="timeline-stop stop-top tl-week4"
+           href="#milestone-slo-sheet" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 4 · Day 4</span>
+            <span class="timeline-title">Three SLOs + Latency-Budget Walk</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">11</span></span>
+        </a>
+        <a class="timeline-stop stop-bottom tl-week4"
+           href="#milestone-tcd-shipped" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 4 · Day 5</span>
+            <span class="timeline-title">Top-5 Trade-Offs + TCD Shipped</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">12</span></span>
+        </a>
+        <a class="timeline-stop stop-top tl-week5"
+           href="#milestone-tmd-data-model" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 5 · Day 1</span>
+            <span class="timeline-title">TMD Section 1 – Data Model</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">13</span></span>
+        </a>
+        <a class="timeline-stop stop-bottom tl-week5"
+           href="#milestone-tmd-cloud-topology" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 5 · Day 2</span>
+            <span class="timeline-title">TMD Section 2 – Cloud Topology</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">14</span></span>
+        </a>
+        <a class="timeline-stop stop-top tl-week5"
+           href="#milestone-tmd-rest-api" role="listitem">
+          <span class="timeline-label">
+            <span class="timeline-stage">Week 5 · Day 3</span>
+            <span class="timeline-title">TMD Section 3 – REST API Contract</span>
+          </span>
+          <span class="timeline-pin"><span class="timeline-num">15</span></span>
+        </a>
+      </div>
+
+      <div class="milestone-grid">
+        <article class="milestone-card" id="milestone-prfaq">
+          <span class="day-kicker">Week 1 · Day 2</span>
+          <h3>PR/FAQ (Working Backwards)</h3>
+          <p class="milestone-definition">A one-page press release plus FAQ for a product that does not exist yet, written before any design or engineering work starts.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>It forces the team to prove customer value in plain language before a single engineer is staffed. If the press release is weak, the product idea is weak -- and that is cheap to discover on paper, expensive to discover in production.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Six-part PR: heading, sub-heading, summary, problem, solution, customer quote</li>
+              <li>The Five Customer Questions: who, what problem, one benefit, what evidence, what the moment of use looks like</li>
+              <li>Internal FAQ: riskiest assumption, build estimate, what breaks under partial adoption</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-prfaq">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-persona">
+          <span class="day-kicker">Week 1 · Day 3</span>
+          <h3>Validated Persona &amp; JTBD</h3>
+          <p class="milestone-definition">A persona built from observed behavior plus a Job-to-Be-Done statement, checked against a Validation Canvas instead of assumed from a title or age range.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>A persona built on demographics does not predict behavior. A validated &#39;who&#39; and &#39;why&#39; keeps every later prioritization call traceable to a real user, not an assumption the team fell in love with.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Persona Validation Canvas</li>
+              <li>Job-to-Be-Done statement (verb + circumstance, not a job title)</li>
+              <li>Behavioral evidence citations backing every trait</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-persona">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-problem-statement">
+          <span class="day-kicker">Week 1 · Day 5</span>
+          <h3>Problem Statement + Evidence Brief</h3>
+          <p class="milestone-definition">A six-line problem statement backed by an Evidence Brief that states data confidence and business impact.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>A problem statement without evidence is an opinion. This is the hard stop before metrics work starts -- leadership can challenge the problem before any resource is committed to solving it.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Six-line Problem Statement template</li>
+              <li>Evidence Brief with a stated confidence rating</li>
+              <li>Readout deck built for leadership challenge, not just approval</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-problem-statement">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-metrics-northstar">
+          <span class="day-kicker">Week 2 · Days 1-2</span>
+          <h3>Metrics Pyramid &amp; North Star Metric</h3>
+          <p class="milestone-definition">A three-tier metrics ladder (Operational Signals → KPIs → North Star) plus one North Star Metric, pressure-tested against three pitfalls and stress-tested with the Three Standard Challenges.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>Teams default to whatever metric is easiest to pull from a dashboard -- usually a vanity metric. The pyramid forces every signal to ladder into something a CEO and a front-line worker would both agree means the business is winning.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Metrics Tier Sheet (North Star / KPI / Operational Signals)</li>
+              <li>Believable Causal Chain -- a three-sentence story from signal to North Star</li>
+              <li>Three Standard Challenges: Causal Chain, Gameability, Instrumentation</li>
+              <li>North Star template with a counter-metric guardrail</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-metrics-northstar">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-design-principles">
+          <span class="day-kicker">Week 2 · Day 3</span>
+          <h3>Heuristic Audit &amp; Design Principles</h3>
+          <p class="milestone-definition">A severity-scored UX audit against Nielsen&#39;s 10 usability heuristics plus 3 TPM-specific lenses, distilled into 3 durable design principles.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>Subjective complaints like &#39;the form feels clunky&#39; cannot be prioritized by engineering. Naming the exact heuristic and severity turns UX debt into a fundable ticket, and a design principle tells the team what to choose when two options compete.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Nielsen&#39;s 10 heuristics, scored pass / partial / fail</li>
+              <li>3 TPM lenses: time-to-first-value, failure-mode dignity, power-user respect</li>
+              <li>8-point Accessibility Floor checklist</li>
+              <li>1-5 severity scoring guide</li>
+              <li>3-Principle Card: one line + one decision it forces, per principle</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-design-principles">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-journey-map">
+          <span class="day-kicker">Week 2 · Day 5</span>
+          <h3>Customer Journey Map</h3>
+          <p class="milestone-definition">A stage-by-stage map of the end-to-end customer journey that locates friction hotspots and evaluates each stage against the design principles.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>A heuristic audit finds isolated UX bugs. A journey map finds where those bugs compound across a real flow -- for example, a validation gap on one screen causing a support escalation three steps later. It turns isolated findings into one narrative of where the product currently fails the North Star.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Journey Map Canvas (stage, action, emotion, friction)</li>
+              <li>Friction hotspot list tied back to Week 1 pain points</li>
+              <li>Feature-prioritization frame (top 3 concepts, each tied to a friction point and a metric)</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-journey-map">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-prd">
+          <span class="day-kicker">Week 3 · Days 1-5</span>
+          <h3>Product Requirements Document (PRD)</h3>
+          <p class="milestone-definition">An 11-section PRD skeleton -- drafted section by section across the week and peer-reviewed before it is called engineer-ready.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>The PRD is the first artifact engineering actually builds from. It is where five weeks of discovery, metrics, and design work either translate into a buildable document, or where a skipped step becomes visible as a section nobody can fill in.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>§1-2 Context + Problem, grounded in Week 1 interviews and the Week 2 journey map</li>
+              <li>§3-4 Goals &amp; non-goals + Scope (in / out)</li>
+              <li>§5 Solution sketch -- user-visible flow, no implementation detail</li>
+              <li>§6 Acceptance Criteria -- happy / sad / weird paths in Given/When/Then form</li>
+              <li>§7 NFRs across 5 categories: Performance, Reliability, Security, Usability, Maintainability</li>
+              <li>§8 Metrics &amp; validation, §9 Risks &amp; open questions, §10 Dependencies, §11 Out-of-scope follow-ups</li>
+              <li>Peer review scorecard before the draft is called engineer-ready</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-prd">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-architecture-decision">
+          <span class="day-kicker">Week 4 · Day 1</span>
+          <h3>Architecture Decision &amp; Integration Map</h3>
+          <p class="milestone-definition">A monolith-vs-microservices triage using named constraints pulled straight from the PRD (team size, deployment cadence, failure isolation needs), producing an integration map with explicit contracts between systems.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>The TPM&#39;s job here is not to make the architecture call for engineering -- it is to name the constraints that should drive it. Confusing those two roles is the most common way a TPM either overreaches or under-delivers at this stage.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Mono-vs-Micro Triage Pack</li>
+              <li>Named constraints sourced directly from the PRD</li>
+              <li>Integration / contract map engineering can actually scope against</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-architecture-decision">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-threat-model">
+          <span class="day-kicker">Week 4 · Day 2</span>
+          <h3>STRIDE Threat Model &amp; Security NFRs (TCD §3)</h3>
+          <p class="milestone-definition">A STRIDE threat-model walk across every integration boundary in the architecture, culled to the top 5 threats, translated into revised, architecture-level Security &amp; Compliance NFRs that supersede the PRD&#39;s first-draft version.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>A TPM doesn&#39;t write the compliance program or design the mitigation -- but naming which compliance frame applies and pinning a threat to a specific arrow or box in the data flow is what turns a vague &#39;is this secure?&#39; into a conversation a real security team can actually validate.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>STRIDE walk across the architecture&#39;s data flow (boxes + arrows)</li>
+              <li>Top-5 threats, each with likelihood, impact, mitigation, and a named owner</li>
+              <li>Compliance frame check (SOC 2 / privacy regime / industry-specific)</li>
+              <li>Revised Security &amp; Compliance NFRs (Requirement / Defense / Verification)</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-threat-model">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-c4-diagrams">
+          <span class="day-kicker">Week 4 · Day 3</span>
+          <h3>C4 Context + Container Diagrams</h3>
+          <p class="milestone-definition">Two C4-style diagrams -- Context (system + people + external neighbors) and Container (every independently deployable unit + how they talk) -- stress-tested against failure, trust-boundary, and evolvability lenses.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>A diagram a security reviewer or an outsider can follow in 90 seconds replaces architecture hand-waving with a shared visual vocabulary. The TPM&#39;s scope stops at Context + Container -- Component and Code levels are engineering&#39;s job.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>C4 legend (owned-by-us vs. external, sync vs. async arrow, person)</li>
+              <li>Trust-boundary markup wherever data crosses from our control to someone else&#39;s</li>
+              <li>Three-Lens stress test: failure trace, trust boundary, evolvability</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-c4-diagrams">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-slo-sheet">
+          <span class="day-kicker">Week 4 · Day 4</span>
+          <h3>Three SLOs + Latency-Budget Walk</h3>
+          <p class="milestone-definition">A latency SLO, an availability SLO with an error budget, and a rate-limit policy, each passing a percentile + window + defense check, then walked hop-by-hop across the real Container diagram to verify the architecture can hit the number.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>An SLO without a percentile, a window, and a defense is an opinion wearing a number&#39;s clothes. The error budget converts an abstract percentage into a decision tool that tells a team objectively when to ship features versus when to stop and fix reliability.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Latency SLO: p95 ≤ 2.0s / p99 ≤ 5.0s, 30-day window</li>
+              <li>Availability SLO: 99.5%, ≈ 3.6 hr/month error budget</li>
+              <li>Rate-limit policy: per-user/per-tenant caps + 429 failure mode</li>
+              <li>Hop-by-hop latency-budget walk vs. the SLO target</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-slo-sheet">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-tcd-shipped">
+          <span class="day-kicker">Week 4 · Day 5</span>
+          <h3>Top-5 Trade-Offs + TCD Shipped</h3>
+          <p class="milestone-definition">Five technical trade-offs in strict Option A vs Option B → Choice → Accepted cost → Revisit trigger form, a stakeholder sign-off matrix with a named real person per constraint, and a full 6-section Technical Considerations Document (TCD) shipped after integration + cross-review.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>&#39;We considered microservices but chose a monolith&#39; is a description, not a trade-off -- naming the accepted cost and the revisit trigger is what separates senior architectural thinking from a feature list, and a constraint with no named owner never actually gets implemented.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>5 trade-offs spanning ≥ 3 tension categories</li>
+              <li>Stakeholder sign-off matrix (real names, honest status -- mostly &#39;Proposed,&#39; not &#39;Approved&#39;)</li>
+              <li>6-row integration checklist across all TCD sections</li>
+              <li>Cross-review + AI sanity check before shipping</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-tcd-shipped">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-tmd-data-model">
+          <span class="day-kicker">Week 5 · Day 1</span>
+          <h3>TMD Section 1 – Data Model</h3>
+          <p class="milestone-definition">An entity model -- fields, keys, indexes tied to a numbered access pattern, cardinalities, invariants -- built only after every read and write the feature needs has been listed and numbered first.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>&#39;Access Pattern First&#39; exists because a schema designed before its queries are known is a schema that discovers slow queries in production; requiring every index to cite a numbered pattern keeps the model defensible to an engineer, not just plausible-looking.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Access Pattern Sheet (reads + writes, numbered, highest-volume reads circled)</li>
+              <li>Entity Model (one block per entity: fields/PK/indexes/relationships/invariants)</li>
+              <li>3 storage trade-offs (normalization, consistency, schema flexibility)</li>
+              <li>AI schema critique with adopt/defer/reject log</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-tmd-data-model">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-tmd-cloud-topology">
+          <span class="day-kicker">Week 5 · Day 2</span>
+          <h3>TMD Section 2 – Cloud Topology</h3>
+          <p class="milestone-definition">Five topology decisions for the feature&#39;s real component map -- region + multi-AZ, managed-vs-self per component, multi-tenancy stance, network boundary, and a rough-order-of-magnitude monthly cost table -- closed with a required AI sanity check.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>Every topology choice trades cost against risk; defaulting to &#39;managed unless there&#39;s a specific reason not to&#39; and &#39;pooled tenancy unless there&#39;s contractual evidence otherwise&#39; stops a team from over-engineering for a problem no customer has actually asked for.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Region + multi-AZ stance with a named trade-off</li>
+              <li>Managed-vs-self table for every component (4-question test)</li>
+              <li>Multi-tenancy stance (pooled default) + network boundary (public HTTPS default)</li>
+              <li>ROM cost table with egress called out as its own line</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-tmd-cloud-topology">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+        <article class="milestone-card" id="milestone-tmd-rest-api">
+          <span class="day-kicker">Week 5 · Day 3</span>
+          <h3>TMD Section 3 – REST API Contract</h3>
+          <p class="milestone-definition">Every data-model entity checked as a resource candidate, URL paths and HTTP methods designed with correct happy/sad/weird-path status codes, and one endpoint documented end-to-end -- including idempotency, versioning, and the error-body shape.</p>
+          <div class="day-block">
+            <h4>Why It Matters</h4>
+            <p>An API is a public contract that&#39;s hard to change later; the day trains catching two opposite mistakes at once -- a verb disguised as a resource (e.g. a &#39;/reconcile&#39; action endpoint) and blindly exposing every entity, including ones that are really internal plumbing a client should never touch directly.</p>
+          </div>
+          <div class="day-block">
+            <h4>What's Inside</h4>
+            <ul class="day-artifacts">
+              <li>Resource list, with exclusions reasoned (not every entity becomes an endpoint)</li>
+              <li>URL path design (nesting sub-resources one level deep)</li>
+              <li>Methods + status-code table for happy/sad/weird paths</li>
+              <li>One endpoint fully documented: idempotency key + window, versioning, error body</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-sample" data-open-dialog="sample-tmd-rest-api">
+            View Filled Sample &rarr;
+          </button>
+        </article>
+      </div>
+
+      <dialog class="sample-dialog" id="sample-prfaq" aria-labelledby="sample-prfaq-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-prfaq-title">PR/FAQ (Working Backwards) &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Heading</h4><p>FieldPulse Mobile Adds Offline Dispatch Assist, Cutting New-Dispatcher Escalations</p><h4>Sub-heading</h4><p>New dispatchers can now complete a full shift of job assignments without a senior dispatcher&rsquo;s help, even with no signal.</p><h4>Summary</h4><p>FieldPulse Mobile ships an offline-ready dispatch assistant that validates job assignments in real time and queues changes for sync, so a new dispatcher&rsquo;s first shift no longer depends on a senior teammate being available.</p><h4>Problem</h4><p>New dispatchers escalate to a senior teammate multiple times per shift because the app allows invalid job assignments to be saved silently, and offline signal drops erase unsaved work.</p><h4>Solution</h4><p>Inline validation blocks invalid saves before they happen, and an offline queue holds every change until connectivity returns, syncing automatically with no lost work.</p><div class="sample-quote">&ldquo;My first solo shift, I didn&rsquo;t have to call anyone. The app told me exactly what was wrong before I hit save.&rdquo; &mdash; sample customer quote</div><h4>Internal FAQ</h4><p><strong>Riskiest assumption:</strong> dispatchers will trust an offline queue enough to keep working instead of waiting for signal.</p><p><strong>Build estimate:</strong> 3 sprints for validation rules, 2 sprints for the offline queue and sync.</p><p><strong>What breaks under partial adoption:</strong> if only some job types get validation rules, dispatchers will assume every field is validated &mdash; rollout has to cover every job type at once.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-persona" aria-labelledby="sample-persona-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-persona-title">Validated Persona &amp; JTBD &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Persona</h4><p><strong>Dana &mdash; New Dispatcher, first two weeks on the job.</strong> Hired for reliability, not software experience. Uses the mobile app one-handed while walking the floor.</p><h4>Job to Be Done</h4><p>&ldquo;When I get a new list of jobs at the start of my shift, I want to assign each one correctly on the first try, so that I don&rsquo;t have to interrupt a senior dispatcher to double-check my work.&rdquo;</p><h4>Behavioral evidence</h4><ul><li>Re-opened the same job assignment 4 times in one shift before asking for help (observed shadow session)</li><li>Waited an average of 6 minutes for a senior dispatcher to confirm a save before moving to the next job (support ticket logs)</li></ul><h4>Validation Canvas check</h4><p>Confirmed against 5 shadow sessions and 12 support tickets &mdash; not assumed from job title or tenure alone.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-problem-statement" aria-labelledby="sample-problem-statement-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-problem-statement-title">Problem Statement + Evidence Brief &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Six-line Problem Statement</h4><p>1. Who: new dispatchers in their first two weeks.</p><p>2. What: they cannot complete a full shift of job assignments without senior help.</p><p>3. Where/when: during job assignment, most often in the first 3 shifts.</p><p>4. Impact: senior dispatchers lose roughly 30 minutes per shift to escalations.</p><p>5. Root cause (hypothesis): no inline validation or offline recovery on the assignment form.</p><p>6. Opportunity: reduce escalations without adding a training program.</p><h4>Evidence Brief</h4><p><strong>Confidence:</strong> high &mdash; corroborated by 12 support tickets and 5 shadow sessions.</p><p><strong>Business impact:</strong> roughly 2.5 senior-dispatcher hours per week recovered for every 5 new hires onboarded.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-metrics-northstar" aria-labelledby="sample-metrics-northstar-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-metrics-northstar-title">Metrics Pyramid &amp; North Star Metric &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Metrics Tier Sheet</h4><div class="table-wrap"><table><thead><tr><th scope="col">Tier</th><th scope="col">Metric</th></tr></thead><tbody><tr><td>North Star</td><td>% of new dispatchers completing a full shift independently</td></tr><tr><td>KPI</td><td>Escalations per new-dispatcher shift</td></tr><tr><td>Operational Signal</td><td>Invalid-save attempts blocked by validation</td></tr></tbody></table></div><h4>Believable Causal Chain</h4><p>Blocking an invalid save (signal) reduces confused re-attempts, which reduces escalations (KPI), which increases the share of shifts completed independently (North Star).</p><h4>North Star Statement</h4><p>&ldquo;We are winning when new dispatchers complete their first full day independently, with zero senior intervention, at &ge;85% accuracy.&rdquo; <strong>Counter-metric:</strong> job-assignment error rate must not rise as escalations fall.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-design-principles" aria-labelledby="sample-design-principles-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-design-principles-title">Heuristic Audit &amp; Design Principles &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Sample Finding</h4><div class="table-wrap"><table><thead><tr><th scope="col">Heuristic</th><th scope="col">Finding</th><th scope="col">Severity</th></tr></thead><tbody><tr><td>Error Prevention</td><td>Form saves an incomplete job assignment with no warning</td><td>5 (Critical)</td></tr></tbody></table></div><h4>Design Principle Derived</h4><p><strong>&ldquo;Stop invalid data before Save, not after.&rdquo;</strong> One-line rule: valid data only, never save invalid data hoping someone fixes it later. Decision it forces: every required field is validated before the Save button is enabled.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-journey-map" aria-labelledby="sample-journey-map-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-journey-map-title">Customer Journey Map &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Sample Journey Map Canvas</h4><div class="table-wrap"><table><thead><tr><th scope="col">Stage</th><th scope="col">Action</th><th scope="col">Emotion</th><th scope="col">Friction?</th></tr></thead><tbody><tr><td>Pre-shift</td><td>Review dispatch list</td><td>Neutral</td><td>&mdash;</td></tr><tr><td>On-shift</td><td>Assign first job</td><td>Confident</td><td>&mdash;</td></tr><tr><td>Mid-shift change</td><td>Reassign after a cancellation</td><td>Frustrated</td><td>&#9733; Save silently fails</td></tr><tr><td>After-shift</td><td>Reconcile completed jobs</td><td>Relieved</td><td>&mdash;</td></tr></tbody></table></div><h4>Top Friction &rarr; Feature Concept</h4><p>Silent save failure during reassignment &rarr; inline validation plus a confirmation toast, tied to the escalations-per-shift KPI.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-prd" aria-labelledby="sample-prd-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-prd-title">Product Requirements Document (PRD) &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>&sect;1-2 Context + Problem (excerpt)</h4><p>New dispatchers cannot complete a full shift independently because the assignment form allows invalid saves and loses work when offline.</p><h4>&sect;5 Solution Sketch (excerpt)</h4><p>On Save, validate required fields inline; on connectivity loss, queue the change locally and sync automatically once signal returns.</p><h4>&sect;6 Acceptance Criteria (excerpt)</h4><p>Given a dispatcher submits an assignment missing a required field, when they tap Save, then the form blocks the save and highlights the missing field.</p><p>Given a dispatcher is offline, when they save an assignment, then the change is queued and a &ldquo;Pending Sync&rdquo; badge is shown.</p><h4>&sect;7 NFR sample (Reliability)</h4><p><strong>Requirement:</strong> no queued change is lost across an app restart. <strong>Defense:</strong> the queue persists to local storage. <strong>Verification:</strong> kill-and-relaunch test with 10 queued changes.</p><p class="mini-note">This is a short excerpt &mdash; the full PRD runs all 11 sections end to end.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-architecture-decision" aria-labelledby="sample-architecture-decision-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-architecture-decision-title">Architecture Decision &amp; Integration Map &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Named Constraints (from the PRD)</h4><ul><li>Team size: 4 engineers</li><li>Deployment cadence: weekly</li><li>Failure isolation: offline sync must not block core dispatch</li></ul><h4>Triage Result</h4><p>Modular monolith, with the offline-sync queue isolated behind its own internal service boundary and contract &mdash; full microservices would outrun a 4-engineer team&rsquo;s deployment cadence.</p><h4>Integration / Contract Map (excerpt)</h4><p>Dispatch module &rarr; Sync Queue module: contract = <code>{jobId, changeType, payload, clientTimestamp}</code>, delivered at-least-once, deduplicated by <code>clientTimestamp</code>.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-threat-model" aria-labelledby="sample-threat-model-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-threat-model-title">STRIDE Threat Model &amp; Security NFRs (TCD §3) &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Top Threat (STRIDE walk excerpt)</h4><p><strong>Threat &mdash; Session token replay</strong><br><strong>STRIDE letter:</strong> Spoofing<br><strong>Where:</strong> Backend service &rarr; Datastore arrow, right after session token issuance<br><strong>Scenario:</strong> A captured token is replayed from a second device before it expires.<br><strong>Likelihood:</strong> M &nbsp; <strong>Impact:</strong> H<br><strong>Mitigation:</strong> Bind the token to a device fingerprint with a 15-minute expiry &mdash; not "use HTTPS."<br><strong>Owner:</strong> Security team (validate the binding approach)</p><h4>Compliance Frame Check</h4><ul><li>SOC 2: user-action audit trail required (CC7.2), 24-month retention</li><li>Privacy: dispatcher PII processed &mdash; a state-level privacy regime applies</li><li>Industry-specific: none directly for this feature</li></ul><h4>Revised NFR (TCD &sect;3)</h4><p><strong>Category:</strong> Security<br><strong>Requirement:</strong> Session tokens are bound to a device fingerprint and expire after 15 minutes.<br><strong>Defense:</strong> Directly mitigates the Spoofing threat found in the STRIDE walk.<br><strong>Verification:</strong> Replay a captured token from a second device; access must be denied.</p><p class="mini-note">TCD &sect;3 deepens the PRD&rsquo;s &sect;7 NFRs &mdash; it does not replace them.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-c4-diagrams" aria-labelledby="sample-c4-diagrams-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-c4-diagrams-title">C4 Context + Container Diagrams &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Trust-Boundary Finding (sample)</h4><p>A shared platform audit-log topic was first drawn as &ldquo;owned by us&rdquo; &mdash; re-checking the container table showed the true owner is Platform Compliance/Infra. Corrected to cross a trust boundary, the exact mistake the course warns about: a shared system is not automatically part of &ldquo;our system.&rdquo;</p><h4>Failure Trace (sample)</h4><p>&ldquo;What happens when the audit topic is full?&rdquo; exposed that the diagram had no drawn retry/dead-letter box between the app and the queue &mdash; a real gap, logged as an open engineering question, not silently fixed.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-slo-sheet" aria-labelledby="sample-slo-sheet-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-slo-sheet-title">Three SLOs + Latency-Budget Walk &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Latency-Budget Walk (sample)</h4><p>Network-in 80ms &rarr; auth check 40ms &rarr; orchestration API 150ms (dominant hop) &rarr; database write 30ms &rarr; network-out 100ms = 400ms happy path, comfortably inside the SLO. But the API&rsquo;s own 3-retry backoff policy pushes the true worst case to &asymp;4,200ms &mdash; still inside p99 ≤ 5.0s, but with only &asymp;800ms of headroom, not the &asymp;2,400ms the happy-path math alone implied.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-tcd-shipped" aria-labelledby="sample-tcd-shipped-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-tcd-shipped-title">Top-5 Trade-Offs + TCD Shipped &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Trade-Off (sample)</h4><p><strong>Tension:</strong> latency vs. durability. <strong>Option A:</strong> write the audit record synchronously. <strong>Option B:</strong> publish it async with a dead-letter queue. <strong>Choice:</strong> B. <strong>Accepted cost:</strong> a rare failure can lag the audit trail by up to 10 seconds. <strong>Revisit trigger:</strong> if audit-lag complaints appear in a compliance review.</p><h4>Ship Status</h4><p>TCD Status: <strong>Approved with gaps</strong> &mdash; honestly naming what is still open (an unresolved dependency, one trade-off flagged as under-defended) rather than rubber-stamping every row &ldquo;Approved.&rdquo;</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-tmd-data-model" aria-labelledby="sample-tmd-data-model-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-tmd-data-model-title">TMD Section 1 – Data Model &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Access Pattern (sample)</h4><p>Pattern #4 (&#9733; highest-volume read): list open tickets for a shop, filtered by status and priority, ordered by priority then created-at &mdash; this single pattern drives the index design engineering needs on the Ticket table.</p><h4>Storage Trade-Off (sample)</h4><p>Strong consistency vs. replica reads: the open-ticket listing read must hit the primary database, not a replica, because a stale read could let two dispatchers claim the same ticket &mdash; directly protecting a concurrency invariant, not just a style preference.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-tmd-cloud-topology" aria-labelledby="sample-tmd-cloud-topology-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-tmd-cloud-topology-title">TMD Section 2 – Cloud Topology &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Smell to Reject</h4><p>&ldquo;We want full control&rdquo; is not a valid reason to self-manage a component -- the test asks whether failure modes match real needs, whether cost is reasonable at this scale, whether compliance allows it, and whether there is a SPECIFIC reason to control it.</p><h4>Cost Surprise (sample)</h4><p>The highest-availability database tier can consume well over a third of the entire monthly infrastructure budget &mdash; the direct dollar cost of an availability SLO, made visible instead of buried in an abstract percentage.</p>
+        </div>
+      </dialog>
+      <dialog class="sample-dialog" id="sample-tmd-rest-api" aria-labelledby="sample-tmd-rest-api-title">
+        <div class="sample-dialog-head">
+          <h3 id="sample-tmd-rest-api-title">TMD Section 3 – REST API Contract &mdash; Filled Sample</h3>
+          <button type="button" class="dialog-close" data-close-dialog aria-label="Close sample">&times;</button>
+        </div>
+        <div class="sample-dialog-body">
+          <h4>Deliberate Exclusion (sample)</h4><p>An internal outbox table used only to relay events to a background process is deliberately NOT exposed as a REST resource &mdash; exposing it would let a client bypass the exact audit or billing guarantee it exists to provide.</p><h4>Idempotency (sample)</h4><p>An <code>Idempotency-Key</code> header with a 24-hour window turns a &ldquo;network dropped mid-submit, client retries&rdquo; scenario into a safe replay instead of a duplicate side effect.</p>
+        </div>
+      </dialog>
+    </section>
+
+    <section id="course-map" class="panel" aria-labelledby="course-map-title">
+      <div class="section-head">
+        <h2 id="course-map-title">Browse By Week</h2>
+        <p>Each week has its own page with day-by-day What / Why / Connects-To cards.</p>
+      </div>
+      <div class="course-map-grid">
+        <a class="course-map-card week1" href="week1.html">
+          <span class="day-kicker">Week 1</span>
+          <h3>Understand The User</h3>
+          <p>Discovery basics: prompting discipline, Working Backwards, validated personas, root-cause pain framing, and evidence-backed problem statements.</p>
+          <span class="course-map-cta">View Week 1 &rarr;</span>
+        </a>
+        <a class="course-map-card week2" href="week2.html">
+          <span class="day-kicker">Week 2</span>
+          <h3>Define The Strategy</h3>
+          <p>Turn pain into measurable direction: metrics pyramid, North Star, UX heuristic + accessibility audits, AI-assisted competitive research, and journey mapping.</p>
+          <span class="course-map-cta">View Week 2 &rarr;</span>
+        </a>
+        <a class="course-map-card week3" href="week3.html">
+          <span class="day-kicker">Week 3</span>
+          <h3>Build The PRD</h3>
+          <p>Turn strategy into build-ready requirements: PRD sections, testable acceptance criteria, NFRs, dependencies, risk, and peer review.</p>
+          <span class="course-map-cta">View Week 3 &rarr;</span>
+        </a>
+        <a class="course-map-card week4" href="week4.html">
+          <span class="day-kicker">Week 4</span>
+          <h3>Decide The Architecture</h3>
+          <p>Choose architecture using named constraints, STRIDE-threat-model it, draw C4 Context + Container diagrams, set 3 SLOs with a latency-budget walk, then negotiate the top trade-offs with a named stakeholder sign-off -- shipping a 6-section Technical Considerations Document (TCD), the final handoff to engineering.</p>
+          <span class="course-map-cta">View Week 4 &rarr;</span>
+        </a>
+        <a class="course-map-card week5" href="week5.html">
+          <span class="day-kicker">Week 5</span>
+          <h3>Model The Technical Details</h3>
+          <p>Turn the shipped TCD into a literal buildable system: an access-pattern-first data model, a priced cloud topology, and a REST API contract -- the Technical Modeling Document (TMD).</p>
+          <span class="course-map-cta">View Week 5 &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="visuals" class="panel" aria-labelledby="visuals-title">
+      <div class="section-head">
+        <h2 id="visuals-title">Visual Learning Studio</h2>
+        <p>These diagrams teach the full flow from discovery to PRD to architecture, using visual logic first.</p>
+      </div>
+
+      <figure class="flowchart-figure">
+        <figcaption>Master Flowchart: how artifacts carry from day to day</figcaption>
+
+        <div class="flow-legend" aria-hidden="true">
+          <span class="legend-item"><i class="legend-dot dot-w1"></i>Week 1 &middot; Understand the user</span>
+          <span class="legend-item"><i class="legend-dot dot-w2"></i>Week 2 &middot; Define the strategy</span>
+          <span class="legend-item"><i class="legend-dot dot-w3"></i>Week 3 &middot; Build the PRD</span>
+          <span class="legend-item"><i class="legend-dot dot-w4"></i>Week 4 &middot; Decide the architecture</span>
+          <span class="legend-item"><i class="legend-dot dot-w5"></i>Week 5 &middot; Model the technical details</span>
+        </div>
+
+        <svg class="master-flowchart" viewBox="0 0 1850 720" role="img" aria-label="TPM bootcamp flowchart showing week by week handoffs">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#6a6ddf"></path>
+            </marker>
+            <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#2d9a79"></path>
+            </marker>
+            <marker id="arrowOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#d16e2e"></path>
+            </marker>
+            <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f6fed"></path>
+            </marker>
+          </defs>
+
+          <text x="30" y="30" class="svg-col-title">Week 1 — Understand the user</text>
+          <text x="415" y="30" class="svg-col-title">Week 2 — Define the strategy</text>
+          <text x="800" y="30" class="svg-col-title">Week 3 — Build the PRD</text>
+          <text x="1170" y="30" class="svg-col-title">Week 4 — Decide the architecture</text>
+          <text x="1500" y="30" class="svg-col-title">Week 5 — Model the technical details</text>
+
+          <!-- Connectors drawn first so nodes sit cleanly on top -->
+          <path d="M 180 150 L 180 163" class="flow-purple" marker-end="url(#arrow)"></path>
+          <path d="M 180 256 L 180 269" class="flow-purple" marker-end="url(#arrow)"></path>
+          <path d="M 180 362 L 180 375" class="flow-purple" marker-end="url(#arrow)"></path>
+          <path d="M 180 468 L 180 481" class="flow-purple" marker-end="url(#arrow)"></path>
+
+          <path d="M 330 317 C 372 317, 372 321, 411 321" class="flow-purple" marker-end="url(#arrow)"></path>
+          <path d="M 330 423 C 372 423, 372 427, 411 427" class="flow-purple" marker-end="url(#arrow)"></path>
+          <path d="M 330 529 C 372 529, 372 533, 411 533" class="flow-purple" marker-end="url(#arrow)"></path>
+
+          <path d="M 715 321 L 796 321" class="flow-green" marker-end="url(#arrowGreen)"></path>
+          <path d="M 715 427 L 796 427" class="flow-green" marker-end="url(#arrowGreen)"></path>
+          <path d="M 715 533 L 796 533" class="flow-green" marker-end="url(#arrowGreen)"></path>
+
+          <path d="M 970 366 L 970 379" class="flow-gray" marker-end="url(#arrow)"></path>
+          <path d="M 970 472 L 970 485" class="flow-gray" marker-end="url(#arrow)"></path>
+
+          <path d="M 1140 321 L 1166 321" class="flow-blue" marker-end="url(#arrowBlue)"></path>
+          <path d="M 1140 427 L 1166 427" class="flow-blue" marker-end="url(#arrowBlue)"></path>
+          <path d="M 1140 533 L 1166 533" class="flow-blue" marker-end="url(#arrowBlue)"></path>
+
+          <path d="M 1320 366 L 1320 379" class="flow-gray" marker-end="url(#arrow)"></path>
+          <path d="M 1320 472 L 1320 485" class="flow-gray" marker-end="url(#arrow)"></path>
+
+          <path d="M 1470 533 C 1483 533, 1483 375, 1496 375" class="flow-blue" marker-end="url(#arrowBlue)"></path>
+          <path d="M 1650 420 L 1650 433" class="flow-gray" marker-end="url(#arrow)"></path>
+
+          <!-- Week 1 nodes -->
+          <foreignObject x="30" y="60" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w1">
+              <p class="node-code">W1D1</p>
+              <p class="node-title">AI Fundamentals &amp; Prompting</p>
+              <p class="node-sub">RCCF, Three Hats, AI reliability checks</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="30" y="166" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w1">
+              <p class="node-code">W1D2</p>
+              <p class="node-title">Working Backwards</p>
+              <p class="node-sub">PR/FAQ narrative, five customer questions</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="30" y="272" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w1">
+              <p class="node-code">W1D3</p>
+              <p class="node-title">Personas &amp; JTBD</p>
+              <p class="node-sub">Behavioral evidence, validation canvas</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="30" y="378" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w1">
+              <p class="node-code">W1D4</p>
+              <p class="node-title">Pain-Point Framing</p>
+              <p class="node-sub">5 Whys, severity × frequency ranking</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="30" y="484" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w1">
+              <p class="node-code">W1D5</p>
+              <p class="node-title">Problem Framing + Evidence</p>
+              <p class="node-sub">Six-line problem statement, evidence brief</p>
+            </div>
+          </foreignObject>
+
+          <!-- Week 2 nodes -->
+          <foreignObject x="415" y="276" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w2">
+              <p class="node-code">W2D1</p>
+              <p class="node-title">Metrics Pyramid + KPIs</p>
+              <p class="node-sub">Operational signals, KPI ladder, anti-vanity check</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="415" y="382" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w2">
+              <p class="node-code">W2D2</p>
+              <p class="node-title">North Star Metric</p>
+              <p class="node-sub">One signal + counter-metric guardrail</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="415" y="488" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w2">
+              <p class="node-code">W2D3–D5</p>
+              <p class="node-title">Design + Strategy</p>
+              <p class="node-sub">Heuristics, accessibility floor, principles, synthesis</p>
+            </div>
+          </foreignObject>
+
+          <!-- Week 3 nodes -->
+          <foreignObject x="800" y="276" width="340" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w3">
+              <p class="node-code">W3D1–D2</p>
+              <p class="node-title">PRD Sections 1–6</p>
+              <p class="node-sub">Problem, solution sketch, acceptance criteria</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="800" y="382" width="340" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w3">
+              <p class="node-code">W3D3</p>
+              <p class="node-title">NFRs + Dependencies</p>
+              <p class="node-sub">Requirement / Defense / Verification, named owners</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="800" y="488" width="340" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w3">
+              <p class="node-code">W3D4–D5</p>
+              <p class="node-title">Risk + Capstone Review</p>
+              <p class="node-sub">Scorable, engineer-ready final PRD</p>
+            </div>
+          </foreignObject>
+
+          <!-- Week 4 nodes -->
+          <foreignObject x="1170" y="276" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w4">
+              <p class="node-code">W4D1&ndash;D2</p>
+              <p class="node-title">Architecture + Threat Model</p>
+              <p class="node-sub">Mono/micro triage, integration map, STRIDE pass</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="1170" y="382" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w4">
+              <p class="node-code">W4D3</p>
+              <p class="node-title">C4 Context + Container Diagrams</p>
+              <p class="node-sub">Trust boundaries, failure + evolvability lenses</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="1170" y="488" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w4">
+              <p class="node-code">W4D4&ndash;D5</p>
+              <p class="node-title">SLOs + Trade-Offs (TCD Shipped)</p>
+              <p class="node-sub">Latency-budget walk, sign-off matrix, 6-section TCD</p>
+            </div>
+          </foreignObject>
+
+          <!-- Week 5 nodes -->
+          <foreignObject x="1500" y="330" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w5">
+              <p class="node-code">W5D1</p>
+              <p class="node-title">Database Structures &amp; Data Logic</p>
+              <p class="node-sub">Access-pattern-first entity model (TMD &sect;1)</p>
+            </div>
+          </foreignObject>
+
+          <foreignObject x="1500" y="436" width="300" height="90">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="flow-node w5">
+              <p class="node-code">W5D2&ndash;D3</p>
+              <p class="node-title">Cloud Topology + REST API</p>
+              <p class="node-sub">Priced infrastructure, resource + endpoint contract (TMD &sect;2&ndash;3)</p>
+            </div>
+          </foreignObject>
+        </svg>
+      </figure>
+
+      <div class="gif-sim" aria-label="Animated walkthrough like a GIF">
+        <h3>GIF-Style Walkthrough: One Artifact Moving Across Weeks</h3>
+        <p>Watch how one work item evolves from a vague pain into architecture-ready delivery scope.</p>
+        <div class="gif-track">
+          <article class="gif-frame">
+            <h4>Frame 1 - Week 1</h4>
+            <p>Pain observed: dispatchers fail mobile reconciliation after offline work.</p>
+          </article>
+          <article class="gif-frame">
+            <h4>Frame 2 - Week 2</h4>
+            <p>Metric defined: day-1 independence and error-rate guardrail tied to North Star.</p>
+          </article>
+          <article class="gif-frame">
+            <h4>Frame 3 - Week 3</h4>
+            <p>PRD locks AC + weird paths + NFR defenses + dependency owners.</p>
+          </article>
+          <article class="gif-frame">
+            <h4>Frame 4 - Week 4</h4>
+            <p>Architecture stance and integration contracts convert PRD into implementation boundaries.</p>
+          </article>
+          <article class="gif-frame">
+            <h4>Frame 5 - Week 5</h4>
+            <p>Data model, cloud topology, and REST API contract turn the architecture into a literal, buildable system.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="source-proof" class="panel" aria-labelledby="source-title">
+      <div class="section-head">
+        <h2 id="source-title">Source Scan Proof (Week 1 -&gt; Week 5)</h2>
+        <p>
+          This section is generated from real workshop files under
+          C:\Users\gs1-sangeethanc\OneDrive - Expeditors International of Washington Inc\Desktop\TPM Workshop.
+        </p>
+        <p>Open each day card to view source-driven objectives, key artifacts, and file references.</p>
+      </div>
+      <div id="source-summary" class="source-summary" aria-live="polite"></div>
+      <div id="syllabus-grid" class="syllabus-grid" aria-label="Week and day syllabus extracted from source files"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="study-title">
+      <div class="section-head">
+        <h2 id="study-title">How To Study This Course In Flow</h2>
+      </div>
+      <ol class="study-list">
+        <li>Read one day's What/Why on its week page first. Ignore jargon.</li>
+        <li>Re-read the same day's Why block. Note the decision rule it teaches.</li>
+        <li>Write one concrete example from FieldPulse for that day.</li>
+        <li>Only then move to the next day in sequence.</li>
+        <li>At the end, run a chain test: "Can I explain how day N feeds day N+1?"</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built for TPM Bootcamp continuity. Generated from templates/build.py &mdash; edit the templates or COURSE_LIFECYCLE data, not the HTML output directly.</p>
+  </footer>
+
+  <script id="lifecycle-data" type="application/json">[{"week_id": "week1", "day": "Day 1", "anchor": "d1", "title": "AI Fundamentals & Prompting", "what": "Learn the RCCF prompting pattern (Role, Context, Constraints, Format) and the \u2018Three Hats\u2019 framing to ask AI more precise questions, then run reliability checks against the answers.", "why": "TPMs increasingly draft artifacts with AI assistance, so the course starts here because sloppy prompts produce predictable failure modes: vague scope, hallucinated facts, inconsistent format, unchecked bias. Getting prompting right on Day 1 protects the accuracy of every later artifact -- personas, problem statements, PRDs -- that will be drafted with AI help.", "connects": "The prompting discipline learned here is reused immediately in Day 2's PR/FAQ drafting, and again in Week 2 Day 4's competitive research, where a 'bright line' rule (facts from real sources only, no hallucination) depends on the same reliability checks.", "artifacts": ["Prompt Pattern Library", "RCCF templates"], "week_label": "Week 1", "week_theme": "Understand The User", "week_number": 1, "link": "week1.html#d1"}, {"week_id": "week1", "day": "Day 2", "anchor": "d2", "title": "Working Backwards", "what": "Draft a PR/FAQ (Press Release / FAQ) narrative and the Five Customer Questions before any solution is designed, then run a peer critique protocol on the draft.", "why": "Working Backwards forces the team to define customer value and success criteria in plain language before committing engineering time. It sits right after prompting because it is the first checkpoint against building features nobody asked for -- writing the 'press release' first exposes weak value propositions immediately.", "connects": "The customer value claims made in the PR/FAQ become the raw hypotheses that Day 3's persona work and Day 4's pain-point work must validate with real behavioral evidence.", "artifacts": ["PR/FAQ draft", "Five Customer Questions", "Peer Critique Protocol notes"], "diagram": "<figure class=\"mini-diagram\"><div class=\"flow-strip\"><span class=\"fs-box\">Heading</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Sub-heading</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Summary</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Problem</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Solution</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box fs-accent\">Customer Quote</span></div><figcaption>The 6-part PR/FAQ structure &mdash; written before any design or engineering work starts.</figcaption></figure>", "week_label": "Week 1", "week_theme": "Understand The User", "week_number": 1, "link": "week1.html#d2"}, {"week_id": "week1", "day": "Day 3", "anchor": "d3", "title": "Personas & JTBD", "what": "Build personas from behavioral evidence (what people actually do) instead of demographics, validate them with a Validation Canvas, and frame the underlying Job to Be Done.", "why": "A persona built on job titles or age ranges doesn't predict behavior; a persona built on 'what job is this person trying to get done, in what circumstance' does. This keeps every later prioritization decision traceable to a real, validated user -- not an assumed one.", "connects": "The validated persona and JTBD statement become the 'who' and 'why' that Day 4's pain-point framing digs into, and later the 'who' cited in every PRD problem statement in Week 3.", "artifacts": ["Persona Validation Canvas", "JTBD statements"], "week_label": "Week 1", "week_theme": "Understand The User", "week_number": 1, "link": "week1.html#d3"}, {"week_id": "week1", "day": "Day 4", "anchor": "d4", "title": "Pain-Point Framing", "what": "Extract pain points from observed behavior (not just stated complaints), use 5 Whys to reach root-cause pain, group raw pains into themes via affinity mapping, and score each pain on Severity \u00d7 Frequency \u00d7 Addressability.", "why": "The course's own Day 4 objectives are explicit: separate root-cause pain from symptoms, and distinguish pains you must fix from pains you must live with. Without this scoring step, teams chase the loudest complaint instead of the pain that actually threatens the business -- this is the mechanical filter that decides what's worth solving.", "connects": "The highest Severity \u00d7 Frequency \u00d7 Addressability pains become the evidence base for Day 5's six-line problem statement, and the same pains resurface in Week 2 Day 3's heuristic audit as concrete UX failures.", "artifacts": ["5 Whys worksheets", "Pain theme affinity map", "Severity x Frequency x Addressability scoring sheet"], "diagram": "<figure class=\"mini-diagram\"><div class=\"whys-chain\"><div class=\"wc-box\">Symptom: users abandon the task partway through</div><span class=\"wc-arrow\">&darr; Why?</span><div class=\"wc-box\">The next step was never made clear</div><span class=\"wc-arrow\">&darr; Why?</span><div class=\"wc-box\">The system gave no feedback after the action</div><span class=\"wc-arrow\">&darr; Why?</span><div class=\"wc-box\">No pattern confirms state changes back to the user</div><span class=\"wc-arrow\">&darr; Why?</span><div class=\"wc-box wc-root\">Root cause: missing status feedback breaks trust in the action</div></div><div class=\"factor-row\"><span class=\"factor-chip\">Severity</span><span class=\"factor-op\">&times;</span><span class=\"factor-chip\">Frequency</span><span class=\"factor-op\">&times;</span><span class=\"factor-chip\">Addressability</span></div><figcaption>5 Whys drives a symptom down to its root cause; the scoring formula decides what is actually worth solving.</figcaption></figure>", "week_label": "Week 1", "week_theme": "Understand The User", "week_number": 1, "link": "week1.html#d4"}, {"week_id": "week1", "day": "Day 5", "anchor": "d5", "title": "Problem Framing + Evidence", "what": "Compress validated pain into a six-line Problem Statement template and back it with an Evidence Brief that states data confidence and business impact, then present it in a readout.", "why": "A problem statement without evidence is an opinion. This day forces a hard stop before Week 2: no team moves into metrics work until the problem is written down in one crisp paragraph with a confidence rating attached, so leadership can challenge it before resources are committed.", "connects": "This six-line problem statement is the exact document Week 2 Day 1 opens with when building the Metrics Pyramid -- the metric must prove this specific problem is shrinking.", "artifacts": ["Six-line Problem Statement", "Evidence Brief", "Readout deck"], "week_label": "Week 1", "week_theme": "Understand The User", "week_number": 1, "link": "week1.html#d5"}, {"week_id": "week2", "day": "Day 1", "anchor": "d1", "title": "Metrics Pyramid + KPIs", "what": "Build a three-tier Metrics Pyramid (North Star \u2192 KPI \u2192 Operational Signals), run a Vanity Metric detection pass, then write the Believable Causal Chain -- a three-sentence story of how a signal ripples up to the North Star -- and stress-test it in a pair Tier Sheet Defense round against the Three Standard Challenges: Causal Chain ('show me the ripple'), Gameability ('how would a team cheat this'), and Instrumentation ('can you measure this in production today').", "why": "Teams default to whatever metric is easiest to pull from a dashboard, which is usually a vanity metric. This day trains the discipline of tracing every operational signal upward until it ladders into something that would actually make the CEO and the front-line dispatcher agree the business is winning -- and the stress test catches hand-waved chains before they get defended in front of engineering.", "connects": "The KPI ladder built here is the scaffolding Day 2 uses to select the single North Star metric at the top of the pyramid.", "artifacts": ["Metrics Tier Sheet", "Vanity Metric checklist", "Believable Causal Chain narrative", "Tier Sheet Defense notes"], "diagram": "<figure class=\"mini-diagram\"><div class=\"pyramid-diagram\"><div class=\"pyramid-tier tier-1\">North Star</div><div class=\"pyramid-tier tier-2\">KPIs</div><div class=\"pyramid-tier tier-3\">Operational Signals</div></div><figcaption>Every operational signal must ladder upward through a Believable Causal Chain to the one North Star at the top.</figcaption></figure>", "week_label": "Week 2", "week_theme": "Define The Strategy", "week_number": 2, "link": "week2.html#d1"}, {"week_id": "week2", "day": "Day 2", "anchor": "d2", "title": "North Star Metric", "what": "Select one North Star Metric using a template that avoids three pitfalls -- vanity metrics, leading-indicator metrics, and gameable metrics -- and pair it with a counter-metric guardrail.", "why": "A North Star without a counter-metric can be 'won' by cheating the system (for example, faster onboarding achieved by skipping training). Every candidate North Star is pressure-tested with the 'CEO + Dispatcher test': would both a CEO and a front-line dispatcher agree this number means the business is truly winning?", "connects": "Once locked, this North Star statement becomes the fixed reference point that every UX finding and design principle in Day 3, and every feature prioritization decision after it, must trace back to.", "artifacts": ["North Star template", "Counter-metric definition"], "week_label": "Week 2", "week_theme": "Define The Strategy", "week_number": 2, "link": "week2.html#d2"}, {"week_id": "week2", "day": "Day 3", "anchor": "d3", "title": "Product Design & UX (Heuristics + Accessibility + Principles)", "what": "Run a Heuristic Hunt against Nielsen's 10 usability heuristics -- (1) visibility of system status, (2) match between system and the real world, (3) user control and freedom, (4) consistency and standards, (5) error prevention, (6) recognition rather than recall, (7) flexibility and efficiency of use, (8) aesthetic and minimalist design, (9) helping users recognize/diagnose/recover from errors, and (10) help and documentation -- plus 3 TPM-specific lenses (time-to-first-value, failure-mode dignity, power-user respect), complete an 8-check Accessibility Floor audit, score findings 1-5 by severity, and distill the worst findings into 3 durable Design Principles.", "why": "Subjective complaints like 'the form feels clunky' can't be prioritized by engineering. Converting them into named heuristics with severity scores makes UX debt as concrete and fundable as a bug ticket, and the accessibility floor makes sure the fix serves every dispatcher, not just the majority.", "connects": "The 3 Design Principles produced here become the explicit filter Day 4's competitive research and Day 5's journey mapping must be evaluated against, and later the acceptance criteria in Week 3 PRDs must satisfy them.", "artifacts": ["Heuristic Audit (13 heuristics)", "Accessibility Floor Audit (8 checks)", "3 Design Principles"], "diagram": "<figure class=\"mini-diagram\"><div class=\"heuristic-grid\"><span class=\"heuristic-chip\"><span class=\"hc-num\">1</span>Visibility of Status</span><span class=\"heuristic-chip\"><span class=\"hc-num\">2</span>Match Real World</span><span class=\"heuristic-chip\"><span class=\"hc-num\">3</span>User Control</span><span class=\"heuristic-chip\"><span class=\"hc-num\">4</span>Consistency</span><span class=\"heuristic-chip\"><span class=\"hc-num\">5</span>Error Prevention</span><span class=\"heuristic-chip\"><span class=\"hc-num\">6</span>Recognition &gt; Recall</span><span class=\"heuristic-chip\"><span class=\"hc-num\">7</span>Flexibility</span><span class=\"heuristic-chip\"><span class=\"hc-num\">8</span>Minimalist Design</span><span class=\"heuristic-chip\"><span class=\"hc-num\">9</span>Error Recovery</span><span class=\"heuristic-chip\"><span class=\"hc-num\">10</span>Help &amp; Docs</span></div><figcaption>Nielsen's 10 usability heuristics &mdash; the scoring grid behind every Heuristic Hunt finding.</figcaption></figure>", "week_label": "Week 2", "week_theme": "Define The Strategy", "week_number": 2, "link": "week2.html#d3"}, {"week_id": "week2", "day": "Day 4", "anchor": "d4", "title": "AI for Strategy & Research", "what": "Use a Validated Synthesis Prompt to synthesize multi-source research (interview transcripts, support tickets, analyst reports, competitor tours) while watching for 4 named failure modes -- theme inflation (lumping distinct complaints under one vague category), citation invention (citing a source that doesn't exist), premature confidence (a plausible summary with no acknowledged gaps), and source bias (over-weighting the loudest source) -- then stay on the safe side of a strict 'bright line' rule (structure source material, never ask AI to invent market facts) to build a Competitive Snapshot with a Provenance Log tracing every claim to its source.", "why": "AI-assisted competitive research fails in predictable ways -- summarizing training-data guesses as fact, blending sources, dropping caveats, inventing numbers. This day installs a discipline (cross-validating every citation, provenance logging, the bright-line rule) that makes the research defensible in front of engineering and leadership, not just plausible-sounding.", "connects": "The Competitive Snapshot becomes ammunition for Day 5's journey mapping (where do competitors already solve a friction point we haven't?) and for the PRD's 'Required Inputs' in Week 3, which explicitly calls for constraints informed by this research.", "artifacts": ["Validated Synthesis Prompt", "Competitive Snapshot matrix", "Provenance Log"], "week_label": "Week 2", "week_theme": "Define The Strategy", "week_number": 2, "link": "week2.html#d4"}, {"week_id": "week2", "day": "Day 5", "anchor": "d5", "title": "Customer Journey Mapping", "what": "Map the end-to-end customer journey stage by stage and locate friction hotspots, evaluating each stage through the lens of the 3 Design Principles from Day 3.", "why": "A heuristic audit finds isolated UX bugs; a journey map finds where those bugs compound across a real end-to-end flow (for example, a validation gap on screen 2 causes a support escalation three steps later). This connects isolated findings into a single narrative of where the product currently fails the North Star.", "connects": "Friction hotspots identified here become the 'weird paths' that Week 3's Acceptance Criteria must explicitly cover, so the PRD doesn't just describe the happy path.", "artifacts": ["Customer Journey Map", "Friction hotspot list"], "diagram": "<figure class=\"mini-diagram\"><div class=\"journey-diagram\"><div class=\"journey-stage\"><span class=\"js-dot\"></span><h5>Pre-shift</h5><p>Arrive, review the day's dispatch</p></div><div class=\"journey-stage\"><span class=\"js-dot\"></span><h5>On-shift</h5><p>Execute assigned jobs</p></div><div class=\"journey-stage friction\"><span class=\"js-dot\"></span><h5>Mid-shift Change</h5><p>The canonical disruption &mdash; an exception hits</p></div><div class=\"journey-stage\"><span class=\"js-dot\"></span><h5>After-shift</h5><p>Reconcile and close out</p></div></div><div class=\"journey-legend\"><span><span class=\"dot\" style=\"background:var(--accent)\"></span>stage</span><span><span class=\"dot\" style=\"background:var(--warn)\"></span>friction star</span></div><figcaption>One persona, one scope, 5-8 stages &mdash; friction stars cluster at 2-3 stages, not every stage.</figcaption></figure>", "week_label": "Week 2", "week_theme": "Define The Strategy", "week_number": 2, "link": "week2.html#d5"}, {"week_id": "week3", "day": "Day 1", "anchor": "d1", "title": "PRD Sections 1\u20135 (Problem \u2192 Solution Sketch)", "what": "Draft the first half of a Product Requirements Document: the problem/outcome statement, a solution sketch (user-visible flow, not implementation detail), and a first pass at acceptance criteria.", "why": "The PRD is the first artifact engineering actually builds from, so this translates five weeks of discovery, metrics, and design work into a single build-ready document -- if any prior step was skipped, it becomes visible here as a section leadership can't fill in.", "connects": "This draft is deliberately incomplete -- it hands off directly to Day 2's acceptance-criteria hardening pass, because a solution sketch without testable AC is not yet buildable.", "artifacts": ["PRD draft (Sections 1-5)", "Solution sketch"], "week_label": "Week 3", "week_theme": "Build The PRD", "week_number": 3, "link": "week3.html#d1"}, {"week_id": "week3", "day": "Day 2", "anchor": "d2", "title": "Acceptance Criteria", "what": "Write testable Acceptance Criteria that explicitly cover 'weird paths' (edge cases, error states, offline conditions) in addition to the happy path.", "why": "An AC that only describes the happy path guarantees engineers will ask clarifying questions mid-sprint or ship a feature that breaks on the first edge case a real dispatcher hits. This is isolated as its own day because it is the single highest-leverage place a TPM prevents rework.", "connects": "The weird-path list drafted here is cross-checked against Day 3's NFR categories (what happens under bad network, high load, or invalid input) so reliability requirements aren't an afterthought.", "artifacts": ["Acceptance Criteria set", "Weird-path checklist"], "week_label": "Week 3", "week_theme": "Build The PRD", "week_number": 3, "link": "week3.html#d2"}, {"week_id": "week3", "day": "Day 3", "anchor": "d3", "title": "NFRs + Dependencies", "what": "Define Non-Functional Requirements across 5 categories (Performance, Reliability, Security, Usability, Maintainability) in Requirement / Defense / Verification form, and log dependencies with a named owner and due-by date.", "why": "An NFR that just says 'must be fast' can't be verified. Writing it as Requirement (the target), Defense (how the design meets it), Verification (how you'll prove it) forces the same rigor non-functional quality gets that functional features already have -- this is exactly how the course source material explains the Performance category.", "connects": "Named dependency owners and dates feed directly into Day 4's Risk section, since an unowned dependency is the most common hidden risk in a PRD.", "artifacts": ["NFR sheet (Requirement/Defense/Verification)", "Dependency log with owners"], "week_label": "Week 3", "week_theme": "Build The PRD", "week_number": 3, "link": "week3.html#d3"}, {"week_id": "week3", "day": "Day 4", "anchor": "d4", "title": "PRD Mini-Capstone (Risk + Draft Assembly)", "what": "Assemble the full PRD draft -- problem statement through NFRs -- and add a Risks section with mitigations and explicitly flagged open decisions.", "why": "This is the first day the PRD is judged as a whole artifact rather than section by section, which surfaces gaps that don't show up when sections are written in isolation (for example, an AC that contradicts an NFR). Naming open decisions explicitly, instead of quietly picking one, keeps leadership able to weigh in before build starts.", "connects": "This assembled draft is the exact input to Day 5's peer review pass, where a second set of eyes scores it against the same rigor bar before it is called engineer-ready.", "artifacts": ["Assembled PRD draft", "Risk register with mitigations", "Open decisions list"], "week_label": "Week 3", "week_theme": "Build The PRD", "week_number": 3, "link": "week3.html#d4"}, {"week_id": "week3", "day": "Day 5", "anchor": "d5", "title": "PRD Review (Capstone)", "what": "Run a structured peer review of the completed PRD against a scoring rubric, then revise it into a final, engineer-ready version.", "why": "A PRD that only its author has read still carries that author's blind spots. Every PRD produced in the course is pressure-tested by a peer using the same rubric an engineering lead would use, closing the loop that started with Working Backwards in Week 1.", "connects": "The revised, scored PRD is the exact document Week 4 Day 1 opens with -- architecture decisions are made against this PRD's constraints, not a rough draft.", "artifacts": ["PRD review scorecard", "Final engineer-ready PRD"], "week_label": "Week 3", "week_theme": "Build The PRD", "week_number": 3, "link": "week3.html#d5"}, {"week_id": "week4", "day": "Day 1", "anchor": "d1", "title": "Monolith vs Microservices (Architecture Decisioning)", "what": "Run a monolith-vs-microservices triage using named constraints (team size, deployment cadence, failure isolation needs) taken from the PRD, then produce an integration map with explicit contracts between systems.", "why": "The course materials are explicit that the TPM's role here is not to make the architecture decision for engineering, but to name the constraints that should drive it -- confusing those two roles is the most common way TPMs either overstep or under-deliver at this stage.", "connects": "This is the course's final handoff: the integration map and named constraints are what engineering uses to actually scope and build the product that began as a single observed pain point back in Week 1 Day 4.", "artifacts": ["Mono-vs-Micro Triage Pack", "Integration/contract map"], "diagram": "<figure class=\"mini-diagram\"><div class=\"arch-compare\"><div class=\"arch-mono-block\">MONOLITH<span class=\"arch-sub\">One deployable, shared codebase</span></div><span class=\"ac-vs\">VS</span><div class=\"arch-micro-grid\"><span class=\"arch-micro-block\">User Service</span><span class=\"arch-micro-block\">Billing Service</span><span class=\"arch-micro-block\">Notification Service</span><span class=\"arch-micro-block\">Reporting Service</span></div></div><figcaption>The triage weighs team size, deployment cadence, and failure isolation &mdash; not hype &mdash; to choose a side.</figcaption></figure>", "week_label": "Week 4", "week_theme": "Decide The Architecture", "week_number": 4, "link": "week4.html#d1"}, {"week_id": "week4", "day": "Day 2", "anchor": "d2", "title": "System Security & Compliance (STRIDE Threat Model)", "what": "Run a STRIDE threat-model pass -- Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege -- across every integration boundary in Day 1's map, cull to the top 5 threats with a named owner each, check which compliance frame applies (SOC 2, a privacy regime, or an industry-specific rule), and rewrite the PRD's first-draft Security & Compliance NFRs at the architecture level.", "why": "The course is explicit that a TPM is not the security expert -- the job is to drive the right conversation with security and hand over a starting threat model the security team can validate, not build from scratch. Skipping this step means the PRD's Week 3 first-draft NFRs, written before the architecture existed, ship unchanged against a real attack surface nobody ever walked.", "connects": "The top-5 threats and revised NFRs become TCD Section 3 -- a sibling to the PRD's Section 7, not a replacement -- and the named owners and open questions feed straight into the 1-page security brief that gets handed to an actual security partner before build starts.", "artifacts": ["STRIDE threat model (top-5 threats)", "Revised Security & Compliance NFRs (TCD \u00a73)", "Security stakeholder brief"], "diagram": "<figure class=\"mini-diagram\"><div class=\"stride-grid\"><span class=\"heuristic-chip\"><span class=\"hc-num\">S</span>Spoofing</span><span class=\"heuristic-chip\"><span class=\"hc-num\">T</span>Tampering</span><span class=\"heuristic-chip\"><span class=\"hc-num\">R</span>Repudiation</span><span class=\"heuristic-chip\"><span class=\"hc-num\">I</span>Info. Disclosure</span><span class=\"heuristic-chip\"><span class=\"hc-num\">D</span>Denial of Service</span><span class=\"heuristic-chip\"><span class=\"hc-num\">E</span>Elevation of Privilege</span></div><figcaption>STRIDE &mdash; walked at every arrow (data in motion) and box (data at rest) in the integration map.</figcaption></figure>", "week_label": "Week 4", "week_theme": "Decide The Architecture", "week_number": 4, "link": "week4.html#d2"}, {"week_id": "week4", "day": "Day 3", "anchor": "d3", "title": "Mapping System Components (C4 Diagrams)", "what": "Draw two C4-style diagrams for the feature - a Context diagram (Level 1: the system, its people, and external neighbors) and a Container diagram (Level 2: every independently deployable unit and how they talk) - then stress-test both against three lenses: failure, trust boundary, and evolvability.", "why": "Prose descriptions of architecture hide gaps that a real diagram exposes immediately. The course is explicit that Component- and Code-level diagrams are engineering's job, not the TPM's - the TPM's job is Context + Container, drawn well enough that an outsider or a security reviewer can follow it in under 90 seconds.", "connects": "The Container diagram becomes the direct input to Day 4's per-hop latency budgeting, and the trust-boundary markings feed straight into Day 2's STRIDE threat model as the concrete boundaries an attacker could actually cross.", "artifacts": ["C4 Context diagram", "C4 Container diagram", "Trust-boundary markup", "Three-Lens stress test (failure / trust boundary / evolvability)"], "diagram": "<figure class=\"mini-diagram\"><div class=\"flow-strip\"><span class=\"fs-box\">People / Roles</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box fs-accent\">System (Context)</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Containers / Modules</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">External Systems</span></div><figcaption>Two diagrams, not one: Context (who and what talks to the system) and Container (what deploys independently inside it) &mdash; Component and Code levels stay with engineering.</figcaption></figure>", "week_label": "Week 4", "week_theme": "Decide The Architecture", "week_number": 4, "link": "week4.html#d3"}, {"week_id": "week4", "day": "Day 4", "anchor": "d4", "title": "Latency, Availability & Rate Limits (SLOs)", "what": "Set three SLOs - latency (p<N> \u2264 Xms), availability (N% over a window, with an error budget), and a rate-limit policy - then walk the Day 3 Container diagram hop by hop to check whether the real architecture can actually hit the latency target.", "why": "An SLO without a percentile, a window, and a defense is a guess dressed up as a number. The error budget turns an abstract percentage into a decision tool - inside budget, ship features; near or past it, prioritize reliability - so a team can tell objectively when to slow down instead of arguing about vibes.", "connects": "The latency-budget walk's dominant-hop finding becomes Day 5's evidence for a durability-vs-latency trade-off, and all three SLOs carry forward unchanged into Week 5's data-layer and cloud-topology decisions as the numbers every later choice must protect.", "artifacts": ["Latency / Availability / Rate-limit SLO sheet", "Latency-budget walk (hop-by-hop)", "AI sanity-check provenance note"], "diagram": "<figure class=\"mini-diagram\"><div class=\"flow-strip\"><span class=\"fs-box\">Latency SLO</span><span class=\"fs-arrow\">+</span><span class=\"fs-box\">Availability SLO</span><span class=\"fs-arrow\">+</span><span class=\"fs-box fs-accent\">Rate-Limit Policy</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Latency-Budget Walk</span></div><figcaption>Three SLOs, then a hop-by-hop walk of the Day 3 Container diagram to check the architecture can actually hit the number.</figcaption></figure>", "week_label": "Week 4", "week_theme": "Decide The Architecture", "week_number": 4, "link": "week4.html#d4"}, {"week_id": "week4", "day": "Day 5", "anchor": "d5", "title": "Technical Trade-Offs & TCD Assembly (Ship Day)", "what": "Write the top 5 technical trade-offs in a strict Option A vs Option B \u2192 Choice \u2192 Accepted cost \u2192 Revisit trigger format spanning at least 3 tension categories, build a stakeholder sign-off matrix with a named real person per constraint, then integrate and cross-review all 6 TCD sections before shipping.", "why": "A trade-off that only describes the choice made ('we picked a monolith') isn't a trade-off - naming the accepted cost and the revisit trigger is what separates senior architectural thinking from a feature list, and a constraint with no named owner is a constraint nobody actually implements.", "connects": "This is the final Week 4 handoff - the shipped Technical Considerations Document (TCD, 6 sections) becomes the spine Week 5 builds on: its component map drives the data model, its SLOs set the performance baseline, and its threat model drives encryption and key-management decisions.", "artifacts": ["Top-5 Trade-Offs (TCD Section 5)", "Stakeholder Sign-Off Matrix (TCD Section 6)", "Integration + cross-review checklist", "Shipped TCD status: Approved / Approved with gaps"], "diagram": "<figure class=\"mini-diagram\"><div class=\"flow-strip\"><span class=\"fs-box\">Option A</span><span class=\"fs-arrow\">vs</span><span class=\"fs-box\">Option B</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box fs-accent\">Choice + Accepted Cost</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Revisit Trigger</span></div><figcaption>The exact trade-off pattern, repeated 5 times, then locked to a named stakeholder before the TCD ships.</figcaption></figure>", "week_label": "Week 4", "week_theme": "Decide The Architecture", "week_number": 4, "link": "week4.html#d5"}, {"week_id": "week5", "day": "Day 1", "anchor": "d1", "title": "Database Structures & Data Logic", "what": "Apply 'Access Pattern First' discipline: list every read and write the feature needs before drawing any table, then design an entity model (fields, primary/foreign keys, indexes tied to a numbered access pattern, cardinalities, invariants), pressure-test it against 3 canonical storage trade-offs, and run an AI-assisted schema critique.", "why": "A schema designed before its queries are known is a schema that discovers slow queries in production. Naming the access pattern first, and requiring every field and index to trace back to a numbered pattern, is what keeps a TPM's data model defensible to an engineer instead of just plausible-looking.", "connects": "This produces TMD (Technical Modeling Document) Section 1 - the data model - which Day 2 takes as-is to decide where each entity's storage physically runs in the cloud, and which Day 3 uses directly to design the REST resources and URL paths on top of it.", "artifacts": ["Access Pattern Sheet (reads + writes, numbered)", "Entity Model (fields/keys/indexes/invariants)", "3 Storage Trade-Offs (normalization, consistency, schema flexibility)", "AI schema critique + adopt/defer/reject log"], "diagram": "<figure class=\"mini-diagram\"><div class=\"flow-strip\"><span class=\"fs-box fs-accent\">List Every Read + Write</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Entity Model</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Storage Trade-Offs</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">AI Schema Critique</span></div><figcaption>\"Access Pattern First\" &mdash; no table gets designed until every query it must serve is named and numbered.</figcaption></figure>", "week_label": "Week 5", "week_theme": "Model The Technical Details", "week_number": 5, "link": "week5.html#d1"}, {"week_id": "week5", "day": "Day 2", "anchor": "d2", "title": "Cloud Architecture & Infrastructure", "what": "Make five topology decisions for the feature's real component map: region + multi-AZ stance, managed-vs-self-managed per component (default managed unless a specific reason not to), multi-tenancy stance (pooled by default), network boundary (public HTTPS by default), and a rough-order-of-magnitude (ROM) monthly cost table, closing with a required AI sanity check for hidden risks.", "why": "Every topology choice has both a cost dimension and a risk dimension that's easy to hand-wave past. The day forces each choice to be defended against a real SLO, a real compliance fact, or real customer evidence instead of 'we want full control,' which the course names directly as an anti-pattern smell.", "connects": "This produces TMD Section 2 - cloud topology - built directly on top of Day 1's entity model and the Week 4 Container diagram, and it hands Day 3 a concrete, priced infrastructure picture to design the REST API contract against.", "artifacts": ["Region + AZ stance with trade-off", "Managed-vs-self table (every component)", "Multi-tenancy + network boundary stance", "ROM cost table", "AI sanity-check risk list"], "diagram": "<figure class=\"mini-diagram\"><div class=\"flow-strip\"><span class=\"fs-box\">Region + AZ</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Managed vs Self</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Tenancy + Network</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box fs-accent\">ROM Cost + AI Sanity Check</span></div><figcaption>Five topology decisions, each defended by a real SLO, compliance fact, or customer-evidence line &mdash; never by \"we want full control.\"</figcaption></figure>", "week_label": "Week 5", "week_theme": "Model The Technical Details", "week_number": 5, "link": "week5.html#d2"}, {"week_id": "week5", "day": "Day 3", "anchor": "d3", "title": "REST & SOAP API Fundamentals", "what": "Model the feature's data entities as REST resources (deciding which ones are exposed as endpoints at all), design their URL paths and HTTP methods with correct status codes for happy/sad/weird paths, then fully document one endpoint end-to-end including idempotency, versioning, and error-body shape - closing with when SOAP is still the right default instead of REST.", "why": "Turning a data model into an API is where sloppy resource thinking becomes a permanent, hard-to-change public contract. The day trains catching two opposite mistakes: verbs disguised as resources, and every entity blindly exposed as an endpoint even when it's really internal plumbing (like an outbox table) that a client should never touch directly.", "connects": "This produces TMD Section 3 - the REST API contract - built directly on Day 1's entity model and Day 2's cloud topology, and it's the last technical-modeling layer before Week 5's remaining days stitch data, cloud, and API together into full request sequence diagrams.", "artifacts": ["Resource list (with exclusions reasoned)", "URL path design", "Methods + status-code table", "One endpoint documented in full (idempotency, versioning, errors)"], "diagram": "<figure class=\"mini-diagram\"><div class=\"flow-strip\"><span class=\"fs-box\">Resources</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">URL Paths</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box\">Methods + Status Codes</span><span class=\"fs-arrow\">&rarr;</span><span class=\"fs-box fs-accent\">One Endpoint, Full Detail</span></div><figcaption>Every entity is checked as a resource candidate first &mdash; internal plumbing (like an outbox table) deliberately stays off the API.</figcaption></figure>", "week_label": "Week 5", "week_theme": "Model The Technical Details", "week_number": 5, "link": "week5.html#d3"}]</script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
